@@ -122,7 +122,13 @@ export default class PaymentPage extends Component {
   render() {
     // check for if this.state.is_payment_success == true to show confirmation screen
     return (
-      <div>
+      <div id="payment-page">
+        <h2 className="page-title">PAY UP, YO</h2>
+        <p className="page-subtitle">Pays for printing, shipping, and handling</p>
+        <div className="price-tag">
+          <p className="price-tag-title">Price</p>
+          <p>$1.00</p>
+        </div>
         <ProductFields product={this.state.product} handleChange={this.handleProductChange} />
         <UserFields user={this.state.user} handleChange={this.handleUserChange} />
         <ShippingFields shipping={this.state.shipping} handleChange={this.handleShippingChange} />
