@@ -2,42 +2,6 @@ a.active {
   color: orange;
 }
 
-.page-title {
-  font-family: Roboto;
-  font-size: 40px;
-  font-weight: 300;
-  color: #ffffff;
-  text-align: center;
-}
-
-.page-subtitle {
-  font-family: Roboto;
-  font-size: 14px;
-  font-weight: 300;
-  text-align: center;
-  color: #ffffff;
-  margin-top: -30px;
-}
-
-.price-tag {
-  width: 76px;
-  height: 76px;
-  background-color: #ffffff;
-  border-radius: 50px;
-
-  p {
-    width: 31px;
-    height: 13px;
-    font-family: Roboto;
-    font-size: 11px;
-    font-weight: bold;
-    font-style: normal;
-    font-stretch: normal;
-    text-align: center;
-    color: #7ea6ef;
-  }
-}
-
 #payment-page {
   display: flex;
   flex-direction: column;
@@ -48,4 +12,40 @@ a.active {
   bottom: 0;
   position: absolute;
   background-image: linear-gradient(158deg, #57b2f2, #e188e8 86%, #f881e7);
+
+  .page-title {
+    font-family: Roboto;
+    font-size: 40px;
+    font-weight: 300;
+    color: #ffffff;
+    text-align: center;
+  }
+
+  .page-subtitle {
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 300;
+    text-align: center;
+    color: #ffffff;
+    margin-top: -30px;
+  }
+
+  .price-tag {
+    width: 76px;
+    height: 76px;
+    background-color: #ffffff;
+    border-radius: 50px;
+
+    p {
+      width: 31px;
+      height: 13px;
+      font-family: Roboto;
+      font-size: 11px;
+      font-weight: bold;
+      font-style: normal;
+      font-stretch: normal;
+      text-align: center;
+      color: #7ea6ef;
+    }
+  }
 }
