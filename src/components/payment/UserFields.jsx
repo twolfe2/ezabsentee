@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import TextField from 'material-ui/TextField';
 
 export default class UserFields extends Component {
   constructor(props) {
@@ -18,8 +19,8 @@ export default class UserFields extends Component {
   render() {
     return (
       <div>
-        <label>Name</label>
-        <input
+        <label>Name on card</label>
+        <TextField
           type="text"
           id="name"
           ref="name"
@@ -29,7 +30,7 @@ export default class UserFields extends Component {
         />
 
         <label>Email</label>
-        <input
+        <TextField
           type="email"
           id="email"
           ref="email"

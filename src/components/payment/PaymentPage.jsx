@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
+import TextField from 'material-ui/TextField';
 import ProductFields from './ProductFields';
 import UserFields from './UserFields';
 import ShippingFields from './ShippingFields';
+var $ = require ('jquery');
 
 const SQUARE_APPLICATION_ID = "sandbox-sq0idp-sC2SWt1rPYYkKzOWkRHE_Q"
 
@@ -13,9 +15,20 @@ export default class PaymentPage extends Component {
       is_payment_success: false, //for showing #successNotification div
       is_processing: false, //for disabling payment button
       card_errors: [],
-      product: {id: "001"},
-      user: {name: "", email:""},
-      shipping: {address1: "", address2: "", city: "", state: "", zip: ""}
+      product: {
+        charge_value: "1"
+      },
+      user: {
+        name: "",
+        email:""
+      },
+      shipping: {
+        address1: "",
+        address2: "",
+        city: "",
+        state: "",
+        zip: ""
+      }
     }
 
     this.chargeCardWithNonce = this.chargeCardWithNonce.bind(this);
@@ -129,12 +142,11 @@ export default class PaymentPage extends Component {
           <p className="price-tag-title">Price</p>
           <p>$1.00</p>
         </div>
-        <ProductFields product={this.state.product} handleChange={this.handleProductChange} />
         <UserFields user={this.state.user} handleChange={this.handleUserChange} />
-        <ShippingFields shipping={this.state.shipping} handleChange={this.handleShippingChange} />
         <PaymentFields cardErrors={this.state.card_errors} />
+        <ShippingFields shipping={this.state.shipping} handleChange={this.handleShippingChange} />
         <div>
-          <input type="submit" id="submit" value="Buy Now" className="btn btn-primary" onClick={this.handleSubmit} disabled={this.state.is_processing}/>
+          <input type="submit" id="submit" value="Finish & Send" className="btn btn-primary" onClick={this.handleSubmit} disabled={this.state.is_processing}/>
         </div>
       </div>
     );
@@ -149,22 +161,22 @@ class PaymentFields extends Component {
       cardErrorNodes.push(<li key={key}>{this.props.cardErrors[key].message}</li>)
     }
     return (
-      <div>
+      <div className="card-info">
         <div id="card-errors">{cardErrorNodes}</div>
 
         <div>
           <label>Card Number</label>
-          <div  id="sq-card-number"></div>
-        </div>
-
-        <div>
-          <label>CVV</label>
-          <div  id="sq-cvv"></div>
+          <div id="sq-card-number"></div>
         </div>
 
         <div>
           <label>Expiration Date</label>
-          <div  id="sq-expiration-date"></div>
+          <div id="sq-expiration-date"></div>
+        </div>
+
+        <div>
+          <label>CVV</label>
+          <div id="sq-cvv"></div>
         </div>
 
         <div>
