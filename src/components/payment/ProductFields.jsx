@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
 
 export default class ProductFields extends Component {
+  constructor(props) {
+    super(props);
+
+    this.handleChange = this.handleChange.bind(this);
+  }
+  
   handleChange(e) {
     let product = {
       charge_amount: this.refs.charge_amount
@@ -9,7 +15,7 @@ export default class ProductFields extends Component {
   }
 
   render() {
-    // default value is $1 but people can pay more or less 
+    // default value is $1 but people can pay more or less
     return (
       <div>
         <label>What would you like to pay?</label>
