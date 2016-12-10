@@ -17,6 +17,12 @@ export default class PaymentPage extends Component {
       user: {name: "", email:""},
       shipping: {address1: "", address2: "", city: "", state: "", zip: ""}
     }
+
+    this.chargeCardWithNonce = this.chargeCardWithNonce.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleProductChange = this.handleProductChange.bind(this);
+    this.handleUserChange = this.handleUserChange.bind(this);
+    this.handleShippingChange = this.handleShippingChange.bind(this);
   }
 
   componentDidMount() {

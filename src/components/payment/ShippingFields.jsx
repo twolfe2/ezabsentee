@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
 
 export default class ShippingFields extends Component {
+  constructor(props) {
+    super(props);
+
+    this.handleChange = this.handleChange.bind(this);
+  }
+  
   handleChange(e) {
     let shipping = {
       address1: this.refs.street_address_1.value,

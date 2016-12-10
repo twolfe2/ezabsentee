@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
 
 export default class UserFields extends Component {
+  constructor(props) {
+    super(props);
+
+    this.handleChange = this.handleChange.bind(this);
+  }
+
   handleChange(e) {
     let user = {
       name: this.refs.name.value,
