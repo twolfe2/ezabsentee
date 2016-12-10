@@ -87,7 +87,7 @@ export default class PaymentPage extends Component {
 
   chargeCardWithNonce(nonce) {
     console.log("charging card with nonce");
-    var url = "localhost:3001/purchase";
+    var url = "http://localhost:3001/charges/charge_card";
     var data = {
       nonce: nonce,
       charge_value: this.state.product.charge_value,
@@ -101,18 +101,37 @@ export default class PaymentPage extends Component {
     };
     console.log(data);
 
-    $.post( url, data, function( data ) {
-        if (data.status == 200) {
-          this.setState({is_payment_success: true})
-        }else if (data.status == 400){
-          var errors = []
-          for (var i =0; i < data.errors.length; i++){
-            errors.push({message: data.errors[i].detail});
-          }
-          this.setState({card_errors: errors})
-        }
-        this.setState({is_processing: false})
-    }.bind(this));
+    debugger;
+
+    fetch(url, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data)
+    }).then(function(result) {
+      console.log('success', result)
+      debugger;
+    }).catch(function(result){
+      debugger;
+      console.log('failure', result)
+    })
+
+    //
+    // $.post( url, data, function( data ) {
+    //   debugger;
+    //     if (data.status == 200) {
+    //       this.setState({is_payment_success: true})
+    //     }else if (data.status == 400){
+    //       var errors = []
+    //       for (var i =0; i < data.errors.length; i++){
+    //         errors.push({message: data.errors[i].detail});
+    //       }
+    //       this.setState({card_errors: errors})
+    //     }
+    //     this.setState({is_processing: false})
+    // }.bind(this));
   }
 
   handleSubmit() {
