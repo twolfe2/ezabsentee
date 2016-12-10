@@ -7,6 +7,7 @@ class HomePage extends Component {
       <div>
         <h1>React Boiler</h1>
         <Link to="about" className="btn btn-primary">See About</Link>|
+        <Link to="payment" className="btn btn-primary">See Payment</Link>|
         <Link to="dashboard" className="btn btn-primary">See Dashboard</Link>
       </div>
     );
