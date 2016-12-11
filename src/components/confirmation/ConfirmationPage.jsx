@@ -53,10 +53,9 @@ export default class ConfirmationPage extends Component {
     const { dialogOpen } = this.state;
     return (
       <div id="confirmation-page">
-        <h2 className="page-title">CONFIRM & SIGN</h2>
-        <p className="page-subtitle">Don’t want to go to the post office? We
-        take care of your absentee ballot from start to finish, and for just a
-        buck.</p>
+        <h2 className="confirmationTitle">CONFIRM & SIGN</h2>
+        <p className="page-subtitle">Review the details of your application, and sign below</p>
+        <div className="Rectangle-5">View PDF of application</div>
         <div className="signaturePad">
           <SignaturePad ref={(c) => { this.signaturePad = c; }} />
           <button onClick={this.clearSignatureField}>Redo/Clear</button>
