@@ -1,61 +1,72 @@
 import React, { Component } from 'react';
-// import { Link } from 'react-router';
+import { Link } from 'react-router';
 import SignaturePad from 'react-signature-pad';
+
+import SignatureDialog from './SignatureDialog';
 
 export default class ConfirmationPage extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
-      signaturePad: '',
+      signatureImgData: 'none',
+      message: undefined,
+      dialogOpen: false,
     };
 
-    this.isEmpty = this.isEmpty.bind(this);
-    this.clear = this.clear.bind(this);
-    this.toDataURL = this.toDataURL.bind(this);
+    this.clearSignatureField = this.clearSignatureField.bind(this);
+    this.submitSignature = this.submitSignature.bind(this);
+    this.handleOpen = this.handleOpen.bind(this);
+    this.handleClose = this.handleClose.bind(this);
   }
 
-  componentDidMount() {
+  handleOpen() {
+    this.setState({ dialogOpen: true });
   }
 
-  isEmpty() {
+  handleClose() {
+    this.setState({ dialogOpen: false });
+  }
+
+  clearSignatureField() {
+    const signaturePad = this.signaturePad;
+    signaturePad.clear();
+  }
+
+  submitSignature() {
     const signaturePad = this.signaturePad;
     const empty = signaturePad.isEmpty();
-    console.log('CDMempty: ', empty);
-  }
 
-  clear() {
-    const signaturePad = this.signaturePad;
-    const clear = signaturePad.clear();
-    console.log('CDMclear: ', clear);
+    if (!empty) {
+      const signatureImgData = signaturePad.toDataURL();
+      console.log('signatureImgData1: ', signatureImgData);
+      this.setState({ signatureImgData });
+    } else {
+      const message = 'Please sign before submitting.';
+      window.alert(message);
+      this.setState({ message });
+    }
   }
-
-  toDataURL() {
-    const signaturePad = this.signaturePad;
-    const toDataUrl = signaturePad.toDataUrl();
-    console.log('CDMtoDataUrl: ', toDataUrl);
-  }
-
-  // fromDataURL() {
-  //   const signaturePad = this.signaturePad;
-  //   const fromDataURL = signaturePad.fromDataURL(base64String);
-  //   console.log('CDMfromDataURL: ', fromDataURL);
-  // }
 
   render() {
+    const { dialogOpen } = this.state;
     return (
-      <div id="payment-page">
+      <div id="confirmation-page">
         <h2 className="page-title">CONFIRM & SIGN</h2>
         <p className="page-subtitle">Don’t want to go to the post office? We
         take care of your absentee ballot from start to finish, and for just a
         buck.</p>
         <div className="signaturePad">
-          <SignaturePad clearButton="true" ref={(c) => { this.signaturePad = c; }} />
-          <button onClick={this.isEmpty}>isEmpty</button>
-          <button onClick={this.clear}>clear</button>
-          <button onClick={this.toDataURL}>toDataURL</button>
-          {/* <input type="submit" id="submit" value="Buy Now" className="btn
-           btn-primary" onClick={this.handleSubmit} disabled={this.state.is_processing}/> */}
+          <SignaturePad ref={(c) => { this.signaturePad = c; }} />
+          <button onClick={this.clearSignatureField}>Clear</button>
+          <button onClick={this.submitSignature}>Submit</button>
         </div>
+        <Link to="payment" className="btn btn-primary" id="submit">Submit</Link>
+        <SignatureDialog
+          open={dialogOpen}
+          openDialog={this.handleOpen}
+          closeDialog={this.handleClose}
+        />
       </div>
     );
   }
