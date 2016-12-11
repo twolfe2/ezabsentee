@@ -6,7 +6,8 @@ class HomePage extends Component {
     return (
       <div>
         <h1>React Boiler</h1>
-        <Link to="about" className="btn btn-primary">See About</Link>|  
+        <Link to="about" className="btn btn-primary">See About</Link>|
+        <Link to="payment" className="btn btn-primary">See Payment</Link>|
       </div>
     );
   }
