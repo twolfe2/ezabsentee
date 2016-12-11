@@ -1,6 +1,5 @@
 html, body, #app  {
-  height: 100%;
-  width: 100%;
+  
 }
 
 a.active {
@@ -94,10 +93,31 @@ a.active {
 
   .billing-info {
     width: 75%;
+
+    .state {
+      margin-left: 5px;
+
+      select {
+        margin-top: 15px;
+      }
+    }
   }
 
   .card-info {
+    margin-top: 20px;
     width: 75%;
+
+    div {
+      margin-top: 10px;
+
+      input {
+        margin-top: 10px;
+      }
+      label {
+        margin-top: -15px;
+      }
+
+    }
   }
 
   #submit {
@@ -109,6 +129,13 @@ a.active {
     color: #fff;
     margin-top: 50px;
     margin-bottom: 50px;
+    position: absolute;
+    bottom: 0;
+
+    a {
+      text-decoration: none;
+      color: #fff;
+    }
   }
 }
 
