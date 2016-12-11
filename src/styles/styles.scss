@@ -118,6 +118,23 @@ a.active {
   position: absolute;
   background-image: linear-gradient(158deg, #57b2f2, #e188e8 86%, #f881e7);
   padding: 5%;
+
+  #submit {
+    position: absolute;
+    width: 248px;
+    height: 46px;
+    border-radius: 100px;
+    background-color: #0a163b;
+    box-shadow: 0 0 20px 0 #6f58ab;
+    color: #fff;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+  }
 }
 
 .m-signature-pad {

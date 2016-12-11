@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import { Link } from 'react-router';
+import { Link } from 'react-router';
 import SignaturePad from 'react-signature-pad';
 
 export default class ConfirmationPage extends Component {
@@ -31,9 +31,8 @@ export default class ConfirmationPage extends Component {
         <div className="signaturePad">
           <SignaturePad clearButton="true" ref={(c) => { this.signaturePad = c; }} />
           <button onClick={this.isEmpty}>isEmpty</button>
-          {/* <input type="submit" id="submit" value="Buy Now" className="btn
-           btn-primary" onClick={this.handleSubmit} disabled={this.state.is_processing}/> */}
         </div>
+        <Link to="payment" className="btn btn-primary" id='submit'>Submit</Link>
       </div>
     );
   }
