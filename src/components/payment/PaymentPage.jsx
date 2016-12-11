@@ -4,6 +4,7 @@ import TextField from 'material-ui/TextField';
 import ProductFields from './ProductFields';
 import UserFields from './UserFields';
 import ShippingFields from './ShippingFields';
+import Stepper from '../stepper/Stepper';
 var $ = require ('jquery');
 
 const SQUARE_APPLICATION_ID = "sandbox-sq0idp-sC2SWt1rPYYkKzOWkRHE_Q"
@@ -39,6 +40,7 @@ export default class PaymentPage extends Component {
   }
 
   componentDidMount() {
+
     //Place square payment form function in componentDidMount
     //Because it has to be called after the DOM renders the divs
     this.paymentForm = new SqPaymentForm({
@@ -104,42 +106,29 @@ export default class PaymentPage extends Component {
     };
     console.log(data);
 
-    debugger;
+    // to do: fix call to API
 
-    fetch(url, {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data)
-    }).then(function(result) {
-      console.log('success', result)
-      debugger;
-    }).catch(function(result){
-      debugger;
-      console.log('failure', result)
-    })
-
-    //
-    // $.post( url, data, function( data ) {
+    // fetch(url, {
+    //   method: 'POST',
+    //   headers: {
+    //     'Accept': 'application/json',
+    //     'Content-Type': 'application/json',
+    //   },
+    //   body: JSON.stringify(data)
+    // }).then(function(result) {
+    //   console.log('success', result)
     //   debugger;
-    //     if (data.status == 200) {
-    //       this.setState({is_payment_success: true})
-    //     }else if (data.status == 400){
-    //       var errors = []
-    //       for (var i =0; i < data.errors.length; i++){
-    //         errors.push({message: data.errors[i].detail});
-    //       }
-    //       this.setState({card_errors: errors})
-    //     }
-    //     this.setState({is_processing: false})
-    // }.bind(this));
+    // }).catch(function(result){
+    //   debugger;
+    //   console.log('failure', result)
+    // })
+
   }
 
   handleSubmit() {
     this.setState({ is_processing: true });
-    this.paymentForm.requestCardNonce();
+    // this.paymentForm.requestCardNonce();
+
   }
 
   handleProductChange(product) {
@@ -156,20 +145,26 @@ export default class PaymentPage extends Component {
 
   render() {
     // check for if this.state.is_payment_success == true to show confirmation screen
+    // switch back to input type submit when making actual app
     return (
       <div id="payment-page">
         <h2 className="page-title">PAY UP, YO</h2>
         <p className="page-subtitle">Pays for printing, shipping, and handling</p>
         <div className="price-tag">
           <p className="price-tag-title">Price</p>
-          <p>$1.00</p>
+          <p>$2.00</p>
         </div>
-        <UserFields user={this.state.user} handleChange={this.handleUserChange} />
-        <PaymentFields cardErrors={this.state.card_errors} />
-        <ShippingFields shipping={this.state.shipping} handleChange={this.handleShippingChange} />
-        <div>
+        <div id="payment-inputs">
+          <UserFields user={this.state.user} handleChange={this.handleUserChange} />
+          <PaymentFields cardErrors={this.state.card_errors} />
+          <ShippingFields shipping={this.state.shipping} handleChange={this.handleUserChange} />
+        </div>
+
+        {/* <div>
           <input type="submit" id="submit" value="Finish & Send" className="btn btn-primary" onClick={this.handleSubmit} disabled={this.state.is_processing}/>
-        </div>
+        </div> */}
+          <div className="payment-stepper"><Stepper step={3} /></div>
+          <Link id="payment-submit" to="/finish">Finish & Send</Link>
       </div>
     );
   }
@@ -187,30 +182,28 @@ class PaymentFields extends Component {
         <div id="card-errors">{cardErrorNodes}</div>
 
         <div className='row'>
-
-          <div className='card-number col-sm-2'>
+          <div className='card-number col-md-6'>
             <label>Card Number</label>
             <div id="sq-card-number"></div>
           </div>
 
-          <div className='expiration-date col-sm-4'>
-            <label>Expiration Date</label>
+          <div className='expiration-date col-md-6'>
+            <label>Expiration</label>
             <div id="sq-expiration-date"></div>
           </div>
+        </div>
 
-
-          <div className='cvv col-sm-2'>
+        <div className='row'>
+          <div className='cvv col-md-6'>
             <label>CVV</label>
             <div id="sq-cvv"></div>
           </div>
 
-          <div className='cc-postal-code col-sm-4'>
+          <div className='cc-postal-code col-md-6'>
             <label>Postal Code</label>
             <div  id="sq-postal-code"></div>
           </div>
-
         </div>
-
       </div>
     );
   }

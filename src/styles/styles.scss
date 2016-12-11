@@ -1,10 +1,22 @@
 html, body, #app  {
-  height: 100%;
-  width: 100%;
+
 }
 
 a.active {
   color: orange;
+}
+
+.payment-stepper {
+  margin-top: 25px;
+  bottom: 115px;
+  position: absolute;
+  margin-left: -4px;
+}
+
+.page-bottom {
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 50px;
 }
 
 #h3billing{
@@ -23,7 +35,16 @@ a.active {
   font-family: Roboto;
   position: absolute;
   background-image: linear-gradient(158deg, #57b2f2, #e188e8 86%, #f881e7);
-  padding: 4%;
+
+  #payment-inputs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .row {
+      margin-bottom: 20px;
+    }
+  }
 
   .page-title {
     font-size: 40px;
@@ -93,21 +114,53 @@ a.active {
 
   .billing-info {
     width: 75%;
+
+    .state {
+      margin-left: 5px;
+
+      select {
+        margin-top: 15px;
+      }
+    }
   }
 
   .card-info {
+    margin-top: 20px;
     width: 75%;
+
+    div {
+      margin-top: 10px;
+
+      input {
+        margin-top: 10px;
+      }
+      label {
+        margin-top: -15px;
+      }
+
+    }
   }
 
-  #submit {
+  #payment-submit {
+    position: absolute;
     width: 248px;
     height: 46px;
     border-radius: 100px;
     background-color: #0a163b;
     box-shadow: 0 0 20px 0 #6f58ab;
     color: #fff;
-    margin-top: 50px;
+    margin-top: 25px;
     margin-bottom: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    bottom: 0;
+
+    a {
+      text-decoration: none;
+      color: #fff;
+    }
   }
 }
 
@@ -154,7 +207,7 @@ a.active {
   top: 50%;
   left: 50%;
   margin-left: -350px;
-  margin-top: -200px;
+  margin-top: -120px;
   border: 1px solid #e8e8e8;
   background-color: #fff;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.27), 0 0 40px rgba(0, 0, 0, 0.08) inset;
@@ -258,6 +311,216 @@ a.active {
       margin-top: 1em;
     }
 }
+
+
+
+
+#homepage-wrapper {
+  display: flex;
+  // justify-content: center;
+  // flex-direction: column;
+  // align-items: center;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: absolute;
+  background-image: linear-gradient(156deg, #f39855, #b681f8);
+  overflow: scroll;
+}
+
+#homepage-banner {
+  width: 55%;
+  height: 55%;
+}
+
+#homepage-banner-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+#homepage {
+  font-family: 'Roboto', sans-serif;
+  color: #ffffff;
+  width: 75%;
+}
+
+#continue-label {
+  font-size: 16pt;
+}
+
+#continue-button {
+  width: 248px;
+  height: 46px;
+  border-radius: 100px;
+  border: none;
+  background-color: #816088;
+  box-shadow: 0 0 20px 0 #a867a6;
+}
+
+
 // END of SignaturePad component of ConfirmationPage
 // END of SignaturePad component of ConfirmationPage
 // END of SignaturePad component of ConfirmationPage
+
+.confirmationTitle {
+  width: 359px;
+  height: 47px;
+  font-family: Roboto;
+  font-size: 40px;
+  font-weight: 300;
+  font-style: normal;
+  font-stretch: normal;
+  text-align: center;
+  color: #ffffff;
+}
+
+.Rectangle-5 {
+  width: 218px;
+  height: 38px;
+  text-align: center;
+  border-radius: 19px;
+  border: solid 1px #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  & > a {
+    text-decoration: none;
+  }
+}
+
+.step-oval {
+  width: 12px;
+  height: 12px;
+  background-color: clear;
+  box-shadow: 0 0 8px 0 #9c49b0;
+  display: inline-block;
+  margin-left: 14.5px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.step-oval-active {
+  background-color: #ffffff;
+}
+
+.confirmation-stepper {
+  position: absolute;
+  bottom: 110px;
+  margin-left: -10px;
+
+}
+
+.finish-page {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  background-image: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ),linear-gradient(158deg, #57b2f2, #e188e8 86%, #f881e7);
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+}
+
+.rocket {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 210.4px;
+  height: 210.6px;
+  top: 200px;
+}
+
+.rocket-text {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  top: 430px;
+  width: 524px;
+  height: 70px;
+  font-family: Roboto;
+  font-size: 30px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  text-align: center;
+  color: #ffffff;
+}
+
+#share {
+  position:absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  top: 500px;
+  width: 397px;
+  height: 56px;
+  border-radius: 28px;
+  background-color: #0a163c;
+  box-shadow: 0 0 20px 0 #7c4f8c;
+  background-color: #0a163b;
+  color: #fff;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  font-family: Roboto;
+  font-size: 18px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  text-decoration: none;
+
+  & > span {
+    display: inline-block;
+    margin-top: 17px;
+  }
+
+}
+.common-button {
+    width: 248px;
+    height: 46px;
+    border-radius: 100px;
+    background-color: #0a163b;
+    box-shadow: 0 0 20px 0 #6f58ab;
+    color: #fff;
+    margin-top: 10px;
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+  }
+.first-stepper {
+    text-align: center;
+    display: inline-block;
+    margin-left: 77px;
+    margin-bottom: 15px;
+}
+
+// // XXS style overrides
+// @media screen and (min-width: $screen-iphone-6) {
+//   @import 'shared/compass_xxs';
+// }
+//
+// // SM style overrides
+// @media screen and (min-width: $screen-sm-min) {
+//   @import 'shared/compass_sm';
+// }
+//
+// // MD style overrides
+// @media screen and (min-width: $screen-md-min) {
+//   @import 'shared/compass_md';
+// }
+// }
