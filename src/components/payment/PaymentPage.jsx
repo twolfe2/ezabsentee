@@ -46,24 +46,27 @@ export default class PaymentPage extends Component {
       inputClass: 'sq-input',
       inputStyles: [
           {
-            fontSize: '14px',
-            padding: '7px 12px',
+            padding: '9px 1px',
             backgroundColor: "transparent"
           }
         ],
       cardNumber: {
+        fontSize: '12px',
         elementId: 'sq-card-number',
         placeholder: '0000 0000 0000 0000'
       },
       cvv: {
+        fontSize: '14px',
         elementId: 'sq-cvv',
         placeholder: 'CVV'
       },
       expirationDate: {
+        fontSize: '14px',
         elementId: 'sq-expiration-date',
         placeholder: 'MM/YY'
       },
       postalCode: {
+        fontSize: '14px',
         elementId: 'sq-postal-code',
         placeholder: '94110'
       },
@@ -185,30 +188,28 @@ class PaymentFields extends Component {
 
         <div className='row'>
 
-          <div className='card-number col-md-8'>
+          <div className='card-number col-sm-2'>
             <label>Card Number</label>
             <div id="sq-card-number"></div>
           </div>
 
-          <div className='expiration-date col-md-4'>
+          <div className='expiration-date col-sm-4'>
             <label>Expiration Date</label>
             <div id="sq-expiration-date"></div>
           </div>
 
-        </div>
 
-      <div className='row'>
-        <div className='cvv col-md-4'>
-          <label>CVV</label>
-          <div id="sq-cvv"></div>
-        </div>
+          <div className='cvv col-sm-2'>
+            <label>CVV</label>
+            <div id="sq-cvv"></div>
+          </div>
 
-        <div className='cc-postal-code col-md-4'>
-          <label>Postal Code</label>
-          <div  id="sq-postal-code"></div>
-        </div>
+          <div className='cc-postal-code col-sm-4'>
+            <label>Postal Code</label>
+            <div  id="sq-postal-code"></div>
+          </div>
 
-      </div>
+        </div>
 
       </div>
     );
