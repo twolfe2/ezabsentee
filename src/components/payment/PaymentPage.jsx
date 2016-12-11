@@ -180,28 +180,35 @@ class PaymentFields extends Component {
       cardErrorNodes.push(<li key={key}>{this.props.cardErrors[key].message}</li>)
     }
     return (
-      <div className="card-info">
+      <div className="card-info container">
         <div id="card-errors">{cardErrorNodes}</div>
 
-        <div>
-          <label>Card Number</label>
-          <div id="sq-card-number"></div>
+        <div className='row'>
+
+          <div className='card-number col-md-8'>
+            <label>Card Number</label>
+            <div id="sq-card-number"></div>
+          </div>
+
+          <div className='expiration-date col-md-4'>
+            <label>Expiration Date</label>
+            <div id="sq-expiration-date"></div>
+          </div>
+
         </div>
 
-        <div>
-          <label>Expiration Date</label>
-          <div id="sq-expiration-date"></div>
-        </div>
-
-        <div>
+      <div className='row'>
+        <div className='cvv col-md-4'>
           <label>CVV</label>
           <div id="sq-cvv"></div>
         </div>
 
-        <div>
+        <div className='cc-postal-code col-md-4'>
           <label>Postal Code</label>
           <div  id="sq-postal-code"></div>
         </div>
+
+      </div>
 
       </div>
     );
