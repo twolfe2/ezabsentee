@@ -2,15 +2,14 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 import SignaturePad from 'react-signature-pad';
 
+//  For Icons
 import RaisedButton from 'material-ui/RaisedButton';
-// import FontIcon from 'material-ui/FontIcon';
 import IconButton from 'material-ui/IconButton';
+
+import InputFields from './InputFields';
 import SignatureDialog from './SignatureDialog';
 // import iconButton from './iconButton';
 
-//  TODO: add input forms
-//  TODO: add ternary toggle for SignaturePad
-//  TODO: dumbify SignatureDialog component
 export default class ConfirmationPage extends Component {
   constructor(props) {
     super(props);
@@ -71,7 +70,6 @@ export default class ConfirmationPage extends Component {
   }
 
   triggerSignature() {
-    console.log('Sanity:');
     this.setState({
       signatureTrigger: 'signaturePad',
       signatureButton: 'signatureButtonHidden',
@@ -92,6 +90,9 @@ export default class ConfirmationPage extends Component {
           <div className="Combined-Shape" />
           View PDF of application
         </div>
+
+        <InputFields />
+
         <div className={signatureTrigger}>
           <SignaturePad className="signature-pad" ref={(c) => { this.signaturePad = c; }} />
           <button onClick={this.exitSignatureField}>Exit</button>
