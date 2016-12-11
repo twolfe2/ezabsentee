@@ -39,12 +39,9 @@ export default class ConfirmationPage extends Component {
 
     if (!empty) {
       const signatureImgData = signaturePad.toDataURL();
-      console.log('signatureImgData1: ', signatureImgData);
       this.setState({ signatureImgData });
     } else {
-      const message = 'Please sign before submitting.';
-      window.alert(message);
-      this.setState({ message });
+      this.setState({ dialogOpen: true });
     }
   }
 
@@ -58,8 +55,8 @@ export default class ConfirmationPage extends Component {
         buck.</p>
         <div className="signaturePad">
           <SignaturePad ref={(c) => { this.signaturePad = c; }} />
-          <button onClick={this.clearSignatureField}>Clear</button>
-          <button onClick={this.submitSignature}>Submit</button>
+          <button onClick={this.clearSignatureField}>Redo/Clear</button>
+          <button onClick={this.submitSignature}>Checkmark</button>
         </div>
         <Link to="payment" className="btn btn-primary" id="submit">Submit</Link>
         <SignatureDialog

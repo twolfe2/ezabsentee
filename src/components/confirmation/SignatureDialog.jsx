@@ -18,9 +18,8 @@ export default class SignatureDialog extends Component {
 
     return (
       <div>
-        <RaisedButton label="Dialog" onTouchTap={openDialog} />
         <Dialog
-          title="Please make sure to sign before submitting."
+          title="Please sign before submitting."
           actions={actions}
           modal={false}
           open={open}
