@@ -5,7 +5,15 @@ import { RadioButton } from 'material-ui/RadioButton';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 
-const items = [
+const months = [
+  <MenuItem key={1} value={1} primaryText="Never" />,
+  <MenuItem key={2} value={2} primaryText="Every Night" />,
+  <MenuItem key={3} value={3} primaryText="Weeknights" />,
+  <MenuItem key={4} value={4} primaryText="Weekends" />,
+  <MenuItem key={5} value={5} primaryText="Weekly" />,
+];
+
+const ethnicities = [
   <MenuItem key={1} value={1} primaryText="Never" />,
   <MenuItem key={2} value={2} primaryText="Every Night" />,
   <MenuItem key={3} value={3} primaryText="Weeknights" />,
@@ -19,10 +27,7 @@ class HomePage extends Component {
       <div className="container" id="landing">
         <h1 className="text-center">Easy Absentee</h1>
         <div className="text-center">
-          Don’t want to go to the post office? We take care of your absentee ballot
-          <br />from start to finish, and for just a buck.
-          <br /><br />
-          eezy peezy absentee-zy
+          ONE STOP ABSENTEE REGISTRATION, FOR JUST A COUPLE BUCKS
         </div>
 
         <br /><br /><br />
@@ -130,37 +135,61 @@ class HomePage extends Component {
         <div className="row">
           <div className="col-md-4">
             <SelectField
-              floatingLabelText="Floating Label Text"
+              floatingLabelText="MONTH"
               floatingLabelFixed={true}
-              hintText="Hint text"
             >
-              {items}
+              {months}
             </SelectField>
           </div>
           <div className="col-md-2">
             <TextField
-              hintText="Hint Text"
-              floatingLabelText="Fixed Floating Label Text"
+              hintText="XX"
+              floatingLabelText="DAY"
               floatingLabelFixed={true}
               fullWidth={true}
             />
           </div>
           <div className="col-md-2">
             <TextField
-              hintText="Hint Text"
-              floatingLabelText="Fixed Floating Label Text"
+              hintText="XXXX"
+              floatingLabelText="YEAR"
+              floatingLabelFixed={true}
+              fullWidth={true}
+            />
+          </div>
+          <div className="col-md-4">
+            <SelectField
+              floatingLabelText="ETHNICITY"
+              floatingLabelFixed={true}
+            >
+              {ethnicities}
+            </SelectField>
+          </div>
+        </div>
+
+        <div className="row">
+          <div className="col-md-4">
+            <TextField
+              floatingLabelText="EMAIL ADDRESS"
               floatingLabelFixed={true}
               fullWidth={true}
             />
           </div>
           <div className="col-md-4">
             <TextField
-              hintText="Hint Text"
-              floatingLabelText="Fixed Floating Label Text"
+              floatingLabelText="CELL PHONE"
               floatingLabelFixed={true}
               fullWidth={true}
             />
           </div>
+        </div>
+
+        <br /><br /><br /><br /><br />
+
+        <div className="text-center">
+          <button>
+            Continue
+          </button>
         </div>
         {/* <Link to="about" className="btn btn-primary">See About</Link>|
           <Link to="payment" className="btn btn-primary">See Payment</Link>|
