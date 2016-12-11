@@ -6,47 +6,42 @@ export default class ConfirmationPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-
+      signaturePad: '',
     };
 
     this.isEmpty = this.isEmpty.bind(this);
-
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleProductChange = this.handleProductChange.bind(this);
-    this.handleUserChange = this.handleUserChange.bind(this);
-    this.handleShippingChange = this.handleShippingChange.bind(this);
+    this.clear = this.clear.bind(this);
+    this.toDataURL = this.toDataURL.bind(this);
   }
 
   componentDidMount() {
-    const signaturePad = this.signaturePad;
-    console.log('CDMsignaturePad: ', signaturePad);
   }
 
   isEmpty() {
     const signaturePad = this.signaturePad;
-    let empty = signaturePad.isEmpty();
+    const empty = signaturePad.isEmpty();
     console.log('CDMempty: ', empty);
   }
 
-  handleSubmit() {
-    this.setState({ is_processing: true });
-    this.paymentForm.requestCardNonce();
+  clear() {
+    const signaturePad = this.signaturePad;
+    const clear = signaturePad.clear();
+    console.log('CDMclear: ', clear);
   }
 
-  handleProductChange(product) {
-    this.setState({ product });
+  toDataURL() {
+    const signaturePad = this.signaturePad;
+    const toDataUrl = signaturePad.toDataUrl();
+    console.log('CDMtoDataUrl: ', toDataUrl);
   }
 
-  handleUserChange(user) {
-    this.setState({ user });
-  }
-
-  handleShippingChange(shipping) {
-    this.setState({ shipping });
-  }
+  // fromDataURL() {
+  //   const signaturePad = this.signaturePad;
+  //   const fromDataURL = signaturePad.fromDataURL(base64String);
+  //   console.log('CDMfromDataURL: ', fromDataURL);
+  // }
 
   render() {
-    // check for if this.state.is_payment_success == true to show confirmation screen
     return (
       <div id="payment-page">
         <h2 className="page-title">CONFIRM & SIGN</h2>
@@ -56,6 +51,8 @@ export default class ConfirmationPage extends Component {
         <div className="signaturePad">
           <SignaturePad clearButton="true" ref={(c) => { this.signaturePad = c; }} />
           <button onClick={this.isEmpty}>isEmpty</button>
+          <button onClick={this.clear}>clear</button>
+          <button onClick={this.toDataURL}>toDataURL</button>
           {/* <input type="submit" id="submit" value="Buy Now" className="btn
            btn-primary" onClick={this.handleSubmit} disabled={this.state.is_processing}/> */}
         </div>
@@ -63,39 +60,3 @@ export default class ConfirmationPage extends Component {
     );
   }
 }
-
-
-// class PaymentFields extends Component {
-//   render() {
-//     let cardErrorNodes = [];
-//     for (var key in this.props.cardErrors) {
-//       cardErrorNodes.push(<li key={key}>{this.props.cardErrors[key].message}</li>)
-//     }
-//     return (
-//       <div>
-//         <div id="card-errors">{cardErrorNodes}</div>
-//
-//         <div>
-//           <label>Card Number</label>
-//           <div  id="sq-card-number"></div>
-//         </div>
-//
-//         <div>
-//           <label>CVV</label>
-//           <div  id="sq-cvv"></div>
-//         </div>
-//
-//         <div>
-//           <label>Expiration Date</label>
-//           <div  id="sq-expiration-date"></div>
-//         </div>
-//
-//         <div>
-//           <label>Postal Code</label>
-//           <div  id="sq-postal-code"></div>
-//         </div>
-//
-//       </div>
-//     );
-//   }
-// }
