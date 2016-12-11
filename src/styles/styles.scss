@@ -16,6 +16,7 @@ a.active {
   background-image: linear-gradient(158deg, #57b2f2, #e188e8 86%, #f881e7);
   padding: 5%;
 
+
   .page-title {
     font-size: 40px;
     font-weight: 300;
@@ -84,10 +85,31 @@ a.active {
 
   .billing-info {
     width: 75%;
+
+    .state {
+      margin-left: 5px;
+
+      select {
+        margin-top: 15px;
+      }
+    }
   }
 
   .card-info {
+    margin-top: 20px;
     width: 75%;
+
+    div {
+      margin-top: 10px;
+
+      input {
+        margin-top: 10px;
+      }
+      label {
+        margin-top: -15px;
+      }
+
+    }
   }
 
   #submit {
@@ -99,6 +121,13 @@ a.active {
     color: #fff;
     margin-top: 50px;
     margin-bottom: 50px;
+    position: absolute;
+    bottom: 0;
+
+    a {
+      text-decoration: none;
+      color: #fff;
+    }
   }
 }
 
@@ -250,9 +279,48 @@ a.active {
     }
 }
 
-.m-signature-pad {
-  margin-top: 0px;
+// .m-signature-pad {
+//   margin-top: 0px;
+// }
+
+
+#homepage-wrapper {
+  display: flex;
+  // justify-content: center;
+  // flex-direction: column;
+  // align-items: center;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: absolute;
+  background-image: linear-gradient(156deg, #f39855, #b681f8);
+  overflow: scroll;
 }
+
+#homepage-banner {
+  width: 55%;
+  height: 55%;
+}
+
+#homepage-banner-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+#homepage {
+  font-family: 'Roboto', sans-serif;
+  color: #ffffff;
+  width: 75%;
+}
+
+#continue-label {
+  font-size: 16pt;
+}
+
+#continue-button {
+}
+
 // END of SignaturePad component of ConfirmationPage
 // END of SignaturePad component of ConfirmationPage
 // END of SignaturePad component of ConfirmationPage
