@@ -4,6 +4,7 @@ import TextField from 'material-ui/TextField';
 import ProductFields from './ProductFields';
 import UserFields from './UserFields';
 import ShippingFields from './ShippingFields';
+import Stepper from '../stepper/Stepper';
 var $ = require ('jquery');
 
 const SQUARE_APPLICATION_ID = "sandbox-sq0idp-sC2SWt1rPYYkKzOWkRHE_Q"
@@ -39,6 +40,7 @@ export default class PaymentPage extends Component {
   }
 
   componentDidMount() {
+    
     //Place square payment form function in componentDidMount
     //Because it has to be called after the DOM renders the divs
     this.paymentForm = new SqPaymentForm({
@@ -165,7 +167,8 @@ export default class PaymentPage extends Component {
         <PaymentFields cardErrors={this.state.card_errors} />
         <ShippingFields shipping={this.state.shipping} handleChange={this.handleShippingChange} />
         <div>
-          <input type="submit" id="submit" value="Finish & Send" className="btn btn-primary" onClick={this.handleSubmit} disabled={this.state.is_processing}/>
+          <div><Stepper step={3} /></div>
+          <input type="submit" id="submit" value="Finish & Send" className="btn btn-primary" onClick={this.handleSubmit} disabled={this.state.is_processing} />
         </div>
       </div>
     );

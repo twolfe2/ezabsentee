@@ -4,6 +4,7 @@ import TextField from 'material-ui/TextField';
 import { RadioButton } from 'material-ui/RadioButton';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
+import Stepper from '../stepper/Stepper';
 
 const months = [
   <MenuItem key={1} value={1} primaryText="Never" />,
@@ -47,6 +48,9 @@ const states = [
 
 
 class HomePage extends Component {
+  componentDidMount() {
+    
+  }
   render() {
     return (
 <div>
@@ -221,7 +225,7 @@ class HomePage extends Component {
               <i id="continue-icon" className="material-icons">trending_flat</i>
             </button>
           </div>
-
+          <Stepper step={1} />
           <br /><br /><br /><br /><br />
           {/* <Link to="about" className="btn btn-primary">See About</Link>|
             <Link to="payment" className="btn btn-primary">See Payment</Link>|

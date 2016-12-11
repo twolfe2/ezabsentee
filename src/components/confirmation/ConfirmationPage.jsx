@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 import SignaturePad from 'react-signature-pad';
 
 import SignatureDialog from './SignatureDialog';
+import Stepper from '../stepper/Stepper';
 
 //  TODO: add input forms
 //  TODO: add ternary toggle for SignaturePad
@@ -62,6 +63,9 @@ export default class ConfirmationPage extends Component {
           <button onClick={this.submitSignature}>Submit</button>
         </div>
         <Link to="payment" className="btn btn-primary" id="submit">Submit</Link>
+        <div className="confirmation-stepper">
+          <Stepper step={2} />
+        </div>
         <SignatureDialog
           open={dialogOpen}
           closeDialog={this.handleClose}
