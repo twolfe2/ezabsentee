@@ -56,18 +56,40 @@ a.active {
 
 #homepage-wrapper {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  // justify-content: center;
+  // flex-direction: column;
+  // align-items: center;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   position: absolute;
   background-image: linear-gradient(156deg, #f39855, #b681f8);
+  overflow: scroll;
 }
 
-#landing {
-  // background-image: linear-gradient(156deg, #f39855, #b681f8);
+#homepage-banner {
+  width: 55%;
+  height: 55%;
+}
+
+#homepage-banner-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+#homepage {
+  font-family: 'Roboto', sans-serif;
   color: #ffffff;
   width: 75%;
+}
+
+#continue-label {
+  font-size: 16pt;
+}
+
+#continue-button {
+}
+
+#continue-icon {
 }

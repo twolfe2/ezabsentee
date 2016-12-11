@@ -21,50 +21,74 @@ const ethnicities = [
   <MenuItem key={5} value={5} primaryText="Weekly" />,
 ];
 
+const titles = [
+  <MenuItem key={1} value={1} primaryText="Never" />,
+  <MenuItem key={2} value={2} primaryText="Every Night" />,
+  <MenuItem key={3} value={3} primaryText="Weeknights" />,
+  <MenuItem key={4} value={4} primaryText="Weekends" />,
+  <MenuItem key={5} value={5} primaryText="Weekly" />,
+];
+
+const suffix = [
+  <MenuItem key={1} value={1} primaryText="Never" />,
+  <MenuItem key={2} value={2} primaryText="Every Night" />,
+  <MenuItem key={3} value={3} primaryText="Weeknights" />,
+  <MenuItem key={4} value={4} primaryText="Weekends" />,
+  <MenuItem key={5} value={5} primaryText="Weekly" />,
+];
+
+const states = [
+  <MenuItem key={1} value={1} primaryText="Never" />,
+  <MenuItem key={2} value={2} primaryText="Every Night" />,
+  <MenuItem key={3} value={3} primaryText="Weeknights" />,
+  <MenuItem key={4} value={4} primaryText="Weekends" />,
+  <MenuItem key={5} value={5} primaryText="Weekly" />,
+];
+
+
 class HomePage extends Component {
   render() {
     return (
       <div id="homepage-wrapper">
-        <div className="container" id="landing">
-          <img src="LogoText.png" />
-          <div className="text-center">
-            ONE STOP ABSENTEE REGISTRATION, FOR JUST A COUPLE BUCKS
+        <div className="container" id="homepage">
+          <div id="homepage-banner-wrapper">
+            <img id="homepage-banner" src="http://i.imgur.com/VNXUZzq.png" />
           </div>
 
           <br /><br /><br />
 
           <div className="row">
             <div className="col-md-2">
+              <SelectField
+                floatingLabelText="TITLE"
+                floatingLabelFixed={true}
+                fullWidth={true}
+              >
+                {titles}
+              </SelectField>
+            </div>
+            <div className="col-md-4">
               <TextField
-                hintText="Hint Text"
-                floatingLabelText="Fixed Floating Label Text"
+                floatingLabelText="FIRST NAME"
                 floatingLabelFixed={true}
                 fullWidth={true}
               />
             </div>
             <div className="col-md-4">
               <TextField
-                hintText="Hint Text"
-                floatingLabelText="Fixed Floating Label Text"
-                floatingLabelFixed={true}
-                fullWidth={true}
-              />
-            </div>
-            <div className="col-md-4">
-              <TextField
-                hintText="Hint Text"
-                floatingLabelText="Fixed Floating Label Text"
+                floatingLabelText="LAST NAME"
                 floatingLabelFixed={true}
                 fullWidth={true}
               />
             </div>
             <div className="col-md-2">
-              <TextField
-                hintText="Hint Text"
-                floatingLabelText="Fixed Floating Label Text"
+              <SelectField
+                floatingLabelText="SUFFIX"
                 floatingLabelFixed={true}
                 fullWidth={true}
-              />
+              >
+                {suffix}
+              </SelectField>
             </div>
           </div>
 
@@ -76,16 +100,14 @@ class HomePage extends Component {
           <div className="row">
             <div className="col-md-10">
               <TextField
-                hintText="Hint Text"
-                floatingLabelText="Fixed Floating Label Text"
+                floatingLabelText="STREET ADDRESS"
                 floatingLabelFixed={true}
                 fullWidth={true}
               />
             </div>
             <div className="col-md-2">
               <TextField
-                hintText="Hint Text"
-                floatingLabelText="Fixed Floating Label Text"
+                floatingLabelText="APT/UNIT"
                 floatingLabelFixed={true}
                 fullWidth={true}
               />
@@ -95,24 +117,23 @@ class HomePage extends Component {
           <div className="row">
             <div className="col-md-6">
               <TextField
-                hintText="Hint Text"
-                floatingLabelText="Fixed Floating Label Text"
+                floatingLabelText="CITY"
                 floatingLabelFixed={true}
                 fullWidth={true}
               />
             </div>
             <div className="col-md-2">
-              <TextField
-                hintText="Hint Text"
-                floatingLabelText="Fixed Floating Label Text"
+              <SelectField
+                floatingLabelText="STATE"
                 floatingLabelFixed={true}
                 fullWidth={true}
-              />
+              >
+                {states}
+              </SelectField>
             </div>
             <div className="col-md-2">
               <TextField
-                hintText="Hint Text"
-                floatingLabelText="Fixed Floating Label Text"
+                floatingLabelText="ZIP CODE"
                 floatingLabelFixed={true}
                 fullWidth={true}
               />
@@ -188,10 +209,13 @@ class HomePage extends Component {
           <br /><br /><br /><br /><br />
 
           <div className="text-center">
-            <button>
-              Continue
+            <button id="continue-button">
+              <span id="continue-label">Continue</span>
+              <i id="continue-icon" className="material-icons">trending_flat</i>
             </button>
           </div>
+
+          <br /><br /><br /><br /><br />
           {/* <Link to="about" className="btn btn-primary">See About</Link>|
             <Link to="payment" className="btn btn-primary">See Payment</Link>|
           <Link to="dashboard" className="btn btn-primary">See Dashboard</Link> */}
