@@ -4,24 +4,28 @@ import SignaturePad from 'react-signature-pad';
 
 import SignatureDialog from './SignatureDialog';
 
+//  TODO: add input forms
+//  TODO: add ternary toggle for SignaturePad
+//  TODO: dumbify SignatureDialog component
 export default class ConfirmationPage extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      signatureImgData: 'none',
+      signaturePadObj: undefined,
+      signatureImgData: undefined,
       message: undefined,
       dialogOpen: false,
     };
 
     this.clearSignatureField = this.clearSignatureField.bind(this);
     this.submitSignature = this.submitSignature.bind(this);
-    this.handleOpen = this.handleOpen.bind(this);
     this.handleClose = this.handleClose.bind(this);
   }
 
-  handleOpen() {
-    this.setState({ dialogOpen: true });
+  componentDidMount() {
+    const signaturePadObj = this.signaturePad;
+    this.setState({ signaturePadObj });
   }
 
   handleClose() {
@@ -29,16 +33,16 @@ export default class ConfirmationPage extends Component {
   }
 
   clearSignatureField() {
-    const signaturePad = this.signaturePad;
-    signaturePad.clear();
+    const { signaturePadObj } = this.state;
+    signaturePadObj.clear();
   }
 
   submitSignature() {
-    const signaturePad = this.signaturePad;
-    const empty = signaturePad.isEmpty();
+    const { signaturePadObj } = this.state;
+    const empty = signaturePadObj.isEmpty();
 
     if (!empty) {
-      const signatureImgData = signaturePad.toDataURL();
+      const signatureImgData = signaturePadObj.toDataURL();
       this.setState({ signatureImgData });
     } else {
       this.setState({ dialogOpen: true });
@@ -56,12 +60,11 @@ export default class ConfirmationPage extends Component {
         <div className="signaturePad">
           <SignaturePad ref={(c) => { this.signaturePad = c; }} />
           <button onClick={this.clearSignatureField}>Redo/Clear</button>
-          <button onClick={this.submitSignature}>Checkmark</button>
+          <button onClick={this.submitSignature}>Submit</button>
         </div>
         <Link to="payment" className="btn btn-primary" id="submit">Submit</Link>
         <SignatureDialog
           open={dialogOpen}
-          openDialog={this.handleOpen}
           closeDialog={this.handleClose}
         />
       </div>
