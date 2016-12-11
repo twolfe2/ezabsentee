@@ -4,231 +4,269 @@ import TextField from 'material-ui/TextField';
 import { RadioButton } from 'material-ui/RadioButton';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
+import monthsDict from 'months';
+import statesDict from 'united-states';
+import honorific from 'honorific';
 
-const months = [
-  <MenuItem key={1} value={1} primaryText="Never" />,
-  <MenuItem key={2} value={2} primaryText="Every Night" />,
-  <MenuItem key={3} value={3} primaryText="Weeknights" />,
-  <MenuItem key={4} value={4} primaryText="Weekends" />,
-  <MenuItem key={5} value={5} primaryText="Weekly" />,
-];
+const months = monthsDict.map((month, i) => {
+  return <MenuItem key={i} value={month} primaryText={month} />;
+});
 
-const ethnicities = [
-  <MenuItem key={1} value={1} primaryText="Never" />,
-  <MenuItem key={2} value={2} primaryText="Every Night" />,
-  <MenuItem key={3} value={3} primaryText="Weeknights" />,
-  <MenuItem key={4} value={4} primaryText="Weekends" />,
-  <MenuItem key={5} value={5} primaryText="Weekly" />,
-];
+const states = statesDict.map((state, i) => {
+  return <MenuItem key={i} value={state.name} primaryText={state.name} />;
+});
 
-const titles = [
-  <MenuItem key={1} value={1} primaryText="Never" />,
-  <MenuItem key={2} value={2} primaryText="Every Night" />,
-  <MenuItem key={3} value={3} primaryText="Weeknights" />,
-  <MenuItem key={4} value={4} primaryText="Weekends" />,
-  <MenuItem key={5} value={5} primaryText="Weekly" />,
-];
+const ethnicitiesDict = 'White,Black or African American,Asian,Native American and Alaska Natives,'
+                        + 'Native Hawaiians and Other Pacific Islanders,Two or more races,'
+                        + 'Some other race';
+const ethnicities = ethnicitiesDict.split(',').map((ethnicity, i) =>
+  <MenuItem key={i} value={ethnicity} primaryText={ethnicity} />
+);
 
-const suffix = [
-  <MenuItem key={1} value={1} primaryText="Never" />,
-  <MenuItem key={2} value={2} primaryText="Every Night" />,
-  <MenuItem key={3} value={3} primaryText="Weeknights" />,
-  <MenuItem key={4} value={4} primaryText="Weekends" />,
-  <MenuItem key={5} value={5} primaryText="Weekly" />,
-];
+const titles = honorific.prefixes.map((title, i) => {
+  return <MenuItem key={i} value={title} primaryText={title} />;
+});
 
-const states = [
-  <MenuItem key={1} value={1} primaryText="Never" />,
-  <MenuItem key={2} value={2} primaryText="Every Night" />,
-  <MenuItem key={3} value={3} primaryText="Weeknights" />,
-  <MenuItem key={4} value={4} primaryText="Weekends" />,
-  <MenuItem key={5} value={5} primaryText="Weekly" />,
-];
-
+const suffix = honorific.suffixes.map((suffix, i) => {
+  return <MenuItem key={i} value={suffix} primaryText={suffix} />;
+});
 
 class HomePage extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      title: '',
+      suff: '',
+      state: '',
+      month: '',
+      ethnicity: '',
+    };
+
+    this.handleTitle = this.handleTitle.bind(this);
+    this.handleSuffix = this.handleSuffix.bind(this);
+    this.handleState = this.handleState.bind(this);
+    this.handleMonth = this.handleMonth.bind(this);
+    this.handleEthnicity = this.handleEthnicity.bind(this);
+  }
+
+  handleTitle(e, i, val) {
+    this.setState({ title: val });
+  }
+
+  handleSuffix(e, i, val) {
+    this.setState({ suff: val });
+  }
+
+  handleState(e, i, val) {
+    this.setState({ state: val });
+  }
+
+  handleMonth(e, i, val) {
+    this.setState({ month: val });
+  }
+
+  handleEthnicity(e, i, val) {
+    this.setState({ ethnicity: val });
+  }
+
   render() {
+    const { title, suff, state, month, ethnicity } = this.state;
     return (
-<div>
       <div>
-        <h1>EZ PZ ABZNT</h1>
-        <Link to="payment" className="btn btn-primary">See Payment</Link>|
-        <Link to="confirmation" className="btn btn-primary">CONFIRMATION</Link>|
-        <Link to="dashboard" className="btn btn-primary">See Dashboard</Link>
+        <div>
+          <h1>EZ PZ ABZNT</h1>
+          <Link to="payment" className="btn btn-primary">See Payment</Link>|
+          <Link to="confirmation" className="btn btn-primary">CONFIRMATION</Link>|
+          <Link to="dashboard" className="btn btn-primary">See Dashboard</Link>
         </div>
-      <div id="homepage-wrapper">
-        <div className="container" id="homepage">
-          <div id="homepage-banner-wrapper">
-            <img id="homepage-banner" src="http://i.imgur.com/VNXUZzq.png" />
+        <div id="homepage-wrapper">
+          <div className="container" id="homepage">
+            <div id="homepage-banner-wrapper">
+              <img id="homepage-banner" src="http://i.imgur.com/VNXUZzq.png" />
+            </div>
+
+            <br /><br /><br />
+
+            <div className="row">
+              <div className="col-md-2">
+                <SelectField
+                  name={"title"}
+                  id={"title"}
+                  floatingLabelText="TITLE"
+                  floatingLabelFixed={true}
+                  fullWidth={true}
+                  onChange={this.handleTitle}
+                  value={title}
+                >
+                  {titles}
+                </SelectField>
+              </div>
+              <div className="col-md-4">
+                <TextField
+                  floatingLabelText="FIRST NAME"
+                  floatingLabelFixed={true}
+                  fullWidth={true}
+                />
+              </div>
+              <div className="col-md-4">
+                <TextField
+                  floatingLabelText="LAST NAME"
+                  floatingLabelFixed={true}
+                  fullWidth={true}
+                />
+              </div>
+              <div className="col-md-2">
+                <SelectField
+                  floatingLabelText="SUFFIX"
+                  floatingLabelFixed={true}
+                  fullWidth={true}
+                  value={suff}
+                  onChange={this.handleSuffix}
+                >
+                  {suffix}
+                </SelectField>
+              </div>
+            </div>
+
+            <br /><br /><br />
+            <h6 className="text-center">
+              WHERE ARE YOU REGISTERED TO VOTE?
+            </h6>
+
+            <div className="row">
+              <div className="col-md-10">
+                <TextField
+                  floatingLabelText="STREET ADDRESS"
+                  floatingLabelFixed={true}
+                  fullWidth={true}
+                />
+              </div>
+              <div className="col-md-2">
+                <TextField
+                  floatingLabelText="APT/UNIT"
+                  floatingLabelFixed={true}
+                  fullWidth={true}
+                />
+              </div>
+            </div>
+
+            <div className="row">
+              <div className="col-md-6">
+                <TextField
+                  floatingLabelText="CITY"
+                  floatingLabelFixed={true}
+                  fullWidth={true}
+                />
+              </div>
+              <div className="col-md-2">
+                <SelectField
+                  floatingLabelText="STATE"
+                  floatingLabelFixed={true}
+                  fullWidth={true}
+                  value={state}
+                  onChange={this.handleState}
+                >
+                  {states}
+                </SelectField>
+              </div>
+              <div className="col-md-2">
+                <TextField
+                  floatingLabelText="ZIP CODE"
+                  floatingLabelFixed={true}
+                  fullWidth={true}
+                />
+              </div>
+            </div>
+
+            <br />
+
+            <div className="row">
+              <RadioButton
+                value="light"
+                label="I HAVE A DIFFERENT MAILING ADDRESS"
+              />
+            </div>
+
+            <br /><br /><br />
+            <h6 className="text-center">
+              WHEN WERE YOU BORN?
+            </h6>
+
+            <div className="row">
+              <div className="col-md-4">
+                <SelectField
+                  floatingLabelText="MONTH"
+                  floatingLabelFixed={true}
+                  fullWidth={true}
+                  value={month}
+                  onChange={this.handleMonth}
+                >
+                  {months}
+                </SelectField>
+              </div>
+              <div className="col-md-2">
+                <TextField
+                  hintText="XX"
+                  floatingLabelText="DAY"
+                  floatingLabelFixed={true}
+                  fullWidth={true}
+                />
+              </div>
+              <div className="col-md-2">
+                <TextField
+                  hintText="XXXX"
+                  floatingLabelText="YEAR"
+                  floatingLabelFixed={true}
+                  fullWidth={true}
+                />
+              </div>
+              <div className="col-md-4">
+                <SelectField
+                  floatingLabelText="ETHNICITY"
+                  floatingLabelFixed={true}
+                  fullWidth={true}
+                  value={ethnicity}
+                  onChange={this.handleEthnicity}
+                >
+                  {ethnicities}
+                </SelectField>
+              </div>
+            </div>
+
+            <div className="row">
+              <div className="col-md-4">
+                <TextField
+                  floatingLabelText="EMAIL ADDRESS"
+                  floatingLabelFixed={true}
+                  fullWidth={true}
+                />
+              </div>
+              <div className="col-md-4">
+                <TextField
+                  floatingLabelText="CELL PHONE"
+                  floatingLabelFixed={true}
+                  fullWidth={true}
+                />
+              </div>
+            </div>
+
+            <br /><br /><br /><br /><br />
+
+            <div className="text-center">
+              <button id="continue-button">
+                <span id="continue-label"><Link to="confirmation">Next</Link></span>
+                <i id="continue-icon" className="material-icons">trending_flat</i>
+              </button>
+            </div>
+
+            <br /><br /><br /><br /><br />
+            {/* <Link to="about" className="btn btn-primary">See About</Link>|
+              <Link to="payment" className="btn btn-primary">See Payment</Link>|
+            <Link to="dashboard" className="btn btn-primary">See Dashboard</Link> */}
           </div>
 
-          <br /><br /><br />
-
-          <div className="row">
-            <div className="col-md-2">
-              <SelectField
-                floatingLabelText="TITLE"
-                floatingLabelFixed={true}
-                fullWidth={true}
-              >
-                {titles}
-              </SelectField>
-            </div>
-            <div className="col-md-4">
-              <TextField
-                floatingLabelText="FIRST NAME"
-                floatingLabelFixed={true}
-                fullWidth={true}
-              />
-            </div>
-            <div className="col-md-4">
-              <TextField
-                floatingLabelText="LAST NAME"
-                floatingLabelFixed={true}
-                fullWidth={true}
-              />
-            </div>
-            <div className="col-md-2">
-              <SelectField
-                floatingLabelText="SUFFIX"
-                floatingLabelFixed={true}
-                fullWidth={true}
-              >
-                {suffix}
-              </SelectField>
-            </div>
-          </div>
-
-          <br /><br /><br />
-          <h6 className="text-center">
-            WHERE ARE YOU REGISTERED TO VOTE?
-          </h6>
-
-          <div className="row">
-            <div className="col-md-10">
-              <TextField
-                floatingLabelText="STREET ADDRESS"
-                floatingLabelFixed={true}
-                fullWidth={true}
-              />
-            </div>
-            <div className="col-md-2">
-              <TextField
-                floatingLabelText="APT/UNIT"
-                floatingLabelFixed={true}
-                fullWidth={true}
-              />
-            </div>
-          </div>
-
-          <div className="row">
-            <div className="col-md-6">
-              <TextField
-                floatingLabelText="CITY"
-                floatingLabelFixed={true}
-                fullWidth={true}
-              />
-            </div>
-            <div className="col-md-2">
-              <SelectField
-                floatingLabelText="STATE"
-                floatingLabelFixed={true}
-                fullWidth={true}
-              >
-                {states}
-              </SelectField>
-            </div>
-            <div className="col-md-2">
-              <TextField
-                floatingLabelText="ZIP CODE"
-                floatingLabelFixed={true}
-                fullWidth={true}
-              />
-            </div>
-          </div>
-
-          <br />
-
-          <div className="row">
-            <RadioButton
-              value="light"
-              label="I HAVE A DIFFERENT MAILING ADDRESS"
-            />
-          </div>
-
-          <br /><br /><br />
-          <h6 className="text-center">
-            WHEN WERE YOU BORN?
-          </h6>
-
-          <div className="row">
-            <div className="col-md-4">
-              <SelectField
-                floatingLabelText="MONTH"
-                floatingLabelFixed={true}
-              >
-                {months}
-              </SelectField>
-            </div>
-            <div className="col-md-2">
-              <TextField
-                hintText="XX"
-                floatingLabelText="DAY"
-                floatingLabelFixed={true}
-                fullWidth={true}
-              />
-            </div>
-            <div className="col-md-2">
-              <TextField
-                hintText="XXXX"
-                floatingLabelText="YEAR"
-                floatingLabelFixed={true}
-                fullWidth={true}
-              />
-            </div>
-            <div className="col-md-4">
-              <SelectField
-                floatingLabelText="ETHNICITY"
-                floatingLabelFixed={true}
-              >
-                {ethnicities}
-              </SelectField>
-            </div>
-          </div>
-
-          <div className="row">
-            <div className="col-md-4">
-              <TextField
-                floatingLabelText="EMAIL ADDRESS"
-                floatingLabelFixed={true}
-                fullWidth={true}
-              />
-            </div>
-            <div className="col-md-4">
-              <TextField
-                floatingLabelText="CELL PHONE"
-                floatingLabelFixed={true}
-                fullWidth={true}
-              />
-            </div>
-          </div>
-
-          <br /><br /><br /><br /><br />
-
-          <div className="text-center">
-            <button id="continue-button">
-              <span id="continue-label"><Link to="confirmation">Next</Link></span>
-              <i id="continue-icon" className="material-icons">trending_flat</i>
-            </button>
-          </div>
-
-          <br /><br /><br /><br /><br />
-          {/* <Link to="about" className="btn btn-primary">See About</Link>|
-            <Link to="payment" className="btn btn-primary">See Payment</Link>|
-          <Link to="dashboard" className="btn btn-primary">See Dashboard</Link> */}
         </div>
-
-      </div>
       </div>
     );
   }
