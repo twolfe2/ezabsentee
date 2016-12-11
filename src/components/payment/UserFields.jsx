@@ -20,7 +20,7 @@ export default class UserFields extends Component {
     return (
       <div className='user-info container'>
         <div className='row'>
-          <div className='col-sm-6'>
+          <div className='col-sm-4'>
             <label>Name on card</label>
             <TextField
               type="text"
@@ -32,7 +32,7 @@ export default class UserFields extends Component {
             />
           </div>
 
-          <div className='col-sm-6'>
+          <div className='col-sm-4'>
             <label>Email</label>
             <TextField
               type="email"

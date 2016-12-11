@@ -152,20 +152,20 @@ export default class PaymentPage extends Component {
         <p className="page-subtitle">Pays for printing, shipping, and handling</p>
         <div className="price-tag">
           <p className="price-tag-title">Price</p>
-          <p>$1.00</p>
+          <p>$2.00</p>
         </div>
-        <UserFields user={this.state.user} handleChange={this.handleUserChange} />
-        <PaymentFields cardErrors={this.state.card_errors} />
+        <div id="payment-inputs">
+          <UserFields user={this.state.user} handleChange={this.handleUserChange} />
+          <PaymentFields cardErrors={this.state.card_errors} />
+        </div>
 
         {/* <div>
           <input type="submit" id="submit" value="Finish & Send" className="btn btn-primary" onClick={this.handleSubmit} disabled={this.state.is_processing}/>
         </div> */}
-        <div>
-          <div><Stepper step={3} /></div>
-          <button id="submit" className='btn btn-primary'>
-            <Link to="/finish">Finish & Send</Link>
-          </button>
-        </div>
+          <div className="payment-stepper"><Stepper step={3} /></div>
+
+            <Link id="payment-submit" to="/finish">Finish & Send</Link>
+
       </div>
     );
   }

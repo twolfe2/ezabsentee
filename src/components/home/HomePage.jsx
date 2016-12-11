@@ -219,13 +219,12 @@ class HomePage extends Component {
 
           <br /><br /><br /><br /><br />
 
-          <div className="text-center">
-            <button id="continue-button">
-              <span id="continue-label"><Link to="confirmation">Next</Link></span>
-              <i id="continue-icon" className="material-icons">trending_flat</i>
-            </button>
+          <div className="text-center col-md-offset-5">
+          <div  className="first-stepper">
+            <Stepper step={1} />
           </div>
-          <Stepper step={1} />
+            <Link to="confirmation" className="common-button">Next</Link>
+          </div>
           <br /><br /><br /><br /><br />
           {/* <Link to="about" className="btn btn-primary">See About</Link>|
             <Link to="payment" className="btn btn-primary">See Payment</Link>|
