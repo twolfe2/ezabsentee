@@ -22,10 +22,10 @@ export default class ShippingFields extends Component {
   render() {
     return (
       <div className='billing-info container'>
-        <h3 className='billing-title'>Billing Address</h3>
+        <h3 id='h3billing' className='billing-title'>Billing Address</h3>
 
         <div className='row'>
-          <div className='col-sm-8'>
+          <div className='col-sm-6'>
             <label>Street Address</label>
             <TextField
               type="text"
@@ -37,7 +37,7 @@ export default class ShippingFields extends Component {
             />
           </div>
 
-          <div className='col-sm-4'>
+          <div className='col-sm-6'>
             <label>Apt/unit</label>
             <TextField
               type="text"
@@ -51,7 +51,7 @@ export default class ShippingFields extends Component {
         </div>
 
         <div className='row'>
-          <div className='col-md-6'>
+          <div className='col-sm-6'>
             <label>City</label>
             <TextField
               type="text"
@@ -65,6 +65,7 @@ export default class ShippingFields extends Component {
 
           <div className='col-md-4'>
             <label>State</label>
+            <br />
             <select
               id="state"
               ref="state"
@@ -126,7 +127,7 @@ export default class ShippingFields extends Component {
             </select>
           </div>
 
-          <div className='col-md-2'>
+          <div className='col-sm-6'>
             <label>Zip Code</label>
             <TextField
               type="text"
