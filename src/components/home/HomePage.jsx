@@ -24,176 +24,178 @@ const ethnicities = [
 class HomePage extends Component {
   render() {
     return (
-      <div className="container" id="landing">
-        <h1 className="text-center">Easy Absentee</h1>
-        <div className="text-center">
-          ONE STOP ABSENTEE REGISTRATION, FOR JUST A COUPLE BUCKS
+      <div id="homepage-wrapper">
+        <div className="container" id="landing">
+          <img src="LogoText.png" />
+          <div className="text-center">
+            ONE STOP ABSENTEE REGISTRATION, FOR JUST A COUPLE BUCKS
+          </div>
+
+          <br /><br /><br />
+
+          <div className="row">
+            <div className="col-md-2">
+              <TextField
+                hintText="Hint Text"
+                floatingLabelText="Fixed Floating Label Text"
+                floatingLabelFixed={true}
+                fullWidth={true}
+              />
+            </div>
+            <div className="col-md-4">
+              <TextField
+                hintText="Hint Text"
+                floatingLabelText="Fixed Floating Label Text"
+                floatingLabelFixed={true}
+                fullWidth={true}
+              />
+            </div>
+            <div className="col-md-4">
+              <TextField
+                hintText="Hint Text"
+                floatingLabelText="Fixed Floating Label Text"
+                floatingLabelFixed={true}
+                fullWidth={true}
+              />
+            </div>
+            <div className="col-md-2">
+              <TextField
+                hintText="Hint Text"
+                floatingLabelText="Fixed Floating Label Text"
+                floatingLabelFixed={true}
+                fullWidth={true}
+              />
+            </div>
+          </div>
+
+          <br /><br /><br />
+          <h6 className="text-center">
+            WHERE ARE YOU REGISTERED TO VOTE?
+          </h6>
+
+          <div className="row">
+            <div className="col-md-10">
+              <TextField
+                hintText="Hint Text"
+                floatingLabelText="Fixed Floating Label Text"
+                floatingLabelFixed={true}
+                fullWidth={true}
+              />
+            </div>
+            <div className="col-md-2">
+              <TextField
+                hintText="Hint Text"
+                floatingLabelText="Fixed Floating Label Text"
+                floatingLabelFixed={true}
+                fullWidth={true}
+              />
+            </div>
+          </div>
+
+          <div className="row">
+            <div className="col-md-6">
+              <TextField
+                hintText="Hint Text"
+                floatingLabelText="Fixed Floating Label Text"
+                floatingLabelFixed={true}
+                fullWidth={true}
+              />
+            </div>
+            <div className="col-md-2">
+              <TextField
+                hintText="Hint Text"
+                floatingLabelText="Fixed Floating Label Text"
+                floatingLabelFixed={true}
+                fullWidth={true}
+              />
+            </div>
+            <div className="col-md-2">
+              <TextField
+                hintText="Hint Text"
+                floatingLabelText="Fixed Floating Label Text"
+                floatingLabelFixed={true}
+                fullWidth={true}
+              />
+            </div>
+          </div>
+
+          <br />
+
+          <div className="row">
+            <RadioButton
+              value="light"
+              label="I HAVE A DIFFERENT MAILING ADDRESS"
+            />
+          </div>
+
+          <br /><br /><br />
+          <h6 className="text-center">
+            WHEN WERE YOU BORN?
+          </h6>
+
+          <div className="row">
+            <div className="col-md-4">
+              <SelectField
+                floatingLabelText="MONTH"
+                floatingLabelFixed={true}
+              >
+                {months}
+              </SelectField>
+            </div>
+            <div className="col-md-2">
+              <TextField
+                hintText="XX"
+                floatingLabelText="DAY"
+                floatingLabelFixed={true}
+                fullWidth={true}
+              />
+            </div>
+            <div className="col-md-2">
+              <TextField
+                hintText="XXXX"
+                floatingLabelText="YEAR"
+                floatingLabelFixed={true}
+                fullWidth={true}
+              />
+            </div>
+            <div className="col-md-4">
+              <SelectField
+                floatingLabelText="ETHNICITY"
+                floatingLabelFixed={true}
+              >
+                {ethnicities}
+              </SelectField>
+            </div>
+          </div>
+
+          <div className="row">
+            <div className="col-md-4">
+              <TextField
+                floatingLabelText="EMAIL ADDRESS"
+                floatingLabelFixed={true}
+                fullWidth={true}
+              />
+            </div>
+            <div className="col-md-4">
+              <TextField
+                floatingLabelText="CELL PHONE"
+                floatingLabelFixed={true}
+                fullWidth={true}
+              />
+            </div>
+          </div>
+
+          <br /><br /><br /><br /><br />
+
+          <div className="text-center">
+            <button>
+              Continue
+            </button>
+          </div>
+          {/* <Link to="about" className="btn btn-primary">See About</Link>|
+            <Link to="payment" className="btn btn-primary">See Payment</Link>|
+          <Link to="dashboard" className="btn btn-primary">See Dashboard</Link> */}
         </div>
-
-        <br /><br /><br />
-
-        <div className="row">
-          <div className="col-md-2">
-            <TextField
-              hintText="Hint Text"
-              floatingLabelText="Fixed Floating Label Text"
-              floatingLabelFixed={true}
-              fullWidth={true}
-            />
-          </div>
-          <div className="col-md-4">
-            <TextField
-              hintText="Hint Text"
-              floatingLabelText="Fixed Floating Label Text"
-              floatingLabelFixed={true}
-              fullWidth={true}
-            />
-          </div>
-          <div className="col-md-4">
-            <TextField
-              hintText="Hint Text"
-              floatingLabelText="Fixed Floating Label Text"
-              floatingLabelFixed={true}
-              fullWidth={true}
-            />
-          </div>
-          <div className="col-md-2">
-            <TextField
-              hintText="Hint Text"
-              floatingLabelText="Fixed Floating Label Text"
-              floatingLabelFixed={true}
-              fullWidth={true}
-            />
-          </div>
-        </div>
-
-        <br /><br /><br />
-        <h6 className="text-center">
-          WHERE ARE YOU REGISTERED TO VOTE?
-        </h6>
-
-        <div className="row">
-          <div className="col-md-10">
-            <TextField
-              hintText="Hint Text"
-              floatingLabelText="Fixed Floating Label Text"
-              floatingLabelFixed={true}
-              fullWidth={true}
-            />
-          </div>
-          <div className="col-md-2">
-            <TextField
-              hintText="Hint Text"
-              floatingLabelText="Fixed Floating Label Text"
-              floatingLabelFixed={true}
-              fullWidth={true}
-            />
-          </div>
-        </div>
-
-        <div className="row">
-          <div className="col-md-6">
-            <TextField
-              hintText="Hint Text"
-              floatingLabelText="Fixed Floating Label Text"
-              floatingLabelFixed={true}
-              fullWidth={true}
-            />
-          </div>
-          <div className="col-md-2">
-            <TextField
-              hintText="Hint Text"
-              floatingLabelText="Fixed Floating Label Text"
-              floatingLabelFixed={true}
-              fullWidth={true}
-            />
-          </div>
-          <div className="col-md-2">
-            <TextField
-              hintText="Hint Text"
-              floatingLabelText="Fixed Floating Label Text"
-              floatingLabelFixed={true}
-              fullWidth={true}
-            />
-          </div>
-        </div>
-
-        <br />
-
-        <div className="row">
-          <RadioButton
-            value="light"
-            label="I HAVE A DIFFERENT MAILING ADDRESS"
-          />
-        </div>
-
-        <br /><br /><br />
-        <h6 className="text-center">
-          WHEN WERE YOU BORN?
-        </h6>
-
-        <div className="row">
-          <div className="col-md-4">
-            <SelectField
-              floatingLabelText="MONTH"
-              floatingLabelFixed={true}
-            >
-              {months}
-            </SelectField>
-          </div>
-          <div className="col-md-2">
-            <TextField
-              hintText="XX"
-              floatingLabelText="DAY"
-              floatingLabelFixed={true}
-              fullWidth={true}
-            />
-          </div>
-          <div className="col-md-2">
-            <TextField
-              hintText="XXXX"
-              floatingLabelText="YEAR"
-              floatingLabelFixed={true}
-              fullWidth={true}
-            />
-          </div>
-          <div className="col-md-4">
-            <SelectField
-              floatingLabelText="ETHNICITY"
-              floatingLabelFixed={true}
-            >
-              {ethnicities}
-            </SelectField>
-          </div>
-        </div>
-
-        <div className="row">
-          <div className="col-md-4">
-            <TextField
-              floatingLabelText="EMAIL ADDRESS"
-              floatingLabelFixed={true}
-              fullWidth={true}
-            />
-          </div>
-          <div className="col-md-4">
-            <TextField
-              floatingLabelText="CELL PHONE"
-              floatingLabelFixed={true}
-              fullWidth={true}
-            />
-          </div>
-        </div>
-
-        <br /><br /><br /><br /><br />
-
-        <div className="text-center">
-          <button>
-            Continue
-          </button>
-        </div>
-        {/* <Link to="about" className="btn btn-primary">See About</Link>|
-          <Link to="payment" className="btn btn-primary">See Payment</Link>|
-        <Link to="dashboard" className="btn btn-primary">See Dashboard</Link> */}
       </div>
     );
   }
