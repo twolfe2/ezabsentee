@@ -217,7 +217,7 @@ class HomePage extends Component {
 
           <div className="text-center">
             <button id="continue-button">
-              <span id="continue-label">Continue</span>
+              <span id="continue-label"><Link to="confirmation">Next</Link></span>
               <i id="continue-icon" className="material-icons">trending_flat</i>
             </button>
           </div>
