@@ -384,6 +384,9 @@ a.active {
   justify-content: center;
   align-items: center;
   text-decoration: none;
+  & > a {
+    text-decoration: none;
+  }
 }
 
 .step-oval {

@@ -56,7 +56,7 @@ export default class ConfirmationPage extends Component {
       <div id="confirmation-page">
         <h2 className="confirmationTitle">CONFIRM & SIGN</h2>
         <p className="page-subtitle">Review the details of your application, and sign below</p>
-        <div className="Rectangle-5">View PDF of application</div>
+        <div className="Rectangle-5"><a href="http://elections.cdn.sos.ca.gov/vote-by-mail/pdf/vote-by-mail-application.pdf" target="_blank">View PDF of application</a></div>
         <div className="signaturePad">
           <SignaturePad ref={(c) => { this.signaturePad = c; }} />
           <button onClick={this.clearSignatureField}>Redo/Clear</button>

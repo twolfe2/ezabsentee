@@ -102,6 +102,9 @@ class HomePage extends Component {
                   fullWidth={true}
                   onChange={this.handleTitle}
                   value={title}
+                  floatingLabelStyle={{
+                    color: '#ffffff',
+                  }}
                 >
                   {titles}
                 </SelectField>
@@ -111,6 +114,9 @@ class HomePage extends Component {
                   floatingLabelText="FIRST NAME"
                   floatingLabelFixed={true}
                   fullWidth={true}
+                  floatingLabelStyle={{
+                    color: '#ffffff',
+                  }}
                 />
               </div>
               <div className="col-md-4">
@@ -118,6 +124,9 @@ class HomePage extends Component {
                   floatingLabelText="LAST NAME"
                   floatingLabelFixed={true}
                   fullWidth={true}
+                  floatingLabelStyle={{
+                    color: '#ffffff',
+                  }}
                 />
               </div>
               <div className="col-md-2">
@@ -127,6 +136,9 @@ class HomePage extends Component {
                   fullWidth={true}
                   value={suff}
                   onChange={this.handleSuffix}
+                  floatingLabelStyle={{
+                    color: '#ffffff',
+                  }}
                 >
                   {suffix}
                 </SelectField>
@@ -144,6 +156,9 @@ class HomePage extends Component {
                   floatingLabelText="STREET ADDRESS"
                   floatingLabelFixed={true}
                   fullWidth={true}
+                  floatingLabelStyle={{
+                    color: '#ffffff',
+                  }}
                 />
               </div>
               <div className="col-md-2">
@@ -151,6 +166,9 @@ class HomePage extends Component {
                   floatingLabelText="APT/UNIT"
                   floatingLabelFixed={true}
                   fullWidth={true}
+                  floatingLabelStyle={{
+                    color: '#ffffff',
+                  }}
                 />
               </div>
             </div>
@@ -161,6 +179,9 @@ class HomePage extends Component {
                   floatingLabelText="CITY"
                   floatingLabelFixed={true}
                   fullWidth={true}
+                  floatingLabelStyle={{
+                    color: '#ffffff',
+                  }}
                 />
               </div>
               <div className="col-md-2">
@@ -170,6 +191,9 @@ class HomePage extends Component {
                   fullWidth={true}
                   value={state}
                   onChange={this.handleState}
+                  floatingLabelStyle={{
+                    color: '#ffffff',
+                  }}
                 >
                   {states}
                 </SelectField>
@@ -179,6 +203,9 @@ class HomePage extends Component {
                   floatingLabelText="ZIP CODE"
                   floatingLabelFixed={true}
                   fullWidth={true}
+                  floatingLabelStyle={{
+                    color: '#ffffff',
+                  }}
                 />
               </div>
             </div>
@@ -205,6 +232,9 @@ class HomePage extends Component {
                   fullWidth={true}
                   value={month}
                   onChange={this.handleMonth}
+                  floatingLabelStyle={{
+                    color: '#ffffff',
+                  }}
                 >
                   {months}
                 </SelectField>
@@ -215,6 +245,9 @@ class HomePage extends Component {
                   floatingLabelText="DAY"
                   floatingLabelFixed={true}
                   fullWidth={true}
+                  floatingLabelStyle={{
+                    color: '#ffffff',
+                  }}
                 />
               </div>
               <div className="col-md-2">
@@ -223,6 +256,9 @@ class HomePage extends Component {
                   floatingLabelText="YEAR"
                   floatingLabelFixed={true}
                   fullWidth={true}
+                  floatingLabelStyle={{
+                    color: '#ffffff',
+                  }}
                 />
               </div>
               <div className="col-md-4">
@@ -232,6 +268,9 @@ class HomePage extends Component {
                   fullWidth={true}
                   value={ethnicity}
                   onChange={this.handleEthnicity}
+                  floatingLabelStyle={{
+                    color: '#ffffff',
+                  }}
                 >
                   {ethnicities}
                 </SelectField>
@@ -244,6 +283,9 @@ class HomePage extends Component {
                   floatingLabelText="EMAIL ADDRESS"
                   floatingLabelFixed={true}
                   fullWidth={true}
+                  floatingLabelStyle={{
+                    color: '#ffffff',
+                  }}
                 />
               </div>
               <div className="col-md-4">
@@ -251,6 +293,9 @@ class HomePage extends Component {
                   floatingLabelText="CELL PHONE"
                   floatingLabelFixed={true}
                   fullWidth={true}
+                  floatingLabelStyle={{
+                    color: '#ffffff',
+                  }}
                 />
               </div>
             </div>
