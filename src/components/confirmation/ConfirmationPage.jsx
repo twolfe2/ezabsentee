@@ -60,7 +60,6 @@ export default class ConfirmationPage extends Component {
         <div className="signaturePad">
           <SignaturePad ref={(c) => { this.signaturePad = c; }} />
           <button onClick={this.clearSignatureField}>Redo/Clear</button>
-          <button onClick={this.submitSignature}>Submit</button>
         </div>
         <Link to="payment" className="btn btn-primary" id="submit">Submit</Link>
         <div className="confirmation-stepper">
