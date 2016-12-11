@@ -23,7 +23,7 @@ export default class ConfirmationPage extends Component {
   render() {
     // check for if this.state.is_payment_success == true to show confirmation screen
     return (
-      <div id="payment-page">
+      <div id="confirmation-page">
         <h2 className="page-title">CONFIRM & SIGN</h2>
         <p className="page-subtitle">Don’t want to go to the post office? We
         take care of your absentee ballot from start to finish, and for just a
