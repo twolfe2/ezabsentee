@@ -49,3 +49,42 @@ a.active {
     }
   }
 }
+
+.animation1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: absolute;
+  background-image: linear-gradient(158deg, #57b2f2, #e188e8 86%, #f881e7);
+}
+
+.animation2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: absolute;
+  background-image: linear-gradient(156deg, #f39855, #b681f8);
+}
+
+.background-enter {
+  transform: translate(100%);
+}
+.background-enter.background-enter-active {
+  transform: translate(0%);
+  transition: transform 3000ms ease-in-out;
+}
+.background-leave {
+  transform: translate(0%);
+}
+.background-leave.background-leave-active {
+  transform: translate(-100%);
+  transition: transform 3000ms ease-in-out;
+}
