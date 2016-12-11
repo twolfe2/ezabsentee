@@ -86,21 +86,20 @@ export default class ConfirmationPage extends Component {
       <div id="confirmation-page">
         <h2 className="confirmation-title">CONFIRM & SIGN</h2>
         <p className="review-message">Review the details of your application, and sign below</p>
-        <div className="Rectangle-5">
-          <div className="Combined-Shape" />
-          View PDF of application
+        <div className="view-text-container">
+          <h4 className="view-text">View PDF of Application</h4>
         </div>
 
         <InputFields />
 
         <div className={signatureTrigger}>
           <SignaturePad className="signature-pad" ref={(c) => { this.signaturePad = c; }} />
-          <button onClick={this.exitSignatureField}>Exit</button>
-          <button onClick={this.clearSignatureField}>Redo/Clear</button>
-          <button onClick={this.submitSignature}>Submit</button>
+          <button className="signature-exit" onClick={this.exitSignatureField}>X</button>
+          <button className="signature-clear" onClick={this.clearSignatureField}>Erase</button>
+          <button className="signature-submit" onClick={this.submitSignature}>O</button>
         </div>
         <div className={signatureButton}>
-          <button onClick={this.triggerSignature} id="signature-trigger">Submit Signature</button>
+          <button onClick={this.triggerSignature} id="signature-trigger">Add Your Signature</button>
         </div>
         <IconButton
           iconClassName="muidocs-icon-custom-github"
