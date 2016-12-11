@@ -141,7 +141,7 @@ class FinishPage extends Component {
         <div className="rocket-text">
           CHYEA, BOY. Your absentee application is on it’s way to your local government.
         </div>
-        <a href="https://facebook.com" className="btn btn-primary" id="share"><span>LET THE WORLD KNOW IT’S EASY</span></a>
+        <a href="https://twitter.com" className="btn btn-primary" id="share"><span>LET THE WORLD KNOW IT’S EASY</span></a>
       </div>
     );
   }

@@ -22526,11 +22526,6 @@
 	            'button',
 	            { onClick: this.clearSignatureField },
 	            'Redo/Clear'
-	          ),
-	          _react2.default.createElement(
-	            'button',
-	            { onClick: this.submitSignature },
-	            'Submit'
 	          )
 	        ),
 	        _react2.default.createElement(
@@ -22782,7 +22777,7 @@
 	        ),
 	        _react2.default.createElement(
 	          'a',
-	          { href: 'https://facebook.com', className: 'btn btn-primary', id: 'share' },
+	          { href: 'https://twitter.com', className: 'btn btn-primary', id: 'share' },
 	          _react2.default.createElement(
 	            'span',
 	            null,
@@ -23129,27 +23124,18 @@
 	            _react2.default.createElement('br', null),
 	            _react2.default.createElement(
 	              'div',
-	              { className: 'text-center' },
+	              { className: 'text-center col-md-offset-5' },
 	              _react2.default.createElement(
-	                'button',
-	                { id: 'continue-button' },
-	                _react2.default.createElement(
-	                  'span',
-	                  { id: 'continue-label' },
-	                  _react2.default.createElement(
-	                    _reactRouter.Link,
-	                    { to: 'confirmation' },
-	                    'Next'
-	                  )
-	                ),
-	                _react2.default.createElement(
-	                  'i',
-	                  { id: 'continue-icon', className: 'material-icons' },
-	                  'trending_flat'
-	                )
+	                'div',
+	                { className: 'first-stepper' },
+	                _react2.default.createElement(_Stepper2.default, { step: 1 })
+	              ),
+	              _react2.default.createElement(
+	                _reactRouter.Link,
+	                { to: 'confirmation', className: 'common-button' },
+	                'Next'
 	              )
 	            ),
-	            _react2.default.createElement(_Stepper2.default, { step: 1 }),
 	            _react2.default.createElement('br', null),
 	            _react2.default.createElement('br', null),
 	            _react2.default.createElement('br', null),
@@ -23384,28 +23370,24 @@
 	          _react2.default.createElement(
 	            'p',
 	            null,
-	            '$1.00'
+	            '$2.00'
 	          )
 	        ),
-	        _react2.default.createElement(_UserFields2.default, { user: this.state.user, handleChange: this.handleUserChange }),
-	        _react2.default.createElement(PaymentFields, { cardErrors: this.state.card_errors }),
 	        _react2.default.createElement(
 	          'div',
-	          null,
-	          _react2.default.createElement(
-	            'div',
-	            null,
-	            _react2.default.createElement(_Stepper2.default, { step: 3 })
-	          ),
-	          _react2.default.createElement(
-	            'button',
-	            { id: 'submit', className: 'btn btn-primary' },
-	            _react2.default.createElement(
-	              _reactRouter.Link,
-	              { to: '/finish' },
-	              'Finish & Send'
-	            )
-	          )
+	          { id: 'payment-inputs' },
+	          _react2.default.createElement(_UserFields2.default, { user: this.state.user, handleChange: this.handleUserChange }),
+	          _react2.default.createElement(PaymentFields, { cardErrors: this.state.card_errors })
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'payment-stepper' },
+	          _react2.default.createElement(_Stepper2.default, { step: 3 })
+	        ),
+	        _react2.default.createElement(
+	          _reactRouter.Link,
+	          { id: 'payment-submit', to: '/finish' },
+	          'Finish & Send'
 	        )
 	      );
 	    }
@@ -24331,7 +24313,7 @@
 	          { className: 'row' },
 	          _react2.default.createElement(
 	            'div',
-	            { className: 'col-sm-6' },
+	            { className: 'col-sm-4' },
 	            _react2.default.createElement(
 	              'label',
 	              null,
@@ -24348,7 +24330,7 @@
 	          ),
 	          _react2.default.createElement(
 	            'div',
-	            { className: 'col-sm-6' },
+	            { className: 'col-sm-4' },
 	            _react2.default.createElement(
 	              'label',
 	              null,
@@ -29921,7 +29903,7 @@
 	
 	
 	// module
-	exports.push([module.id, "a.active {\n  color: orange; }\n\n#h3billing {\n  padding-right: 80px; }\n\n#payment-page {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  color: #fff;\n  font-family: Roboto;\n  position: absolute;\n  background-image: linear-gradient(158deg, #57b2f2, #e188e8 86%, #f881e7);\n  padding: 4%; }\n  #payment-page .page-title {\n    font-size: 40px;\n    font-weight: 300;\n    text-align: center; }\n  #payment-page .page-subtitle {\n    font-size: 14px;\n    font-weight: 300;\n    text-align: center;\n    margin-top: -30px; }\n  #payment-page .price-tag {\n    width: 76px;\n    height: 76px;\n    border-radius: 50%;\n    background-color: #fff;\n    margin-bottom: 50px;\n    margin-top: 20px; }\n    #payment-page .price-tag p {\n      font-size: 18px;\n      font-weight: bold;\n      text-align: center;\n      color: #7ea6ef; }\n    #payment-page .price-tag p:first-child {\n      font-size: 11px;\n      margin-top: 15px;\n      margin-bottom: -10px; }\n  #payment-page label {\n    width: 91px;\n    height: 13px;\n    opacity: 0.5;\n    font-family: Roboto;\n    font-size: 11px;\n    font-weight: bold;\n    font-style: normal;\n    font-stretch: normal;\n    color: #ffffff;\n    text-transform: uppercase;\n    position: absolute; }\n  #payment-page input {\n    margin-right: 20px; }\n  #payment-page .user-info {\n    width: 75%; }\n  #payment-page .billing-title {\n    font-size: 11px;\n    font-weight: bold;\n    text-align: center;\n    margin-right: auto;\n    margin-left: auto;\n    text-transform: uppercase; }\n  #payment-page .billing-info {\n    width: 75%; }\n    #payment-page .billing-info .state {\n      margin-left: 5px; }\n      #payment-page .billing-info .state select {\n        margin-top: 15px; }\n  #payment-page .card-info {\n    margin-top: 20px;\n    width: 75%; }\n    #payment-page .card-info div {\n      margin-top: 10px; }\n      #payment-page .card-info div input {\n        margin-top: 10px; }\n      #payment-page .card-info div label {\n        margin-top: -15px; }\n  #payment-page #submit {\n    width: 248px;\n    height: 46px;\n    border-radius: 100px;\n    background-color: #0a163b;\n    box-shadow: 0 0 20px 0 #6f58ab;\n    color: #fff;\n    margin-top: 50px;\n    margin-bottom: 50px;\n    position: absolute;\n    bottom: 0; }\n    #payment-page #submit a {\n      text-decoration: none;\n      color: #fff; }\n\n#confirmation-page {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  color: #fff;\n  font-family: Roboto;\n  position: absolute;\n  background-image: linear-gradient(158deg, #57b2f2, #e188e8 86%, #f881e7);\n  padding: 5%; }\n  #confirmation-page #submit {\n    position: absolute;\n    width: 248px;\n    height: 46px;\n    border-radius: 100px;\n    background-color: #0a163b;\n    box-shadow: 0 0 20px 0 #6f58ab;\n    color: #fff;\n    margin-top: 50px;\n    margin-bottom: 50px;\n    bottom: 0;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    text-decoration: none; }\n\n.m-signature-pad {\n  position: absolute;\n  font-size: 10px;\n  width: 700px;\n  height: 400px;\n  top: 50%;\n  left: 50%;\n  margin-left: -350px;\n  margin-top: -200px;\n  border: 1px solid #e8e8e8;\n  background-color: #fff;\n  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.27), 0 0 40px rgba(0, 0, 0, 0.08) inset;\n  border-radius: 4px;\n  -moz-user-select: none;\n  -webkit-user-select: none;\n  -ms-user-select: none; }\n\n.m-signature-pad--body {\n  position: absolute;\n  left: 20px;\n  right: 20px;\n  top: 20px;\n  bottom: 60px;\n  border: 1px solid #f4f4f4; }\n\n.m-signature-pad--body\ncanvas {\n  position: absolute;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  border-radius: 4px;\n  box-shadow: 0 0 5px rgba(0, 0, 0, 0.02) inset; }\n\n.m-signature-pad--footer {\n  position: absolute;\n  left: 20px;\n  right: 20px;\n  bottom: 20px;\n  height: 40px; }\n\n.m-signature-pad--footer\n.description {\n  color: #C3C3C3;\n  text-align: center;\n  font-size: 1.2em;\n  margin-top: 1.8em; }\n\n.m-signature-pad--footer\n.button {\n  position: absolute;\n  bottom: 0; }\n\n.m-signature-pad--footer\n.button.clear {\n  left: 0; }\n\n.m-signature-pad--footer\n.button.save {\n  right: 0; }\n\n@media screen and (max-width: 1024px) {\n  .m-signature-pad {\n    top: 0;\n    left: 0;\n    right: 0;\n    bottom: 0;\n    width: auto;\n    height: auto;\n    min-width: 250px;\n    min-height: 140px;\n    margin: 5%; }\n  #github {\n    display: none; } }\n\n@media screen and (min-device-width: 768px) and (max-device-width: 1024px) {\n  .m-signature-pad {\n    margin: 10%; } }\n\n@media screen and (max-height: 320px) {\n  .m-signature-pad--body {\n    left: 0;\n    right: 0;\n    top: 0;\n    bottom: 32px; }\n  .m-signature-pad--footer {\n    left: 20px;\n    right: 20px;\n    bottom: 4px;\n    height: 28px; }\n  .m-signature-pad--footer\n.description {\n    font-size: 1em;\n    margin-top: 1em; } }\n\n#homepage-wrapper {\n  display: flex;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  position: absolute;\n  background-image: linear-gradient(156deg, #f39855, #b681f8);\n  overflow: scroll; }\n\n#homepage-banner {\n  width: 55%;\n  height: 55%; }\n\n#homepage-banner-wrapper {\n  display: flex;\n  justify-content: center; }\n\n#homepage {\n  font-family: 'Roboto', sans-serif;\n  color: #ffffff;\n  width: 75%; }\n\n#continue-label {\n  font-size: 16pt; }\n\n.confirmationTitle {\n  width: 359px;\n  height: 47px;\n  font-family: Roboto;\n  font-size: 40px;\n  font-weight: 300;\n  font-style: normal;\n  font-stretch: normal;\n  text-align: center;\n  color: #ffffff; }\n\n.Rectangle-5 {\n  width: 218px;\n  height: 38px;\n  text-align: center;\n  border-radius: 19px;\n  border: solid 1px #ffffff; }\n\n.step-oval {\n  width: 12px;\n  height: 12px;\n  background-color: clear;\n  box-shadow: 0 0 8px 0 #9c49b0;\n  display: inline-block;\n  margin-left: 14.5px;\n  border-radius: 50%;\n  cursor: pointer; }\n\n.step-oval-active {\n  background-color: #ffffff; }\n\n.confirmation-stepper {\n  position: absolute;\n  bottom: 110px; }\n\n.finish-page {\n  margin: 0;\n  padding: 0;\n  width: 100%;\n  height: 100%;\n  overflow: hidden;\n  -webkit-backdrop-filter: blur(10px);\n  backdrop-filter: blur(10px);\n  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), linear-gradient(158deg, #57b2f2, #e188e8 86%, #f881e7);\n  background-color: rgba(0, 0, 0, 0.5);\n  position: absolute;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0; }\n\n.rocket {\n  position: absolute;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  width: 210.4px;\n  height: 210.6px;\n  top: 200px; }\n\n.rocket-text {\n  position: absolute;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  top: 430px;\n  width: 524px;\n  height: 70px;\n  font-family: Roboto;\n  font-size: 30px;\n  font-weight: normal;\n  font-style: normal;\n  font-stretch: normal;\n  text-align: center;\n  color: #ffffff; }\n\n#share {\n  position: absolute;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  top: 500px;\n  width: 397px;\n  height: 56px;\n  border-radius: 28px;\n  background-color: #0a163c;\n  box-shadow: 0 0 20px 0 #7c4f8c;\n  background-color: #0a163b;\n  color: #fff;\n  margin-top: 50px;\n  margin-bottom: 50px;\n  font-family: Roboto;\n  font-size: 18px;\n  font-weight: bold;\n  font-style: normal;\n  font-stretch: normal;\n  text-decoration: none; }\n  #share > span {\n    display: inline-block;\n    margin-top: 17px; }\n", ""]);
+	exports.push([module.id, "a.active {\n  color: orange; }\n\n.payment-stepper {\n  margin-top: 25px;\n  bottom: 115px;\n  position: absolute;\n  margin-left: -4px; }\n\n.page-bottom {\n  position: absolute;\n  bottom: 0;\n  margin-bottom: 50px; }\n\n#h3billing {\n  padding-right: 80px; }\n\n#payment-page {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  color: #fff;\n  font-family: Roboto;\n  position: absolute;\n  background-image: linear-gradient(158deg, #57b2f2, #e188e8 86%, #f881e7);\n  padding: 4%; }\n  #payment-page #payment-inputs {\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    margin-left: 310px; }\n  #payment-page .page-title {\n    font-size: 40px;\n    font-weight: 300;\n    text-align: center; }\n  #payment-page .page-subtitle {\n    font-size: 14px;\n    font-weight: 300;\n    text-align: center;\n    margin-top: -30px; }\n  #payment-page .price-tag {\n    width: 76px;\n    height: 76px;\n    border-radius: 50%;\n    background-color: #fff;\n    margin-bottom: 50px;\n    margin-top: 20px; }\n    #payment-page .price-tag p {\n      font-size: 18px;\n      font-weight: bold;\n      text-align: center;\n      color: #7ea6ef; }\n    #payment-page .price-tag p:first-child {\n      font-size: 11px;\n      margin-top: 15px;\n      margin-bottom: -10px; }\n  #payment-page label {\n    width: 91px;\n    height: 13px;\n    opacity: 0.5;\n    font-family: Roboto;\n    font-size: 11px;\n    font-weight: bold;\n    font-style: normal;\n    font-stretch: normal;\n    color: #ffffff;\n    text-transform: uppercase;\n    position: absolute; }\n  #payment-page input {\n    margin-right: 20px; }\n  #payment-page .user-info {\n    width: 75%; }\n  #payment-page .billing-title {\n    font-size: 11px;\n    font-weight: bold;\n    text-align: center;\n    margin-right: auto;\n    margin-left: auto;\n    text-transform: uppercase; }\n  #payment-page .billing-info {\n    width: 75%; }\n    #payment-page .billing-info .state {\n      margin-left: 5px; }\n      #payment-page .billing-info .state select {\n        margin-top: 15px; }\n  #payment-page .card-info {\n    margin-top: 20px;\n    width: 75%; }\n    #payment-page .card-info div {\n      margin-top: 10px; }\n      #payment-page .card-info div input {\n        margin-top: 10px; }\n      #payment-page .card-info div label {\n        margin-top: -15px; }\n  #payment-page #payment-submit {\n    position: absolute;\n    width: 248px;\n    height: 46px;\n    border-radius: 100px;\n    background-color: #0a163b;\n    box-shadow: 0 0 20px 0 #6f58ab;\n    color: #fff;\n    margin-top: 25px;\n    margin-bottom: 50px;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    text-decoration: none;\n    bottom: 0; }\n    #payment-page #payment-submit a {\n      text-decoration: none;\n      color: #fff; }\n\n#confirmation-page {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  color: #fff;\n  font-family: Roboto;\n  position: absolute;\n  background-image: linear-gradient(158deg, #57b2f2, #e188e8 86%, #f881e7);\n  padding: 5%; }\n  #confirmation-page #submit {\n    position: absolute;\n    width: 248px;\n    height: 46px;\n    border-radius: 100px;\n    background-color: #0a163b;\n    box-shadow: 0 0 20px 0 #6f58ab;\n    color: #fff;\n    margin-top: 50px;\n    margin-bottom: 50px;\n    bottom: 0;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    text-decoration: none; }\n\n.m-signature-pad {\n  position: absolute;\n  font-size: 10px;\n  width: 700px;\n  height: 400px;\n  top: 50%;\n  left: 50%;\n  margin-left: -350px;\n  margin-top: -120px;\n  border: 1px solid #e8e8e8;\n  background-color: #fff;\n  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.27), 0 0 40px rgba(0, 0, 0, 0.08) inset;\n  border-radius: 4px;\n  -moz-user-select: none;\n  -webkit-user-select: none;\n  -ms-user-select: none; }\n\n.m-signature-pad--body {\n  position: absolute;\n  left: 20px;\n  right: 20px;\n  top: 20px;\n  bottom: 60px;\n  border: 1px solid #f4f4f4; }\n\n.m-signature-pad--body\ncanvas {\n  position: absolute;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  border-radius: 4px;\n  box-shadow: 0 0 5px rgba(0, 0, 0, 0.02) inset; }\n\n.m-signature-pad--footer {\n  position: absolute;\n  left: 20px;\n  right: 20px;\n  bottom: 20px;\n  height: 40px; }\n\n.m-signature-pad--footer\n.description {\n  color: #C3C3C3;\n  text-align: center;\n  font-size: 1.2em;\n  margin-top: 1.8em; }\n\n.m-signature-pad--footer\n.button {\n  position: absolute;\n  bottom: 0; }\n\n.m-signature-pad--footer\n.button.clear {\n  left: 0; }\n\n.m-signature-pad--footer\n.button.save {\n  right: 0; }\n\n@media screen and (max-width: 1024px) {\n  .m-signature-pad {\n    top: 0;\n    left: 0;\n    right: 0;\n    bottom: 0;\n    width: auto;\n    height: auto;\n    min-width: 250px;\n    min-height: 140px;\n    margin: 5%; }\n  #github {\n    display: none; } }\n\n@media screen and (min-device-width: 768px) and (max-device-width: 1024px) {\n  .m-signature-pad {\n    margin: 10%; } }\n\n@media screen and (max-height: 320px) {\n  .m-signature-pad--body {\n    left: 0;\n    right: 0;\n    top: 0;\n    bottom: 32px; }\n  .m-signature-pad--footer {\n    left: 20px;\n    right: 20px;\n    bottom: 4px;\n    height: 28px; }\n  .m-signature-pad--footer\n.description {\n    font-size: 1em;\n    margin-top: 1em; } }\n\n#homepage-wrapper {\n  display: flex;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  position: absolute;\n  background-image: linear-gradient(156deg, #f39855, #b681f8);\n  overflow: scroll; }\n\n#homepage-banner {\n  width: 55%;\n  height: 55%; }\n\n#homepage-banner-wrapper {\n  display: flex;\n  justify-content: center; }\n\n#homepage {\n  font-family: 'Roboto', sans-serif;\n  color: #ffffff;\n  width: 75%; }\n\n#continue-label {\n  font-size: 16pt; }\n\n.confirmationTitle {\n  width: 359px;\n  height: 47px;\n  font-family: Roboto;\n  font-size: 40px;\n  font-weight: 300;\n  font-style: normal;\n  font-stretch: normal;\n  text-align: center;\n  color: #ffffff; }\n\n.Rectangle-5 {\n  width: 218px;\n  height: 38px;\n  text-align: center;\n  border-radius: 19px;\n  border: solid 1px #ffffff;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  text-decoration: none; }\n\n.step-oval {\n  width: 12px;\n  height: 12px;\n  background-color: clear;\n  box-shadow: 0 0 8px 0 #9c49b0;\n  display: inline-block;\n  margin-left: 14.5px;\n  border-radius: 50%;\n  cursor: pointer; }\n\n.step-oval-active {\n  background-color: #ffffff; }\n\n.confirmation-stepper {\n  position: absolute;\n  bottom: 110px;\n  margin-left: -10px; }\n\n.finish-page {\n  margin: 0;\n  padding: 0;\n  width: 100%;\n  height: 100%;\n  overflow: hidden;\n  -webkit-backdrop-filter: blur(10px);\n  backdrop-filter: blur(10px);\n  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), linear-gradient(158deg, #57b2f2, #e188e8 86%, #f881e7);\n  background-color: rgba(0, 0, 0, 0.5);\n  position: absolute;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0; }\n\n.rocket {\n  position: absolute;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  width: 210.4px;\n  height: 210.6px;\n  top: 200px; }\n\n.rocket-text {\n  position: absolute;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  top: 430px;\n  width: 524px;\n  height: 70px;\n  font-family: Roboto;\n  font-size: 30px;\n  font-weight: normal;\n  font-style: normal;\n  font-stretch: normal;\n  text-align: center;\n  color: #ffffff; }\n\n#share {\n  position: absolute;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  top: 500px;\n  width: 397px;\n  height: 56px;\n  border-radius: 28px;\n  background-color: #0a163c;\n  box-shadow: 0 0 20px 0 #7c4f8c;\n  background-color: #0a163b;\n  color: #fff;\n  margin-top: 50px;\n  margin-bottom: 50px;\n  font-family: Roboto;\n  font-size: 18px;\n  font-weight: bold;\n  font-style: normal;\n  font-stretch: normal;\n  text-decoration: none; }\n  #share > span {\n    display: inline-block;\n    margin-top: 17px; }\n\n.common-button {\n  width: 248px;\n  height: 46px;\n  border-radius: 100px;\n  background-color: #0a163b;\n  box-shadow: 0 0 20px 0 #6f58ab;\n  color: #fff;\n  margin-top: 10px;\n  margin-bottom: 50px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  text-decoration: none; }\n\n.first-stepper {\n  text-align: center;\n  display: inline-block;\n  margin-left: 77px;\n  margin-bottom: 15px; }\n", ""]);
 	
 	// exports
 

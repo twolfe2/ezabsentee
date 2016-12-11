@@ -220,9 +220,7 @@ class HomePage extends Component {
           <br /><br /><br /><br /><br />
 
           <div className="text-center col-md-offset-5">
-          <div  className="first-stepper">
-            <Stepper step={1} />
-          </div>
+            <Stepper step={1} className="first-stepper" />
             <Link to="confirmation" className="common-button">Next</Link>
           </div>
           <br /><br /><br /><br /><br />
