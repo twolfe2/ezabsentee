@@ -145,8 +145,9 @@ a.active {
   color: #fff;
   font-family: Roboto;
   position: absolute;
-  background-image: linear-gradient(158deg, #57b2f2, #e188e8 86%, #f881e7);
+  background-image: linear-gradient(158deg, #f27157, #e43892 82%, #e12c9e, #f881e7);
   padding: 5%;
+  overflow: scroll;
 
   #submit {
     position: absolute;
@@ -282,7 +283,6 @@ a.active {
 .m-signature-pad {
   margin-top: 0px;
 }
-
 
 #homepage-wrapper {
   display: flex;
