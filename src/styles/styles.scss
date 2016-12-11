@@ -16,7 +16,6 @@ a.active {
   background-image: linear-gradient(158deg, #57b2f2, #e188e8 86%, #f881e7);
   padding: 5%;
 
-
   .page-title {
     font-size: 40px;
     font-weight: 300;
@@ -106,6 +105,38 @@ a.active {
 // CSS for SignaturePad component of ConfirmationPage
 // CSS for SignaturePad component of ConfirmationPage
 // CSS for SignaturePad component of ConfirmationPage
+#confirmation-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  color: #fff;
+  font-family: Roboto;
+  position: absolute;
+  background-image: linear-gradient(158deg, #57b2f2, #e188e8 86%, #f881e7);
+  padding: 5%;
+
+  #submit {
+    position: absolute;
+    width: 248px;
+    height: 46px;
+    border-radius: 100px;
+    background-color: #0a163b;
+    box-shadow: 0 0 20px 0 #6f58ab;
+    color: #fff;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+  }
+}
+
 .m-signature-pad {
   position: absolute;
   font-size: 10px;
