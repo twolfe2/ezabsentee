@@ -40,7 +40,6 @@ export default class PaymentPage extends Component {
   }
 
   componentDidMount() {
-    
     //Place square payment form function in componentDidMount
     //Because it has to be called after the DOM renders the divs
     this.paymentForm = new SqPaymentForm({
@@ -157,15 +156,14 @@ export default class PaymentPage extends Component {
         <div id="payment-inputs">
           <UserFields user={this.state.user} handleChange={this.handleUserChange} />
           <PaymentFields cardErrors={this.state.card_errors} />
+          <ShippingFields shipping={this.state.shipping} handleChange={this.handleUserChange} />
         </div>
 
         {/* <div>
           <input type="submit" id="submit" value="Finish & Send" className="btn btn-primary" onClick={this.handleSubmit} disabled={this.state.is_processing}/>
         </div> */}
           <div className="payment-stepper"><Stepper step={3} /></div>
-
-            <Link id="payment-submit" to="/finish">Finish & Send</Link>
-
+          <Link id="payment-submit" to="/finish">Finish & Send</Link>
       </div>
     );
   }
@@ -183,34 +181,29 @@ class PaymentFields extends Component {
         <div id="card-errors">{cardErrorNodes}</div>
 
         <div className='row'>
-
-
           <div className='card-number col-md-6'>
-
             <label>Card Number</label>
             <div id="sq-card-number"></div>
           </div>
-
 
           <div className='expiration-date col-md-6'>
             <label>Expiration</label>
             <div id="sq-expiration-date"></div>
           </div>
-
-      <div className='row'>
-        <div className='cvv col-md-6'>
-          <label>CVV</label>
-          <div id="sq-cvv"></div>
         </div>
 
-        <div className='cc-postal-code col-md-6'>
-          <label>Postal Code</label>
-          <div  id="sq-postal-code"></div>
+        <div className='row'>
+          <div className='cvv col-md-6'>
+            <label>CVV</label>
+            <div id="sq-cvv"></div>
+          </div>
+
+          <div className='cc-postal-code col-md-6'>
+            <label>Postal Code</label>
+            <div  id="sq-postal-code"></div>
+          </div>
         </div>
 
-        </div>
-
-      </div>
       </div>
     );
   }

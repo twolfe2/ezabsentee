@@ -20,25 +20,23 @@ export default class UserFields extends Component {
     return (
       <div className='user-info container'>
         <div className='row'>
-          <div className='col-sm-4'>
+          <div className='col-md-6'>
             <label>Name on card</label>
             <TextField
               type="text"
               id="name"
               ref="name"
-              placeholder="Name"
               defaultValue={this.props.user.name}
               onChange={this.handleChange}
             />
           </div>
 
-          <div className='col-sm-4'>
+          <div className='col-md-6'>
             <label>Email</label>
             <TextField
               type="email"
               id="email"
               ref="email"
-              placeholder="Email"
               defaultValue={this.props.user.email}
               onChange={this.handleChange}
             />
