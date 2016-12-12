@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Pacifico');
+
 html, body, #app  {
 }
 
@@ -176,8 +178,9 @@ a.active {
   color: #fff;
   font-family: Roboto;
   position: absolute;
-  background-image: linear-gradient(158deg, #57b2f2, #e188e8 86%, #f881e7);
+  background-image: linear-gradient(158deg, #f27157, #e43892 82%, #e12c9e, #f881e7);
   padding: 5%;
+  overflow: scroll;
 
   #submit {
     position: absolute;
@@ -205,7 +208,8 @@ a.active {
   top: 50%;
   left: 50%;
   margin-left: -350px;
-  margin-top: -120px;
+  margin-top: 0px;
+  margin-bottom: 15em;
   border: 1px solid #e8e8e8;
   background-color: #fff;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.27), 0 0 40px rgba(0, 0, 0, 0.08) inset;
@@ -219,8 +223,8 @@ a.active {
   position: absolute;
   left: 20px;
   right: 20px;
-  top: 20px;
-  bottom: 60px;
+  top: 60px;
+  bottom: 20px;
   border: 1px solid #f4f4f4;
 }
 
@@ -310,9 +314,6 @@ a.active {
     }
 }
 
-
-
-
 #homepage-wrapper {
   display: flex;
   // justify-content: center;
@@ -356,13 +357,68 @@ a.active {
   box-shadow: 0 0 20px 0 #a867a6;
 }
 
+// END of SignaturePad component of ConfirmationPage
+// END of SignaturePad component of ConfirmationPage
+// END of SignaturePad component of ConfirmationPage
+.review-message {
+  width: 400px;
+  height: 16px;
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: 300;
+  font-style: normal;
+  font-stretch: normal;
+  text-align: center;
+  color: #ffffff;
+}
 
-// END of SignaturePad component of ConfirmationPage
-// END of SignaturePad component of ConfirmationPage
-// END of SignaturePad component of ConfirmationPage
+.disabled-link {
+  pointer-events: none;
+}
 
-.confirmationTitle {
+.Combined-Shape {
+  width: 13.2px;
+  height: 8px;
+  object-fit: contain;
+  background-color: #ffffff;
+}
+
+.signaturePadHidden {
+  display: none;
+}
+
+.signaturePad {
+  display: block;
+  position: relative;
+}
+
+.signatureButtonHidden {
+  display: none;
+}
+
+.signatureButton {
+  display: block;
+}
+
+#signature-trigger {
+  width: 692px;
+  height: 104px;
+  border-radius: 54px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: solid 1px #ffffff;
+  display: block;
+  font-family: Pacifico;
+  font-size: 40px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  color: #fda5c5;
+}
+
+
+.confirmation-title {
   width: 359px;
+  margin-bottom: 0;
   height: 47px;
   font-family: Roboto;
   font-size: 40px;
@@ -373,16 +429,43 @@ a.active {
   color: #ffffff;
 }
 
-.Rectangle-5 {
+.view-text-container {
   width: 218px;
   height: 38px;
   text-align: center;
   border-radius: 19px;
   border: solid 1px #ffffff;
+  margin-top: 10px;
+}
+
+.signature-exit {
+  position: absolute;
+  right: 27em;
+  top: 1em;
+}
+
+.signature-clear {
+  position: absolute;
+  top: 1em;
+}
+
+.signature-submit {
+  position: absolute;
+  left: 27em;
+  top: 1em;
+}
+
+.view-text {
+  width: 152px;
+  height: 16px;
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: bold;
   display: flex;
   justify-content: center;
   align-items: center;
   text-decoration: none;
+
   & > a {
     text-decoration: none;
   }
@@ -407,7 +490,6 @@ a.active {
   position: absolute;
   bottom: 110px;
   margin-left: -10px;
-
 }
 
 .finish-page {
@@ -428,7 +510,6 @@ a.active {
   left: 0;
   right: 0;
   bottom: 0;
-
 }
 
 .rocket {
@@ -452,10 +533,11 @@ a.active {
   font-family: Roboto;
   font-size: 30px;
   font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
   text-align: center;
   color: #ffffff;
+  margin: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 #share {
