@@ -4,6 +4,7 @@ import App from './components/App';
 import HomePage from './components/home/HomePage';
 import PaymentPage from './components/payment/PaymentPage';
 import ConfirmationPage from './components/confirmation/ConfirmationPage';
+import FinishPage from './components/finish/FinishPage'
 
 export default (
   <Route path="/" component={App}>

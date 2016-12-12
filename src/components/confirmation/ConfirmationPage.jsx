@@ -9,7 +9,7 @@ import FlatButton from 'material-ui/FlatButton';
 
 import InputFields from './InputFields';
 import SignatureDialog from './SignatureDialog';
-// import iconButton from './iconButton';
+import Stepper from '../stepper/Stepper';
 
 export default class ConfirmationPage extends Component {
   constructor(props) {

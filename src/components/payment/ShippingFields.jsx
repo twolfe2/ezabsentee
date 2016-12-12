@@ -22,7 +22,7 @@ export default class ShippingFields extends Component {
   render() {
     return (
       <div className='billing-info container'>
-        <h3 className='billing-title'>Billing Address</h3>
+        <h3 id='h3billing' className='billing-title'>Billing Address</h3>
 
         <div className='row'>
           <div className='col-sm-6'>
@@ -31,7 +31,6 @@ export default class ShippingFields extends Component {
               type="text"
               id="street_address_1"
               ref="street_address_1"
-              placeholder="Address Line 1"
               defaultValue={this.props.shipping.address1}
               onChange={this.handleChange}
             />
@@ -43,7 +42,6 @@ export default class ShippingFields extends Component {
               type="text"
               id="street_address_2"
               ref="street_address_2"
-              placeholder="Address Line 2"
               defaultValue={this.props.shipping.address2}
               onChange={this.handleChange}
             />
@@ -51,35 +49,30 @@ export default class ShippingFields extends Component {
         </div>
 
         <div className='row'>
-          <div className='col-md-6'>
+          <div className='col-sm-6'>
             <label>City</label>
             <TextField
               type="text"
               id="city"
               ref="city"
-              placeholder="City"
               defaultValue={this.props.shipping.city}
               onChange={this.handleChange}
             />
           </div>
 
-          <div className='col-md-6'>
+          <div className='col-sm-6'>
             <label>Zip Code</label>
             <TextField
               type="text"
               id="zip"
               ref="zip"
-              placeholder="Zip"
               defaultValue={this.props.shipping.zip}
               onChange={this.handleChange}
             />
           </div>
 
-
-
           <div className='row'>
-
-            <div className='col-md-6 state'>
+            <div className='col-md-4 state'>
               <label>State</label>
               <select
                 id="state"
