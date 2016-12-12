@@ -35,7 +35,6 @@ const suffix = honorific.suffixes.map((suffix, i) => {
 });
 
 class HomePage extends Component {
-
   constructor() {
     super();
 
@@ -309,9 +308,6 @@ class HomePage extends Component {
             <Link to="confirmation" className="common-button">Next</Link>
           </div>
           <br /><br /><br /><br /><br />
-          {/* <Link to="about" className="btn btn-primary">See About</Link>|
-            <Link to="payment" className="btn btn-primary">See Payment</Link>|
-          <Link to="dashboard" className="btn btn-primary">See Dashboard</Link> */}
         </div>
       </div>
       </div>
