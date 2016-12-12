@@ -1,5 +1,4 @@
 html, body, #app  {
-
 }
 
 a.active {
@@ -30,7 +29,6 @@ a.active {
   top: 0;
   left: 0;
   right: 0;
-  bottom: 0;
   color: #fff;
   font-family: Roboto;
   position: absolute;
@@ -508,19 +506,3 @@ a.active {
     margin-left: 77px;
     margin-bottom: 15px;
 }
-
-// // XXS style overrides
-// @media screen and (min-width: $screen-iphone-6) {
-//   @import 'shared/compass_xxs';
-// }
-//
-// // SM style overrides
-// @media screen and (min-width: $screen-sm-min) {
-//   @import 'shared/compass_sm';
-// }
-//
-// // MD style overrides
-// @media screen and (min-width: $screen-md-min) {
-//   @import 'shared/compass_md';
-// }
-// }

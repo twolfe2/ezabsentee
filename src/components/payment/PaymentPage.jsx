@@ -40,7 +40,6 @@ export default class PaymentPage extends Component {
   }
 
   componentDidMount() {
-
     //Place square payment form function in componentDidMount
     //Because it has to be called after the DOM renders the divs
     this.paymentForm = new SqPaymentForm({
@@ -204,6 +203,7 @@ class PaymentFields extends Component {
             <div  id="sq-postal-code"></div>
           </div>
         </div>
+
       </div>
     );
   }
