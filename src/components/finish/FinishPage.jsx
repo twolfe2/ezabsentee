@@ -18,24 +18,24 @@ class FinishPage extends Component {
   componentDidMount() {
     var COLORS, Confetti, NUM_CONFETTI, PI_2, canvas, confetti, context, drawCircle, i, range, resizeWindow, xpos;
 
-  NUM_CONFETTI = 350;
+    NUM_CONFETTI = 350;
 
-  COLORS = [[255, 255, 255], [255, 255, 255], [255, 255, 255], [255, 255, 255], [255, 255, 255]];
+    COLORS = [[255, 255, 255], [255, 255, 255], [255, 255, 255], [255, 255, 255], [255, 255, 255]];
 
-  PI_2 = 2 * Math.PI;
+    PI_2 = 2 * Math.PI;
 
-  canvas = document.getElementById("world");
+    canvas = document.getElementById("world");
 
-  context = canvas.getContext("2d");
+    context = canvas.getContext("2d");
 
-  window.w = 0;
+    window.w = 0;
 
-  window.h = 0;
+    window.h = 0;
 
-  resizeWindow = function() {
-    window.w = canvas.width = window.innerWidth;
-    return window.h = canvas.height = window.innerHeight;
-  };
+    resizeWindow = function() {
+      window.w = canvas.width = window.innerWidth;
+      return window.h = canvas.height = window.innerHeight;
+    };
 
   window.addEventListener('resize', resizeWindow, false);
 
@@ -159,4 +159,3 @@ const mapStateToProps = (state) => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(FinishPage);
-
