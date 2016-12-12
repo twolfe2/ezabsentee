@@ -4,6 +4,7 @@ import TextField from 'material-ui/TextField';
 import ProductFields from './ProductFields';
 import UserFields from './UserFields';
 import ShippingFields from './ShippingFields';
+import Stepper from '../stepper/Stepper';
 var $ = require ('jquery');
 
 const SQUARE_APPLICATION_ID = "sandbox-sq0idp-sC2SWt1rPYYkKzOWkRHE_Q"
@@ -46,24 +47,27 @@ export default class PaymentPage extends Component {
       inputClass: 'sq-input',
       inputStyles: [
           {
-            fontSize: '14px',
-            padding: '7px 12px',
+            padding: '9px 1px',
             backgroundColor: "transparent"
           }
         ],
       cardNumber: {
+        fontSize: '12px',
         elementId: 'sq-card-number',
         placeholder: '0000 0000 0000 0000'
       },
       cvv: {
+        fontSize: '14px',
         elementId: 'sq-cvv',
         placeholder: 'CVV'
       },
       expirationDate: {
+        fontSize: '14px',
         elementId: 'sq-expiration-date',
         placeholder: 'MM/YY'
       },
       postalCode: {
+        fontSize: '14px',
         elementId: 'sq-postal-code',
         placeholder: '94110'
       },
@@ -147,17 +151,19 @@ export default class PaymentPage extends Component {
         <p className="page-subtitle">Pays for printing, shipping, and handling</p>
         <div className="price-tag">
           <p className="price-tag-title">Price</p>
-          <p>$1.00</p>
+          <p>$2.00</p>
         </div>
-        <UserFields user={this.state.user} handleChange={this.handleUserChange} />
-        <PaymentFields cardErrors={this.state.card_errors} />
-        <ShippingFields shipping={this.state.shipping} handleChange={this.handleShippingChange} />
+        <div id="payment-inputs">
+          <UserFields user={this.state.user} handleChange={this.handleUserChange} />
+          <PaymentFields cardErrors={this.state.card_errors} />
+          <ShippingFields shipping={this.state.shipping} handleChange={this.handleUserChange} />
+        </div>
+
         {/* <div>
           <input type="submit" id="submit" value="Finish & Send" className="btn btn-primary" onClick={this.handleSubmit} disabled={this.state.is_processing}/>
         </div> */}
-        <button id="submit" className='btn btn-primary'>
-          <Link to="/">Finish & Send</Link>
-        </button>
+          <div className="payment-stepper"><Stepper step={3} /></div>
+          <Link id="payment-submit" to="/finish">Finish & Send</Link>
       </div>
     );
   }
@@ -175,7 +181,6 @@ class PaymentFields extends Component {
         <div id="card-errors">{cardErrorNodes}</div>
 
         <div className='row'>
-
           <div className='card-number col-md-6'>
             <label>Card Number</label>
             <div id="sq-card-number"></div>
@@ -185,21 +190,19 @@ class PaymentFields extends Component {
             <label>Expiration</label>
             <div id="sq-expiration-date"></div>
           </div>
-
         </div>
 
-      <div className='row'>
-        <div className='cvv col-md-6'>
-          <label>CVV</label>
-          <div id="sq-cvv"></div>
-        </div>
+        <div className='row'>
+          <div className='cvv col-md-6'>
+            <label>CVV</label>
+            <div id="sq-cvv"></div>
+          </div>
 
-        <div className='cc-postal-code col-md-6'>
-          <label>Postal Code</label>
-          <div  id="sq-postal-code"></div>
+          <div className='cc-postal-code col-md-6'>
+            <label>Postal Code</label>
+            <div  id="sq-postal-code"></div>
+          </div>
         </div>
-
-      </div>
 
       </div>
     );
