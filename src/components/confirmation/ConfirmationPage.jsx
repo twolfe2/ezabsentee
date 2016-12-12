@@ -5,6 +5,7 @@ import SignaturePad from 'react-signature-pad';
 //  For Icons
 import RaisedButton from 'material-ui/RaisedButton';
 import IconButton from 'material-ui/IconButton';
+import FlatButton from 'material-ui/FlatButton';
 
 import InputFields from './InputFields';
 import SignatureDialog from './SignatureDialog';
@@ -101,11 +102,13 @@ export default class ConfirmationPage extends Component {
         <div className={signatureButton}>
           <button onClick={this.triggerSignature} id="signature-trigger">Add Your Signature</button>
         </div>
-        <IconButton
-          iconClassName="muidocs-icon-custom-github"
-        />
         {/* <RaisedButton label="Next Step" secondary={true} disabled={submitCheck} style={style} /> */}
         <Link to="payment" className="btn btn-default" id="submit">Next</Link>
+
+        <FlatButton className="profileBtn">
+          <i class="material-icons" style={{color: '#FFb347 ',fontSize: '48px', paddingLeft: '10px', transform: 'translateY(10%)' }}>vpn_key</i> Change Password
+        </FlatButton>
+
         <SignatureDialog
           open={dialogOpen}
           closeDialog={this.handleClose}
