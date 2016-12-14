@@ -34,8 +34,9 @@ const suffix = honorific.suffixes.map((suffix, i) => {
   return <MenuItem key={i} value={suffix} primaryText={suffix} />;
 });
 
-class HomePage extends Component {
 
+//  TODO: Create form for seperate mailing address
+class HomePage extends Component {
   constructor() {
     super();
 
@@ -43,15 +44,35 @@ class HomePage extends Component {
       title: '',
       suff: '',
       state: '',
-      month: '',
       ethnicity: '',
+      firstName: '',
+      lastName: '',
+      registeredStreet: '',
+      registeredAptNum: '',
+      registeredCity: '',
+      registeredZipCode: '',
+      birthDate: '',
+      birthMonth: '',
+      birthYear: '',
+      email: '',
+      cellPhone: '',
     };
 
     this.handleTitle = this.handleTitle.bind(this);
+    this.handleInput = this.handleInput.bind(this);
     this.handleSuffix = this.handleSuffix.bind(this);
     this.handleState = this.handleState.bind(this);
     this.handleMonth = this.handleMonth.bind(this);
     this.handleEthnicity = this.handleEthnicity.bind(this);
+    this.sendUserInfo = this.sendUserInfo.bind(this);
+  }
+
+  handleInput(e, i, val) {
+    const inputVal = e.target.value;
+    const inputId = e.target.id;
+    console.log('inputVal: ', inputVal);
+    console.log('inputId: ', inputId);
+    this.setState({ [inputId]: inputVal });
   }
 
   handleTitle(e, i, val) {
@@ -67,15 +88,19 @@ class HomePage extends Component {
   }
 
   handleMonth(e, i, val) {
-    this.setState({ month: val });
+    this.setState({ birthMonth: val });
   }
 
   handleEthnicity(e, i, val) {
     this.setState({ ethnicity: val });
   }
 
+  sendUserInfo(info) {
+    console.log('info: ', info);
+  }
+
   render() {
-    const { title, suff, state, month, ethnicity } = this.state;
+    const { title, suff, state, birthMonth, ethnicity } = this.state;
     return (
       <div>
         <div>
@@ -95,8 +120,8 @@ class HomePage extends Component {
             <div className="row">
               <div className="col-md-2">
                 <SelectField
-                  name={"title"}
-                  id={"title"}
+                  name="title"
+                  id="title"
                   floatingLabelText="TITLE"
                   floatingLabelFixed={true}
                   fullWidth={true}
@@ -117,6 +142,8 @@ class HomePage extends Component {
                   floatingLabelStyle={{
                     color: '#ffffff',
                   }}
+                  id="firstName"
+                  onChange={this.handleInput}
                 />
               </div>
               <div className="col-md-4">
@@ -127,6 +154,8 @@ class HomePage extends Component {
                   floatingLabelStyle={{
                     color: '#ffffff',
                   }}
+                  id="lastName"
+                  onChange={this.handleInput}
                 />
               </div>
               <div className="col-md-2">
@@ -159,6 +188,8 @@ class HomePage extends Component {
                   floatingLabelStyle={{
                     color: '#ffffff',
                   }}
+                  id="registeredStreet"
+                  onChange={this.handleInput}
                 />
               </div>
               <div className="col-md-2">
@@ -169,6 +200,8 @@ class HomePage extends Component {
                   floatingLabelStyle={{
                     color: '#ffffff',
                   }}
+                  id="registeredAptNum"
+                  onChange={this.handleInput}
                 />
               </div>
             </div>
@@ -182,6 +215,8 @@ class HomePage extends Component {
                   floatingLabelStyle={{
                     color: '#ffffff',
                   }}
+                  id="registeredCity"
+                  onChange={this.handleInput}
                 />
               </div>
               <div className="col-md-2">
@@ -206,6 +241,8 @@ class HomePage extends Component {
                   floatingLabelStyle={{
                     color: '#ffffff',
                   }}
+                  id="registeredZipCode"
+                  onChange={this.handleInput}
                 />
               </div>
             </div>
@@ -230,7 +267,7 @@ class HomePage extends Component {
                   floatingLabelText="MONTH"
                   floatingLabelFixed={true}
                   fullWidth={true}
-                  value={month}
+                  value={birthMonth}
                   onChange={this.handleMonth}
                   floatingLabelStyle={{
                     color: '#ffffff',
@@ -248,6 +285,8 @@ class HomePage extends Component {
                   floatingLabelStyle={{
                     color: '#ffffff',
                   }}
+                  id="birthDate"
+                  onChange={this.handleInput}
                 />
               </div>
               <div className="col-md-2">
@@ -259,6 +298,8 @@ class HomePage extends Component {
                   floatingLabelStyle={{
                     color: '#ffffff',
                   }}
+                  id="birthYear"
+                  onChange={this.handleInput}
                 />
               </div>
               <div className="col-md-4">
@@ -286,6 +327,8 @@ class HomePage extends Component {
                   floatingLabelStyle={{
                     color: '#ffffff',
                   }}
+                  id="email"
+                  onChange={this.handleInput}
                 />
               </div>
               <div className="col-md-4">
@@ -296,6 +339,8 @@ class HomePage extends Component {
                   floatingLabelStyle={{
                     color: '#ffffff',
                   }}
+                  id="cellPhone"
+                  onChange={this.handleInput}
                 />
               </div>
             </div>
@@ -306,12 +351,13 @@ class HomePage extends Component {
             <div className="first-stepper">
               <Stepper step={1} />
             </div>
-            <Link to="confirmation" className="common-button">Next</Link>
+            <Link
+              to="confirmation"
+              className="common-button"
+              onClick={this.sendUserInfo(this.state)}
+            >Next</Link>
           </div>
           <br /><br /><br /><br /><br />
-          {/* <Link to="about" className="btn btn-primary">See About</Link>|
-            <Link to="payment" className="btn btn-primary">See Payment</Link>|
-          <Link to="dashboard" className="btn btn-primary">See Dashboard</Link> */}
         </div>
       </div>
       </div>

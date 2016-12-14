@@ -1,6 +1,5 @@
 import * as types from './actionTypes';
 
-
 export default {
   updateLocality(locality) {
     return { type: types.UPDATE_LOCALITY, locality };

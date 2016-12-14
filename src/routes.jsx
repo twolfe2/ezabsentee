@@ -11,5 +11,6 @@ export default (
     <IndexRoute component={HomePage} />
     <Route path="confirmation" component={ConfirmationPage} />
     <Route path="payment" component={PaymentPage} />
+    <Route path="finish" component={FinishPage} />
   </Route>
   );
