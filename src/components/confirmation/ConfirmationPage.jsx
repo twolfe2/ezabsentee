@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
+import { connect } from 'react-redux';
 import SignaturePad from 'react-signature-pad';
 
 //  For Icons
@@ -11,7 +12,7 @@ import InputFields from './InputFields';
 import SignatureDialog from './SignatureDialog';
 import Stepper from '../stepper/Stepper';
 
-export default class ConfirmationPage extends Component {
+class ConfirmationPage extends Component {
   constructor(props) {
     super(props);
 
@@ -83,6 +84,9 @@ export default class ConfirmationPage extends Component {
       margin: 12,
     };
 
+    const { userInfo } = this.props;
+    console.log('userInfo: ', userInfo);
+
     return (
       <div id="confirmation-page">
         <h2 className="confirmation-title">CONFIRM & SIGN</h2>
@@ -91,7 +95,7 @@ export default class ConfirmationPage extends Component {
           <h4 className="view-text">View PDF of Application</h4>
         </div>
 
-        <InputFields />
+        <InputFields values={userInfo} />
 
         <div className={signatureTrigger}>
           <SignaturePad className="signature-pad" ref={(c) => { this.signaturePad = c; }} />
@@ -117,3 +121,12 @@ export default class ConfirmationPage extends Component {
     );
   }
 }
+
+
+const mapDispatchToProps = (dispatch) => ({
+});
+const mapStateToProps = (state) => ({
+  userInfo: state.userInfo,
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(ConfirmationPage);

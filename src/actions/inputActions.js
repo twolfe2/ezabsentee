@@ -10,5 +10,7 @@ export default {
   updateQ(q) {
     return { type: types.UPDATE_Q, q };
   },
-
+  sendUserInfo(info) {
+    return { type: types.SEND_USER_INFO, info };
+  },
 };

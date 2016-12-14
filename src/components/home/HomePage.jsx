@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
+import { connect } from 'react-redux';
+
+import InputActions from '../../actions/inputActions'
+
 import TextField from 'material-ui/TextField';
 import { RadioButton } from 'material-ui/RadioButton';
 import SelectField from 'material-ui/SelectField';
@@ -48,7 +52,7 @@ class HomePage extends Component {
       firstName: '',
       lastName: '',
       registeredStreet: '',
-      registeredAptNum: '',
+      registeredAptNum: 'N/A',
       registeredCity: '',
       registeredZipCode: '',
       birthDate: '',
@@ -70,8 +74,6 @@ class HomePage extends Component {
   handleInput(e, i, val) {
     const inputVal = e.target.value;
     const inputId = e.target.id;
-    console.log('inputVal: ', inputVal);
-    console.log('inputId: ', inputId);
     this.setState({ [inputId]: inputVal });
   }
 
@@ -96,11 +98,12 @@ class HomePage extends Component {
   }
 
   sendUserInfo(info) {
-    console.log('info: ', info);
+    this.props.sendUser(info);
   }
 
   render() {
     const { title, suff, state, birthMonth, ethnicity } = this.state;
+    console.log('this.props: ', this.props);
     return (
       <div>
         <div>
@@ -365,4 +368,13 @@ class HomePage extends Component {
   }
 }
 
-export default HomePage;
+const mapDispatchToProps = (dispatch) => ({
+  sendUser(info) {
+    return dispatch(InputActions.sendUserInfo(info));
+  }
+});
+const mapStateToProps = (state) => ({
+  userInfo: state.userInfo,
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(HomePage);

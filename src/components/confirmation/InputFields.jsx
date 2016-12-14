@@ -1,207 +1,215 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import TextField from 'material-ui/TextField';
 import { RadioButton } from 'material-ui/RadioButton';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 
-const months = [
-  <MenuItem key={1} value={1} primaryText="Never" />,
-  <MenuItem key={2} value={2} primaryText="Every Night" />,
-  <MenuItem key={3} value={3} primaryText="Weeknights" />,
-  <MenuItem key={4} value={4} primaryText="Weekends" />,
-  <MenuItem key={5} value={5} primaryText="Weekly" />,
-];
+import monthsDict from 'months';
+import statesDict from 'united-states';
+import honorific from 'honorific';
 
-const ethnicities = [
-  <MenuItem key={1} value={1} primaryText="Never" />,
-  <MenuItem key={2} value={2} primaryText="Every Night" />,
-  <MenuItem key={3} value={3} primaryText="Weeknights" />,
-  <MenuItem key={4} value={4} primaryText="Weekends" />,
-  <MenuItem key={5} value={5} primaryText="Weekly" />,
-];
+const months = monthsDict.map((month, i) => {
+  return <MenuItem key={i} value={month} primaryText={month} />;
+});
 
-const titles = [
-  <MenuItem key={1} value={1} primaryText="Never" />,
-  <MenuItem key={2} value={2} primaryText="Every Night" />,
-  <MenuItem key={3} value={3} primaryText="Weeknights" />,
-  <MenuItem key={4} value={4} primaryText="Weekends" />,
-  <MenuItem key={5} value={5} primaryText="Weekly" />,
-];
+const states = statesDict.map((state, i) => {
+  return <MenuItem key={i} value={state.name} primaryText={state.name} />;
+});
 
-const suffix = [
-  <MenuItem key={1} value={1} primaryText="Never" />,
-  <MenuItem key={2} value={2} primaryText="Every Night" />,
-  <MenuItem key={3} value={3} primaryText="Weeknights" />,
-  <MenuItem key={4} value={4} primaryText="Weekends" />,
-  <MenuItem key={5} value={5} primaryText="Weekly" />,
-];
+const ethnicitiesDict = 'White,Black or African American,Asian,Native American and Alaska Natives,'
+                        + 'Native Hawaiians and Other Pacific Islanders,Two or more races,'
+                        + 'Some other race';
+const ethnicities = ethnicitiesDict.split(',').map((ethnicity, i) =>
+  <MenuItem key={i} value={ethnicity} primaryText={ethnicity} />
+);
 
-const states = [
-  <MenuItem key={1} value={1} primaryText="Never" />,
-  <MenuItem key={2} value={2} primaryText="Every Night" />,
-  <MenuItem key={3} value={3} primaryText="Weeknights" />,
-  <MenuItem key={4} value={4} primaryText="Weekends" />,
-  <MenuItem key={5} value={5} primaryText="Weekly" />,
-];
+const titles = honorific.prefixes.map((title, i) => {
+  return <MenuItem key={i} value={title} primaryText={title} />;
+});
 
-export default class InputFields extends Component {
-  render() {
-    return (
-          <div>
-            <br /><br /><br />
+const suffix = honorific.suffixes.map((suffix, i) => {
+  return <MenuItem key={i} value={suffix} primaryText={suffix} />;
+});
 
-            <div className="row">
-              <div className="col-md-2">
-                <SelectField
-                  floatingLabelText="TITLE"
-                  floatingLabelFixed={true}
-                  fullWidth={true}
-                >
-                  {titles}
-                </SelectField>
-              </div>
-              <div className="col-md-4">
-                <TextField
-                  floatingLabelText="FIRST NAME"
-                  floatingLabelFixed={true}
-                  fullWidth={true}
-                />
-              </div>
-              <div className="col-md-4">
-                <TextField
-                  floatingLabelText="LAST NAME"
-                  floatingLabelFixed={true}
-                  fullWidth={true}
-                />
-              </div>
-              <div className="col-md-2">
-                <SelectField
-                  floatingLabelText="SUFFIX"
-                  floatingLabelFixed={true}
-                  fullWidth={true}
-                >
-                  {suffix}
-                </SelectField>
-              </div>
-            </div>
 
-            <br /><br /><br />
-            <h6 className="text-center">
-              WHERE ARE YOU REGISTERED TO VOTE?
-            </h6>
+const InputFields = (props) => {
+// export default class InputFields extends Component {
+  // render() {
+  const { values } = props;
+  console.log('values: ', values);
+  return (
+    <div>
+      <br /><br /><br />
 
-            <div className="row">
-              <div className="col-md-10">
-                <TextField
-                  floatingLabelText="STREET ADDRESS"
-                  floatingLabelFixed={true}
-                  fullWidth={true}
-                />
-              </div>
-              <div className="col-md-2">
-                <TextField
-                  floatingLabelText="APT/UNIT"
-                  floatingLabelFixed={true}
-                  fullWidth={true}
-                />
-              </div>
-            </div>
+      <div className="row">
+        <div className="col-md-2">
+          <SelectField
+            floatingLabelText="TITLE"
+            floatingLabelFixed={true}
+            fullWidth={true}
+            value={values.title}
+          >
+            {titles}
+          </SelectField>
+        </div>
+        <div className="col-md-4">
+          <TextField
+            floatingLabelText="FIRST NAME"
+            floatingLabelFixed={true}
+            fullWidth={true}
+            value={values.firstName}
+          />
+        </div>
+        <div className="col-md-4">
+          <TextField
+            floatingLabelText="LAST NAME"
+            floatingLabelFixed={true}
+            fullWidth={true}
+            value={values.lastName}
+          />
+        </div>
+        <div className="col-md-2">
+          <SelectField
+            floatingLabelText="SUFFIX"
+            floatingLabelFixed={true}
+            fullWidth={true}
+            value={values.suff}
+          >
+            {suffix}
+          </SelectField>
+        </div>
+      </div>
 
-            <div className="row">
-              <div className="col-md-6">
-                <TextField
-                  floatingLabelText="CITY"
-                  floatingLabelFixed={true}
-                  fullWidth={true}
-                />
-              </div>
-              <div className="col-md-2">
-                <SelectField
-                  floatingLabelText="STATE"
-                  floatingLabelFixed={true}
-                  fullWidth={true}
-                >
-                  {states}
-                </SelectField>
-              </div>
-              <div className="col-md-2">
-                <TextField
-                  floatingLabelText="ZIP CODE"
-                  floatingLabelFixed={true}
-                  fullWidth={true}
-                />
-              </div>
-            </div>
+      <br /><br /><br />
+      <h6 className="text-center">
+        WHERE ARE YOU REGISTERED TO VOTE?
+      </h6>
 
-            <br />
+      <div className="row">
+        <div className="col-md-10">
+          <TextField
+            floatingLabelText="STREET ADDRESS"
+            floatingLabelFixed={true}
+            fullWidth={true}
+            value={values.registeredStreet}
+          />
+        </div>
+        <div className="col-md-2">
+          <TextField
+            floatingLabelText="APT/UNIT"
+            floatingLabelFixed={true}
+            fullWidth={true}
+            value={values.registeredAptNum}
+          />
+        </div>
+      </div>
 
-            <div className="row">
-              <RadioButton
-                value="light"
-                label="I HAVE A DIFFERENT MAILING ADDRESS"
-              />
-            </div>
+      <div className="row">
+        <div className="col-md-6">
+          <TextField
+            floatingLabelText="CITY"
+            floatingLabelFixed={true}
+            fullWidth={true}
+            value={values.registeredCity}
+          />
+        </div>
+        <div className="col-md-2">
+          <SelectField
+            floatingLabelText="STATE"
+            floatingLabelFixed={true}
+            fullWidth={true}
+            value={values.state}
+          >
+            {states}
+          </SelectField>
+        </div>
+        <div className="col-md-2">
+          <TextField
+            floatingLabelText="ZIP CODE"
+            floatingLabelFixed={true}
+            fullWidth={true}
+            value={values.registeredZipCode}
+          />
+        </div>
+      </div>
 
-            <br /><br /><br />
-            <h6 className="text-center">
-              WHEN WERE YOU BORN?
-            </h6>
+      <br />
 
-            <div className="row">
-              <div className="col-md-4">
-                <SelectField
-                  floatingLabelText="MONTH"
-                  floatingLabelFixed={true}
-                >
-                  {months}
-                </SelectField>
-              </div>
-              <div className="col-md-2">
-                <TextField
-                  hintText="XX"
-                  floatingLabelText="DAY"
-                  floatingLabelFixed={true}
-                  fullWidth={true}
-                />
-              </div>
-              <div className="col-md-2">
-                <TextField
-                  hintText="XXXX"
-                  floatingLabelText="YEAR"
-                  floatingLabelFixed={true}
-                  fullWidth={true}
-                />
-              </div>
-              <div className="col-md-4">
-                <SelectField
-                  floatingLabelText="ETHNICITY"
-                  floatingLabelFixed={true}
-                >
-                  {ethnicities}
-                </SelectField>
-              </div>
-            </div>
+      <div className="row">
+        <RadioButton
+          value="light"
+          label="I HAVE A DIFFERENT MAILING ADDRESS"
+        />
+      </div>
 
-            <div className="row">
-              <div className="col-md-4">
-                <TextField
-                  floatingLabelText="EMAIL ADDRESS"
-                  floatingLabelFixed={true}
-                  fullWidth={true}
-                />
-              </div>
-              <div className="col-md-4">
-                <TextField
-                  floatingLabelText="CELL PHONE"
-                  floatingLabelFixed={true}
-                  fullWidth={true}
-                />
-              </div>
-            </div>
+      <br /><br /><br />
+      <h6 className="text-center">
+        WHEN WERE YOU BORN?
+      </h6>
 
-            <br /><br /><br /><br /><br />
-          </div>
-    );
-  }
-}
+      <div className="row">
+        <div className="col-md-4">
+          <SelectField
+            floatingLabelText="MONTH"
+            floatingLabelFixed={true}
+            value={values.birthMonth}
+          >
+            {months}
+          </SelectField>
+        </div>
+        <div className="col-md-2">
+          <TextField
+            hintText="XX"
+            floatingLabelText="DAY"
+            floatingLabelFixed={true}
+            fullWidth={true}
+            value={values.birthDate}
+          />
+        </div>
+        <div className="col-md-2">
+          <TextField
+            hintText="XXXX"
+            floatingLabelText="YEAR"
+            floatingLabelFixed={true}
+            fullWidth={true}
+            value={values.birthYear}
+          />
+        </div>
+        <div className="col-md-4">
+          <SelectField
+            floatingLabelText="ETHNICITY"
+            floatingLabelFixed={true}
+            value={values.ethnicity}
+          >
+            {ethnicities}
+          </SelectField>
+        </div>
+      </div>
+
+      <div className="row">
+        <div className="col-md-4">
+          <TextField
+            floatingLabelText="EMAIL ADDRESS"
+            floatingLabelFixed={true}
+            fullWidth={true}
+            value={values.email}
+          />
+        </div>
+        <div className="col-md-4">
+          <TextField
+            floatingLabelText="CELL PHONE"
+            floatingLabelFixed={true}
+            fullWidth={true}
+            value={values.cellPhone}
+          />
+        </div>
+      </div>
+
+      <br /><br /><br /><br /><br />
+    </div>
+  );
+  // }
+};
+
+export default InputFields;
