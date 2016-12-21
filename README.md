@@ -7,7 +7,7 @@
 ## DESCRIPTION:
 EZABSENTEE is your neighborhood pitstop to register as an absentee voter. This web app will fill out and mail a physical copy of the Absentee FORM-XYZ for just a few bucks.
 
-Built by [Thomas Wolfe](https://github.com/twolfe2), [Alyssa Ranbury](https://github.com/alran), [Colin Hoel](https://www.linkedin.com/in/colin-hoell-737a7024), [Dustin Hayes](https://github.com/wowcallmia), [Ziya Emanet](https://github.com/ziyaemanet), [John Son](https://github.com/Nemsae).
+Built by [Thomas Wolfe](https://github.com/twolfe2), [Alyssa Ranbury](https://github.com/alran), [Colin Hoel](https://www.linkedin.com/in/colin-hoell-737a7024), [Dustin Hayes](https://github.com/wowcallmia), [Ziya Emanet](https://github.com/ziyaemanet), and [John Son](https://github.com/Nemsae).
 
 Mockups on Zeplin[here](https://zpl.io/vB3er).
 
@@ -21,7 +21,6 @@ Latest Release: December 11th, 2016.
 
 ## TODO:
 1. Send input data to backend.
-
 2. Heroku Deployment
 
 ## CONTRIBUTORS:
