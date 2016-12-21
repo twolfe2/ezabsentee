@@ -38,7 +38,6 @@ const suffix = honorific.suffixes.map((suffix, i) => {
   return <MenuItem key={i} value={suffix} primaryText={suffix} />;
 });
 
-
 //  TODO: Create form for seperate mailing address
 class HomePage extends Component {
   constructor() {
