@@ -29,4 +29,4 @@ Latest Release: December 11th, 2016.
   3. [Colin Hoel](https://www.linkedin.com/in/colin-hoell-737a7024)
   4. [Dustin Hayes](https://github.com/wowcallmia)
   5. [Ziya Emanet](https://github.com/ziyaemanet)
-  2. [John Son](https://github.com/Nemsae)
+  6. [John Son](https://github.com/Nemsae)

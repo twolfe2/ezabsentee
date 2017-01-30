@@ -18,7 +18,7 @@ const SignatureDialog = (props) => {
         title="Please sign before submitting."
         actions={actions}
         modal={false}
-        open={props.open}
+        open={props.open} // false or true
         onRequestClose={props.closeDialog}
       />
     </div>

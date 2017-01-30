@@ -106,9 +106,7 @@ class ConfirmationPage extends Component {
         <div className={signatureButton}>
           <button onClick={this.triggerSignature} id="signature-trigger">Add Your Signature</button>
         </div>
-        {/* <RaisedButton label="Next Step" secondary={true} disabled={submitCheck} style={style} /> */}
         <Link to="payment" className="btn btn-default" id="submit">Next</Link>
-
         <FlatButton className="profileBtn">
           <i class="material-icons" style={{color: '#FFb347 ',fontSize: '48px', paddingLeft: '10px', transform: 'translateY(10%)' }}>vpn_key</i> Change Password
         </FlatButton>
