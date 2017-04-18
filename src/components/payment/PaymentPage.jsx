@@ -14,7 +14,7 @@ export default class PaymentPage extends Component {
     super(props);
     this.state = {
       is_payment_success: false, //for showing #successNotification div
-      is_processing: false, //for disabling payment button
+      is_processing: false, //for disabling payment button3
       card_errors: [],
       product: {
         charge_value: "1"
