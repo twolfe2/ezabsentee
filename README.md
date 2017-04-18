@@ -11,8 +11,6 @@ Built by [Thomas Wolfe](https://github.com/twolfe2), [Alyssa Ranbury](https://gi
 
 Mockups on Zeplin[here](https://zpl.io/vB3er).
 
-Deployed on Heroku [here](http://google.com/).
-
 Latest Release: December 11th, 2016.
 
 ##
