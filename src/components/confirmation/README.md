@@ -12,13 +12,11 @@ The user then adds their electronic signature, confirms, and then proceeds to th
 3. `$ npm start`
 
 ## Container Breakdown
-All control and data fetching logic exists in the [`ConfirmationPage.jsx`](https://github.com/twolfe2/ezabsentee/blob/master/src/components/confirmation/ConfirmationPage.jsx) file of this directory. For clarification I will be breaking down what each 'dumb'/presentational component represents in the `render()` function of our container `ConfirmationPage.jsx`. Purpose of splitting the container from its presentational
-components is mainly for reusability (i.e. a form) and simplicity/readability.
+All UI control, data fetching and data sending logic exists in the [`ConfirmationPage.jsx`](https://github.com/twolfe2/ezabsentee/blob/master/src/components/confirmation/ConfirmationPage.jsx) file of this directory. Comments are provided explaining the imports and methods for this container. For the container's `render()` method, each 'dumb'/presentational component of [`ConfirmationPage.jsx`](https://github.com/twolfe2/ezabsentee/blob/master/src/components/confirmation/ConfirmationPage.jsx) will be broken down below for further clarification. The purpose of splitting/modularizing the container from its presentational
+components is to promote reusability (i.e. a form) and to pursue simplicity and readability.
 
 ##### [InputFields](https://github.com/twolfe2/ezabsentee/blob/master/src/components/confirmation/components/InputFields.jsx)
-`InputFields` is all of the text input fields that we see in the view. We are passing down
-the user inputs, `userInfo`, from the previous page (persisted through our Redux store) via props as
-`values`. Code for this component can be seen in the components folder as [`InputFields.jsx`](https://github.com/twolfe2/ezabsentee/blob/master/src/components/confirmation/components/InputFields.jsx).
+`InputFields` is the component holding all of the text input fields that we see in the view. We pass down the previous state of the user inputs, `userInfo`, to pre-populate our form as the prop `previousInfo`. We also pass down our container method, `handleInputFieldsChanges (line 49)` as a handler for any text input changes as the prop `handleChanges`. This way we can pass our edits 'back up' to our container, where the updates will be ready to be dispatched to the store. Code for this component can be seen in the components folder as [`InputFields.jsx`](https://github.com/twolfe2/ezabsentee/blob/master/src/components/confirmation/components/InputFields.jsx).
 ```javascript
 <div id="confirmation-page">
   <h2 className="confirmation-title">CONFIRM & SIGN</h2>
@@ -27,12 +25,12 @@ the user inputs, `userInfo`, from the previous page (persisted through our Redux
     <h4 className="view-text">View PDF of Application</h4>
   </div>
 
-  <InputFields values={userInfo} />
+  <InputFields previousInfo={userInfo} handleChanges={this.handleInputFieldsChanges} />
 ```
 
 ##### [SignatureButton](https://github.com/twolfe2/ezabsentee/blob/master/src/components/confirmation/components/SignatureButton.jsx)
 `SignatureButton` is the 'Add Your Signature' button seen in the view. This dumb component
-is simply a button that will trigger a UI state change which will either show this button
+is simply a button that will trigger a UI state change which will either show the button
 or the electronic signature pad. Code for this component can be seen in the components folder as [`SignatureButton.jsx`](https://github.com/twolfe2/ezabsentee/blob/master/src/components/confirmation/components/SignatureButton.jsx).
 ```javascript
 <SignatureButton
@@ -56,7 +54,7 @@ or the electronic signature pad. Code for this component can be seen in the comp
 ```
 
 ##### [SignatureDialog](https://github.com/twolfe2/ezabsentee/blob/master/src/components/confirmation/components/SignatureDialog.jsx)
-`SignatureDialog` is a modal component that will open if the canvas is empty (line 64 `const empty = signaturePadObj.isEmpty();`) via `submitSignature`. A message 'Please sign before submitting' will show to the user. Code for this component can be seen in the components folder as [`SignatureDialog.jsx`](https://github.com/twolfe2/ezabsentee/blob/master/src/components/confirmation/components/SignatureDialog.jsx).
+`SignatureDialog` is a modal component that will trigger if the canvas is empty (line 76 `const isCanvasEmpty = signaturePadObj.isEmpty();`) via the container method `submitSignature`. A modal will open with the message 'Please sign before submitting', if submitting a blank canvas as a signature. Code for this component can be seen in the components folder as [`SignatureDialog.jsx`](https://github.com/twolfe2/ezabsentee/blob/master/src/components/confirmation/components/SignatureDialog.jsx).
 ```javascript
 <SignatureDialog
   open={dialogOpen}
@@ -65,8 +63,11 @@ or the electronic signature pad. Code for this component can be seen in the comp
 ```
 
 ##### [NextStep](https://github.com/twolfe2/ezabsentee/blob/master/src/components/confirmation/components/NextStep.jsx)
-This component contains the stepper (representative of where the user is in the routes) and
-a 'Next' button that will take us to the Payments Page. Code for this component can be seen in the components folder as [`NextStep.jsx`](https://github.com/twolfe2/ezabsentee/blob/master/src/components/confirmation/components/NextStep.jsx).
+This component is comprised of a stepper (a navigator representative of where the user is in the routes) and
+a 'Next' button that will do two things:
+1. Send the user to the next container/page, PaymentPage.
+2. Send the updated user information to the Redux store with the use of the container method `sendUpdates` and the updated form values `updatedUserInfo`.
+Code for this component can be seen in the components folder as [`NextStep.jsx`](https://github.com/twolfe2/ezabsentee/blob/master/src/components/confirmation/components/NextStep.jsx).
 ```javascript
-<NextStep />
+<NextStep sendUpdates={this.sendUpdates} userInfo={updatedUserInfo} />
 ```

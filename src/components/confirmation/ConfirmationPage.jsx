@@ -36,7 +36,7 @@ class ConfirmationPage extends Component {
     this.triggerSignature = this.triggerSignature.bind(this);
     this.handleClose = this.handleClose.bind(this);
     this.exitSignatureField = this.exitSignatureField.bind(this);
-    this.updateUserInfo = this.updateUserInfo.bind(this);
+    this.sendUpdates = this.sendUpdates.bind(this);
   }
 
   /*  Upon mounting create the electric signature pad object */
@@ -97,7 +97,7 @@ class ConfirmationPage extends Component {
   }
 
   /*  Upon submission, action is dispatched to update store with edited User Info details */
-  updateUserInfo(info) {
+  sendUpdates(info) {
     this.props.updateUser(info);
   }
 
@@ -112,7 +112,7 @@ class ConfirmationPage extends Component {
           <h4 className="view-text">View PDF of Application</h4>
         </div>
 
-        <InputFields values={userInfo} handleChanges={this.handleInputFieldsChanges} />
+        <InputFields previousInfo={userInfo} handleChanges={this.handleInputFieldsChanges} />
 
         <SignatureButton
           signatureButton={signatureButton}
@@ -133,7 +133,7 @@ class ConfirmationPage extends Component {
           closeDialog={this.handleClose}
         />
 
-        <NextStep updateUserInfo={this.updateUserInfo} userInfo={updatedUserInfo} />
+        <NextStep sendUpdates={this.sendUpdates} userInfo={updatedUserInfo} />
       </div>
     );
   }

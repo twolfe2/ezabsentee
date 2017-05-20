@@ -34,23 +34,24 @@ const suffixes = honorific.suffixes.map((suffix, i) =>
 class InputFields extends Component {
   constructor(props) {
     super(props);
+    const { previousInfo } = this.props;
 
     this.state = {
-      title: props.values.title,
-      suff: props.values.suff,
-      state: props.values.state,
-      ethnicity: props.values.ethnicity,
-      firstName: props.values.firstName,
-      lastName: props.values.lastName,
-      registeredStreet: props.values.registeredStreet,
-      registeredAptNum: props.values.registeredAptNum,
-      registeredCity: props.values.registeredCity,
-      registeredZipCode: props.values.registeredZipCode,
-      birthDate: props.values.birthDate,
-      birthMonth: props.values.birthMonth,
-      birthYear: props.values.birthYear,
-      email: props.values.email,
-      cellPhone: props.values.cellPhone,
+      title: previousInfo.title,
+      suff: previousInfo.suff,
+      state: previousInfo.state,
+      ethnicity: previousInfo.ethnicity,
+      firstName: previousInfo.firstName,
+      lastName: previousInfo.lastName,
+      registeredStreet: previousInfo.registeredStreet,
+      registeredAptNum: previousInfo.registeredAptNum,
+      registeredCity: previousInfo.registeredCity,
+      registeredZipCode: previousInfo.registeredZipCode,
+      birthDate: previousInfo.birthDate,
+      birthMonth: previousInfo.birthMonth,
+      birthYear: previousInfo.birthYear,
+      email: previousInfo.email,
+      cellPhone: previousInfo.cellPhone,
     };
 
     this.handleTitle = this.handleTitle.bind(this);
@@ -95,7 +96,7 @@ class InputFields extends Component {
 
   render() {
     const { title, suff, state, birthMonth, ethnicity } = this.state;
-    const { values } = this.props
+    const { previousInfo } = this.props
     return (
       <div>
         <br /><br /><br />
@@ -106,7 +107,7 @@ class InputFields extends Component {
               floatingLabelText="TITLE"
               floatingLabelFixed={true}
               fullWidth={true}
-              defaultValue={values.title}
+              defaultValue={previousInfo.title}
               id="title"
               onChange={this.handleTitle}
               value={title}
@@ -119,7 +120,7 @@ class InputFields extends Component {
               floatingLabelText="FIRST NAME"
               floatingLabelFixed={true}
               fullWidth={true}
-              defaultValue={values.firstName}
+              defaultValue={previousInfo.firstName}
               id="firstName"
               onChange={this.handleInput}
             />
@@ -129,7 +130,7 @@ class InputFields extends Component {
               floatingLabelText="LAST NAME"
               floatingLabelFixed={true}
               fullWidth={true}
-              defaultValue={values.lastName}
+              defaultValue={previousInfo.lastName}
               id="lastName"
               onChange={this.handleInput}
             />
@@ -140,7 +141,7 @@ class InputFields extends Component {
               floatingLabelFixed={true}
               fullWidth={true}
               onChange={this.handleSuffix}
-              defaultValue={values.suff}
+              defaultValue={previousInfo.suff}
               value={suff}
             >
               {suffixes}
@@ -159,7 +160,7 @@ class InputFields extends Component {
               floatingLabelText="STREET ADDRESS"
               floatingLabelFixed={true}
               fullWidth={true}
-              defaultValue={values.registeredStreet}
+              defaultValue={previousInfo.registeredStreet}
               id="registeredStreet"
               onChange={this.handleInput}
             />
@@ -169,7 +170,7 @@ class InputFields extends Component {
               floatingLabelText="APT/UNIT"
               floatingLabelFixed={true}
               fullWidth={true}
-              defaultValue={values.registeredAptNum}
+              defaultValue={previousInfo.registeredAptNum}
               id="registeredAptNum"
               onChange={this.handleInput}
             />
@@ -182,7 +183,7 @@ class InputFields extends Component {
               floatingLabelText="CITY"
               floatingLabelFixed={true}
               fullWidth={true}
-              defaultValue={values.registeredCity}
+              defaultValue={previousInfo.registeredCity}
               id="registeredCity"
               onChange={this.handleInput}
             />
@@ -192,7 +193,7 @@ class InputFields extends Component {
               floatingLabelText="STATE"
               floatingLabelFixed={true}
               fullWidth={true}
-              defaultValue={values.state}
+              defaultValue={previousInfo.state}
               onChange={this.handleState}
               value={state}
             >
@@ -204,7 +205,7 @@ class InputFields extends Component {
               floatingLabelText="ZIP CODE"
               floatingLabelFixed={true}
               fullWidth={true}
-              defaultValue={values.registeredZipCode}
+              defaultValue={previousInfo.registeredZipCode}
               id="registeredZipCode"
               onChange={this.handleInput}
             />
@@ -230,7 +231,7 @@ class InputFields extends Component {
             <SelectField
               floatingLabelText="MONTH"
               floatingLabelFixed={true}
-              defaultValue={values.birthMonth}
+              defaultValue={previousInfo.birthMonth}
               onChange={this.handleMonth}
               value={birthMonth}
             >
@@ -243,7 +244,7 @@ class InputFields extends Component {
               floatingLabelText="DAY"
               floatingLabelFixed={true}
               fullWidth={true}
-              defaultValue={values.birthDate}
+              defaultValue={previousInfo.birthDate}
               floatingLabelStyle={{
                 color: '#ffffff',
               }}
@@ -257,7 +258,7 @@ class InputFields extends Component {
               floatingLabelText="YEAR"
               floatingLabelFixed={true}
               fullWidth={true}
-              defaultValue={values.birthYear}
+              defaultValue={previousInfo.birthYear}
               id="birthYear"
               onChange={this.handleInput}
             />
@@ -266,7 +267,7 @@ class InputFields extends Component {
             <SelectField
               floatingLabelText="ETHNICITY"
               floatingLabelFixed={true}
-              defaultValue={values.ethnicity}
+              defaultValue={previousInfo.ethnicity}
               onChange={this.handleEthnicity}
               value={ethnicity}
             >
@@ -281,7 +282,7 @@ class InputFields extends Component {
               floatingLabelText="EMAIL ADDRESS"
               floatingLabelFixed={true}
               fullWidth={true}
-              defaultValue={values.email}
+              defaultValue={previousInfo.email}
               id="email"
               onChange={this.handleInput}
             />
@@ -291,7 +292,7 @@ class InputFields extends Component {
               floatingLabelText="CELL PHONE"
               floatingLabelFixed={true}
               fullWidth={true}
-              defaultValue={values.cellPhone}
+              defaultValue={previousInfo.cellPhone}
               id="cellPhone"
               onChange={this.handleInput}
             />

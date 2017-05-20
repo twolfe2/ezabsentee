@@ -11,7 +11,7 @@ const NextStep = (props) => (
     <Link
       to="payment"
       className="common-button"
-      onClick={props.updateUserInfo(props.userInfo)}
+      onClick={props.sendUpdates(props.userInfo)}
     >Next</Link>
   </div>
 );
