@@ -7,9 +7,9 @@ The user then adds their electronic signature, confirms, and then proceeds to th
 <img src="http://i.imgur.com/KhXDrvy.png" />
 
 ## Running the Application
-1. `$git clone https://github.com/twolfe2/ezabsentee`
-2. `npm install`
-3. `npm start`
+1. `$ git clone https://github.com/twolfe2/ezabsentee`
+2. `$ npm install`
+3. `$ npm start`
 
 ## Container Breakdown
 All control and data fetching logic exists in the `ConfimationPage.jsx` file of this directory. For clarification I will be breaking down what each 'dumb'/presentational component represents in the `render()` function of our container `ConfimationPage.jsx`. Purpose of splitting the container from its presentational
