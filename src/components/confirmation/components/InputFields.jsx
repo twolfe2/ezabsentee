@@ -6,12 +6,12 @@ import { RadioButton } from 'material-ui/RadioButton';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 
-/* Libraries to fill dropdown menu components */
+/* Libraries to fill dropdown menus */
 import monthsDict from 'months';
 import statesDict from 'united-states';
 import honorific from 'honorific';
 
-/*  Dropdown Menu Values  */
+/*  Mapping dropdown menu values  */
 const months = monthsDict.map((month, i) =>
   <MenuItem key={i} value={month} primaryText={month} />
 );
@@ -31,7 +31,6 @@ const suffixes = honorific.suffixes.map((suffix, i) =>
   <MenuItem key={i} value={suffix} primaryText={suffix} />
 );
 
-/* DUMB COMPONENT - InputFields */
 const InputFields = (props) => {
   const { values } = props;
   return (
