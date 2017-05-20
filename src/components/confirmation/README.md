@@ -1,3 +1,9 @@
+# John Son's Code Sample for Project EZAbsentee
+
+## Confirmation Page Component
+[Imgur](http://i.imgur.com/Imb0dML.png)
+[Imgur](http://i.imgur.com/oWIzSfH.png)
+
 <div id="confirmation-page">
   <h2 className="confirmation-title">CONFIRM & SIGN</h2>
   <p className="review-message">Review the details of your application, and sign below</p>
