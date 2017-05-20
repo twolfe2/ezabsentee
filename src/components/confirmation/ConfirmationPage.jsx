@@ -76,7 +76,7 @@ class ConfirmationPage extends Component {
     }
   }
 
-  //  UI state change swicthing between 'Add Your Signature' button or the signatre pad
+  //  UI state change switching between 'Add Your Signature' button or the signatre pad
   triggerSignature() {
     this.setState({
       signatureTrigger: 'signaturePad',
