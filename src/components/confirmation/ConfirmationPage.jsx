@@ -38,15 +38,18 @@ class ConfirmationPage extends Component {
     this.setState({ signaturePadObj });
   }
 
+  //  Closing SignatureDialog modal
   handleClose() {
     this.setState({ dialogOpen: false });
   }
 
+  //  UI action for signature pad
   clearSignatureField() {
     const { signaturePadObj } = this.state;
     signaturePadObj.clear();
   }
 
+  //  UI action for signature pad
   exitSignatureField() {
     this.setState({
       signatureTrigger: 'signaturePadHidden',
@@ -54,6 +57,8 @@ class ConfirmationPage extends Component {
     });
   }
 
+  //  UI action for signature pad - Upon submission of the signature, check if
+  //  canvas is empty, if so open modal SignatureDialog
   submitSignature() {
     const { signaturePadObj } = this.state;
     const empty = signaturePadObj.isEmpty();
@@ -71,7 +76,7 @@ class ConfirmationPage extends Component {
     }
   }
 
-  //  UI state change hiding the 'Add Your Signature'
+  //  UI state change swicthing between 'Add Your Signature' button or the signatre pad
   triggerSignature() {
     this.setState({
       signatureTrigger: 'signaturePad',
