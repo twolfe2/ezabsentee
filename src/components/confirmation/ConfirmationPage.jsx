@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router';
+// import { Link } from 'react-router';
 import { connect } from 'react-redux';
 
 /* Library for electronic signature */
@@ -8,7 +8,8 @@ import SignaturePad from 'react-signature-pad';
 /* Importing dumb components */
 import InputFields from './components/InputFields';
 import SignatureDialog from './components/SignatureDialog';
-import Stepper from '../stepper/Stepper';
+import NextStep from './components/NextStep'
+// import Stepper from '../stepper/Stepper';
 
 /* Confirmation Page Container */
 class ConfirmationPage extends Component {
@@ -104,15 +105,7 @@ class ConfirmationPage extends Component {
           open={dialogOpen}
           closeDialog={this.handleClose}
         />
-        <div className="text-center col-md-12">
-          <div className="first-stepper" id="submit" >
-            <Stepper step={2} />
-          </div>
-          <Link
-            to="payment"
-            className="common-button"
-          >Next</Link>
-        </div>
+        <NextStep />
       </div>
     );
   }

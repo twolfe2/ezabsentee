@@ -8,11 +8,10 @@ The user then adds their electronic signature, confirms, and then proceeds to th
 3. Redux store to bring in user persisted data to pre-fill the forms.
 
 ## Page View
-<img src="http://i.imgur.com/Imb0dML.png" />
-<img src="http://i.imgur.com/oWIzSfH.png" />
+<img src="http://i.imgur.com/StYDaYa.png" />
+<img src="http://i.imgur.com/KhXDrvy.png" />
 
-## Container Breakdown
-
+## Container Breakdown 
 ```javascript
 <div id="confirmation-page">
   <h2 className="confirmation-title">CONFIRM & SIGN</h2>
@@ -21,10 +20,10 @@ The user then adds their electronic signature, confirms, and then proceeds to th
     <h4 className="view-text">View PDF of Application</h4>
   </div>
 
-  {/* Passing down user filled input data (from Redux store) down to its child */}
   <InputFields values={userInfo} />
-
+```
   Two divs that alternate
+```javascript
   <div className={signatureTrigger}>
     <SignaturePad className="signature-pad" ref={(c) => { this.signaturePad = c; }} />
     <button className="signature-exit" onClick={this.exitSignatureField}>X</button>
@@ -34,7 +33,8 @@ The user then adds their electronic signature, confirms, and then proceeds to th
   <div className={signatureButton}>
     <button onClick={this.triggerSignature} id="signature-trigger">Add Your Signature</button>
   </div>
-
+```
+```javascript
   <SignatureDialog
     open={dialogOpen}
     closeDialog={this.handleClose}
