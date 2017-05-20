@@ -30,10 +30,10 @@ the user inputs, `userInfo`, from the previous page (persisted through our Redux
   <InputFields values={userInfo} />
 ```
 
-##### SignatureButton
+##### [SignatureButton](https://github.com/twolfe2/ezabsentee/blob/master/src/components/confirmation/components/SignatureButton.jsx)
 `SignatureButton` is the 'Add Your Signature' button seen in the view. This dumb component
 is simply a button that will trigger a UI state change which will either show this button
-or the electronic signature pad. Code for this component can be seen in the components folder as `SignatureButton.jsx`.
+or the electronic signature pad. Code for this component can be seen in the components folder as [`SignatureButton.jsx`](https://github.com/twolfe2/ezabsentee/blob/master/src/components/confirmation/components/SignatureButton.jsx).
 ```javascript
 <SignatureButton
   signatureButton={signatureButton}
@@ -41,7 +41,7 @@ or the electronic signature pad. Code for this component can be seen in the comp
 />
 ```
 
-##### SignaturePad
+##### SignaturePad && [SignaturePadUI](https://github.com/twolfe2/ezabsentee/blob/master/src/components/confirmation/components/SignaturePadUI.jsx)
 `SignaturePad` is NPM package that provides a HTML5 canvas for signature drawing (*CURRENTLY BROKEN*). `SignaturePadUI` are the UI controls for clearing, closing, and submitting the electronic signature to the Redux store.
 
 ```javascript
@@ -55,8 +55,8 @@ or the electronic signature pad. Code for this component can be seen in the comp
 </div>
 ```
 
-##### SignatureDialog
-`SignatureDialog` is a modal component that will open if the canvas is empty (line 64 `const empty = signaturePadObj.isEmpty();`) via `submitSignature`. A message 'Please sign before submitting' will show to the user. Code for this component can be seen in the components folder as `SignatureDialog.jsx`.
+##### [SignatureDialog](https://github.com/twolfe2/ezabsentee/blob/master/src/components/confirmation/components/SignatureDialog.jsx)
+`SignatureDialog` is a modal component that will open if the canvas is empty (line 64 `const empty = signaturePadObj.isEmpty();`) via `submitSignature`. A message 'Please sign before submitting' will show to the user. Code for this component can be seen in the components folder as [`SignatureDialog.jsx`](https://github.com/twolfe2/ezabsentee/blob/master/src/components/confirmation/components/SignatureDialog.jsx).
 ```javascript
 <SignatureDialog
   open={dialogOpen}
@@ -64,9 +64,9 @@ or the electronic signature pad. Code for this component can be seen in the comp
 />
 ```
 
-##### NextStep
+##### [NextStep](https://github.com/twolfe2/ezabsentee/blob/master/src/components/confirmation/components/NextStep.jsx)
 This component contains the stepper (representative of where the user is in the routes) and
-a 'Next' button that will take us to the Payments Page. Code for this component can be seen in the components folder as `NextStep.jsx`.
+a 'Next' button that will take us to the Payments Page. Code for this component can be seen in the components folder as [`NextStep.jsx`](https://github.com/twolfe2/ezabsentee/blob/master/src/components/confirmation/components/NextStep.jsx).
 ```javascript
 <NextStep />
 ```
