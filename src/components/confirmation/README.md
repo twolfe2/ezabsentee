@@ -54,7 +54,7 @@ or the electronic signature pad. Code for this component can be seen in the comp
 ```
 
 ##### [SignatureDialog](https://github.com/twolfe2/ezabsentee/blob/master/src/components/confirmation/components/SignatureDialog.jsx)
-`SignatureDialog` is a modal component that will trigger if the canvas is empty (line 76 `const isCanvasEmpty = signaturePadObj.isEmpty();`) via the container method `submitSignature`. A modal will open with the message 'Please sign before submitting', if submitting a blank canvas as a signature. Code for this component can be seen in the components folder as [`SignatureDialog.jsx`](https://github.com/twolfe2/ezabsentee/blob/master/src/components/confirmation/components/SignatureDialog.jsx).
+`SignatureDialog` is a modal component that will trigger if the canvas is empty (line 76 `const isCanvasEmpty = signaturePadObj.isEmpty();`) via the container method `submitSignature`. A modal will open with the message '*Please sign before submitting*', if submitting a blank canvas as a signature. Code for this component can be seen in the components folder as [`SignatureDialog.jsx`](https://github.com/twolfe2/ezabsentee/blob/master/src/components/confirmation/components/SignatureDialog.jsx).
 ```javascript
 <SignatureDialog
   open={dialogOpen}
@@ -67,6 +67,7 @@ This component is comprised of a stepper (a navigator representative of where th
 a 'Next' button that will do two things:
 1. Send the user to the next container/page, PaymentPage.
 2. Send the updated user information to the Redux store with the use of the container method `sendUpdates` and the updated form values `updatedUserInfo`.
+
 Code for this component can be seen in the components folder as [`NextStep.jsx`](https://github.com/twolfe2/ezabsentee/blob/master/src/components/confirmation/components/NextStep.jsx).
 ```javascript
 <NextStep sendUpdates={this.sendUpdates} userInfo={updatedUserInfo} />
