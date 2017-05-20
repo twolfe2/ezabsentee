@@ -1,43 +1,39 @@
 import React from 'react';
 
+/* MaterialUI Components */
 import TextField from 'material-ui/TextField';
 import { RadioButton } from 'material-ui/RadioButton';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 
+/* Libraries to fill dropdown menu components */
 import monthsDict from 'months';
 import statesDict from 'united-states';
 import honorific from 'honorific';
 
-const months = monthsDict.map((month, i) => {
-  return <MenuItem key={i} value={month} primaryText={month} />;
-});
-
-const states = statesDict.map((state, i) => {
-  return <MenuItem key={i} value={state.name} primaryText={state.name} />;
-});
-
+/*  Dropdown Menu Values  */
+const months = monthsDict.map((month, i) =>
+  <MenuItem key={i} value={month} primaryText={month} />
+);
+const states = statesDict.map((state, i) =>
+  <MenuItem key={i} value={state.name} primaryText={state.name} />
+);
 const ethnicitiesDict = 'White,Black or African American,Asian,Native American and Alaska Natives,'
                         + 'Native Hawaiians and Other Pacific Islanders,Two or more races,'
                         + 'Some other race';
 const ethnicities = ethnicitiesDict.split(',').map((ethnicity, i) =>
   <MenuItem key={i} value={ethnicity} primaryText={ethnicity} />
 );
+const titles = honorific.prefixes.map((title, i) =>
+  <MenuItem key={i} value={title} primaryText={title} />
+);
+const suffixes = honorific.suffixes.map((suffix, i) =>
+  <MenuItem key={i} value={suffix} primaryText={suffix} />
+);
 
-const titles = honorific.prefixes.map((title, i) => {
-  return <MenuItem key={i} value={title} primaryText={title} />;
-});
-
-const suffix = honorific.suffixes.map((suffix, i) => {
-  return <MenuItem key={i} value={suffix} primaryText={suffix} />;
-});
-
-
+/* DUMB COMPONENT - InputFields */
 const InputFields = (props) => {
-// export default class InputFields extends Component {
-  // render() {
   const { values } = props;
-  console.log('values: ', values);
   return (
     <div>
       <br /><br /><br />
@@ -76,7 +72,7 @@ const InputFields = (props) => {
             fullWidth={true}
             value={values.suff}
           >
-            {suffix}
+            {suffixes}
           </SelectField>
         </div>
       </div>

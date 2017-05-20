@@ -1,5 +1,5 @@
 import React from 'react';
-// import React, { Component } from 'react';
+
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 
@@ -18,7 +18,7 @@ const SignatureDialog = (props) => {
         title="Please sign before submitting."
         actions={actions}
         modal={false}
-        open={props.open} // false or true
+        open={props.open}
         onRequestClose={props.closeDialog}
       />
     </div>

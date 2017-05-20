@@ -106,15 +106,20 @@ class ConfirmationPage extends Component {
         <div className={signatureButton}>
           <button onClick={this.triggerSignature} id="signature-trigger">Add Your Signature</button>
         </div>
-        <Link to="payment" className="btn btn-default" id="submit">Next</Link>
-        <FlatButton className="profileBtn">
-          <i class="material-icons" style={{color: '#FFb347 ',fontSize: '48px', paddingLeft: '10px', transform: 'translateY(10%)' }}>vpn_key</i> Change Password
-        </FlatButton>
 
         <SignatureDialog
           open={dialogOpen}
           closeDialog={this.handleClose}
         />
+        <div className="text-center col-md-12">
+          <div className="first-stepper" id="submit" >
+            <Stepper step={2} />
+          </div>
+          <Link
+            to="payment"
+            className="common-button"
+          >Next</Link>
+        </div>
       </div>
     );
   }
