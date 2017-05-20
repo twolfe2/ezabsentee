@@ -102,7 +102,6 @@ class HomePage extends Component {
 
   render() {
     const { title, suff, state, birthMonth, ethnicity } = this.state;
-    console.log('this.props: ', this.props);
     return (
       <div>
         <div>
