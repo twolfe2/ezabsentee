@@ -12,10 +12,8 @@ const NextStep = (props) => (
       to="payment"
       className="common-button"
       onClick={props.updateUserInfo(props.userInfo)}
-    // >{props}</Link>
     >Next</Link>
   </div>
 );
-
 
 export default NextStep;

@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 /* Library for electronic signature */
 import SignaturePad from 'react-signature-pad';
 
-/* import action to updated User Info to store upon edits */
+/* Import action to update userInfo for user edits */
 import InputActions from '../../actions/inputActions';
 
 /* Dumb/Presentational components */
@@ -47,8 +47,7 @@ class ConfirmationPage extends Component {
 
   /*  Handle any input field edits from user */
   handleInputFieldsChanges(updatedUserInfo) {
-    console.log('updatedUserInfo: ', updatedUserInfo);
-    // this.setState({ updatedUserInfo });
+    this.setState({ updatedUserInfo });
   }
 
   /*  Closing SignatureDialog modal */
@@ -74,9 +73,11 @@ class ConfirmationPage extends Component {
      canvas is empty, if so open modal SignatureDialog */
   submitSignature() {
     const { signaturePadObj } = this.state;
-    const empty = signaturePadObj.isEmpty();
+    const isCanvasEmpty = signaturePadObj.isEmpty();
 
-    if (!empty) {
+    if (isCanvasEmpty) {
+      this.setState({ dialogOpen: true });
+    } else {
       const signatureImgData = signaturePadObj.toDataURL();
       this.setState({
         signatureImgData,
@@ -84,12 +85,10 @@ class ConfirmationPage extends Component {
         signatureTrigger: 'signaturePadHidden',
         signatureButton: 'signatureButton',
       });
-    } else {
-      this.setState({ dialogOpen: true });
     }
   }
 
-  /*  UI state change switching between 'Add Your Signature' button or the signatre pad */
+  /*  UI state change: switching between 'Add Your Signature' button or the signatre pad */
   triggerSignature() {
     this.setState({
       signatureTrigger: 'signaturePad',
@@ -97,16 +96,13 @@ class ConfirmationPage extends Component {
     });
   }
 
-  /*  Trigger action to update store with edited User Info details */
+  /*  Upon submission, action is dispatched to update store with edited User Info details */
   updateUserInfo(info) {
-    console.log('this.props:UPDATEUSER ', this.props);
-    console.log('info: ', info);
-    this.props.updateUser(info)
-    // this.props.updateUser(this.state.updatedUserInfo)
+    this.props.updateUser(info);
   }
 
   render() {
-    const { dialogOpen, signatureTrigger, signatureButton } = this.state;
+    const { dialogOpen, signatureTrigger, signatureButton, updatedUserInfo } = this.state;
     const { userInfo } = this.props;
     return (
       <div id="confirmation-page">
@@ -137,13 +133,12 @@ class ConfirmationPage extends Component {
           closeDialog={this.handleClose}
         />
 
-        <NextStep updateUserInfo={this.updateUserInfo} userInfo={this.state.updatedUserInfo} />
+        <NextStep updateUserInfo={this.updateUserInfo} userInfo={updatedUserInfo} />
       </div>
     );
   }
 }
 
-/* Connecting to Redux state for user persisted data */
 const mapDispatchToProps = (dispatch) => ({
   updateUser(info) {
     return dispatch(InputActions.sendUserInfo(info));
