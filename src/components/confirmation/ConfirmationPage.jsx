@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import { Link } from 'react-router';
 import { connect } from 'react-redux';
 
 /* Library for electronic signature */
@@ -7,9 +6,10 @@ import SignaturePad from 'react-signature-pad';
 
 /* Importing dumb components */
 import InputFields from './components/InputFields';
+import SignatureButton from './components/SignatureButton';
 import SignatureDialog from './components/SignatureDialog';
-import NextStep from './components/NextStep'
-// import Stepper from '../stepper/Stepper';
+import SignaturePadUI from './components/SignaturePadUI';
+import NextStep from './components/NextStep';
 
 /* Confirmation Page Container */
 class ConfirmationPage extends Component {
@@ -79,7 +79,7 @@ class ConfirmationPage extends Component {
   }
 
   render() {
-    const { dialogOpen, submitCheck, signatureTrigger, signatureButton } = this.state;
+    const { dialogOpen, signatureTrigger, signatureButton } = this.state;
     const { userInfo } = this.props;
     return (
       <div id="confirmation-page">
@@ -93,18 +93,23 @@ class ConfirmationPage extends Component {
 
         <div className={signatureTrigger}>
           <SignaturePad className="signature-pad" ref={(c) => { this.signaturePad = c; }} />
-          <button className="signature-exit" onClick={this.exitSignatureField}>X</button>
-          <button className="signature-clear" onClick={this.clearSignatureField}>Erase</button>
-          <button className="signature-submit" onClick={this.submitSignature}>O</button>
+          <SignaturePadUI
+            exitSignatureField={this.exitSignatureField}
+            clearSignatureField={this.clearSignatureField}
+            submitSignature={this.submitSignature}
+          />
         </div>
-        <div className={signatureButton}>
-          <button onClick={this.triggerSignature} id="signature-trigger">Add Your Signature</button>
-        </div>
+
+        <SignatureButton
+          signatureButton={signatureButton}
+          triggerSignature={this.triggerSignature}
+        />
 
         <SignatureDialog
           open={dialogOpen}
           closeDialog={this.handleClose}
         />
+
         <NextStep />
       </div>
     );
