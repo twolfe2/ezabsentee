@@ -2,11 +2,6 @@
 Built the confirmation page where the user is asked to verify their personal details.
 The user then adds their electronic signature, confirms, and then proceeds to the payment page.
 
-## Tech used:
-1. Twitter Bootstrap for mobile responsive grid.
-2. MaterialUI for text input components.
-3. Redux store to bring in user persisted data to pre-fill the forms.
-
 ## Page View
 <img src="http://i.imgur.com/StYDaYa.png" />
 <img src="http://i.imgur.com/KhXDrvy.png" />
@@ -42,7 +37,8 @@ or the electronic signature pad. Code for this component can be seen in the comp
 ```
 
 ###### SignaturePad
-`SignaturePad` is NPM package that provides a HTML5 canvas for signature drawing *Currently Broken*. `SignaturePadUI` are the UI controls for clearing, closing, and submitting the electronic signature to the Redux store.
+`SignaturePad` is NPM package that provides a HTML5 canvas for signature drawing (*CURRENTLY BROKEN*). `SignaturePadUI` are the UI controls for clearing, closing, and submitting the electronic signature to the Redux store.
+
 ```javascript
 <div className={signatureTrigger}>
   <SignaturePad className="signature-pad" ref={(c) => { this.signaturePad = c; }} />

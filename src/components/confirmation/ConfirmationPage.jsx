@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 /* Library for electronic signature */
 import SignaturePad from 'react-signature-pad';
 
-/* Importing dumb components */
+/* Dumb/Presentational components */
 import InputFields from './components/InputFields';
 import SignatureButton from './components/SignatureButton';
 import SignatureDialog from './components/SignatureDialog';
@@ -71,6 +71,7 @@ class ConfirmationPage extends Component {
     }
   }
 
+  //  UI state change hiding the 'Add Your Signature'
   triggerSignature() {
     this.setState({
       signatureTrigger: 'signaturePad',
