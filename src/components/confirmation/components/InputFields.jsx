@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 
 /* MaterialUI Components */
 import TextField from 'material-ui/TextField';
@@ -60,7 +59,10 @@ class InputFields extends Component {
     this.handleState = this.handleState.bind(this);
     this.handleMonth = this.handleMonth.bind(this);
     this.handleEthnicity = this.handleEthnicity.bind(this);
-    this.sendUserInfo = this.sendUserInfo.bind(this);
+  }
+
+  componentDidUpdate() {
+    this.props.handleChanges(this.state)
   }
 
   handleInput(e, i, val) {
@@ -70,7 +72,6 @@ class InputFields extends Component {
   }
 
   handleTitle(e, i, val) {
-    console.log( 'e: ', e ,  'i: ', i , 'val: ', val);
     this.setState({ title: val });
   }
 
@@ -88,10 +89,6 @@ class InputFields extends Component {
 
   handleEthnicity(e, i, val) {
     this.setState({ ethnicity: val });
-  }
-
-  sendUserInfo(info) {
-    this.props.sendUser(info);
   }
 
   render() {
@@ -305,192 +302,4 @@ class InputFields extends Component {
   }
 }
 
-const mapDispatchToProps = (dispatch) => ({
-  sendUser(info) {
-    return dispatch(InputActions.sendUserInfo(info));
-  }
-});
-const mapStateToProps = (state) => ({
-  // userInfo: state.userInfo,
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(InputFields);
-
-//
-// // const InputFields = (props) => {
-//   const { values } = props;
-//   return (
-//     <div>
-//       <br /><br /><br />
-//
-//       <div className="row">
-//         <div className="col-md-2">
-//           <SelectField
-//             floatingLabelText="TITLE"
-//             floatingLabelFixed={true}
-//             fullWidth={true}
-//             value={values.title}
-//           >
-//             {titles}
-//           </SelectField>
-//         </div>
-//         <div className="col-md-4">
-//           <TextField
-//             floatingLabelText="FIRST NAME"
-//             floatingLabelFixed={true}
-//             fullWidth={true}
-//             value={values.firstName}
-//           />
-//         </div>
-//         <div className="col-md-4">
-//           <TextField
-//             floatingLabelText="LAST NAME"
-//             floatingLabelFixed={true}
-//             fullWidth={true}
-//             value={values.lastName}
-//           />
-//         </div>
-//         <div className="col-md-2">
-//           <SelectField
-//             floatingLabelText="SUFFIX"
-//             floatingLabelFixed={true}
-//             fullWidth={true}
-//             value={values.suff}
-//           >
-//             {suffixes}
-//           </SelectField>
-//         </div>
-//       </div>
-//
-//       <br /><br /><br />
-//       <h6 className="text-center">
-//         WHERE ARE YOU REGISTERED TO VOTE?
-//       </h6>
-//
-//       <div className="row">
-//         <div className="col-md-10">
-//           <TextField
-//             floatingLabelText="STREET ADDRESS"
-//             floatingLabelFixed={true}
-//             fullWidth={true}
-//             value={values.registeredStreet}
-//           />
-//         </div>
-//         <div className="col-md-2">
-//           <TextField
-//             floatingLabelText="APT/UNIT"
-//             floatingLabelFixed={true}
-//             fullWidth={true}
-//             value={values.registeredAptNum}
-//           />
-//         </div>
-//       </div>
-//
-//       <div className="row">
-//         <div className="col-md-6">
-//           <TextField
-//             floatingLabelText="CITY"
-//             floatingLabelFixed={true}
-//             fullWidth={true}
-//             value={values.registeredCity}
-//           />
-//         </div>
-//         <div className="col-md-2">
-//           <SelectField
-//             floatingLabelText="STATE"
-//             floatingLabelFixed={true}
-//             fullWidth={true}
-//             value={values.state}
-//           >
-//             {states}
-//           </SelectField>
-//         </div>
-//         <div className="col-md-2">
-//           <TextField
-//             floatingLabelText="ZIP CODE"
-//             floatingLabelFixed={true}
-//             fullWidth={true}
-//             value={values.registeredZipCode}
-//           />
-//         </div>
-//       </div>
-//
-//       <br />
-//
-//       <div className="row">
-//         <RadioButton
-//           value="light"
-//           label="I HAVE A DIFFERENT MAILING ADDRESS"
-//         />
-//       </div>
-//
-//       <br /><br /><br />
-//       <h6 className="text-center">
-//         WHEN WERE YOU BORN?
-//       </h6>
-//
-//       <div className="row">
-//         <div className="col-md-4">
-//           <SelectField
-//             floatingLabelText="MONTH"
-//             floatingLabelFixed={true}
-//             value={values.birthMonth}
-//           >
-//             {months}
-//           </SelectField>
-//         </div>
-//         <div className="col-md-2">
-//           <TextField
-//             hintText="XX"
-//             floatingLabelText="DAY"
-//             floatingLabelFixed={true}
-//             fullWidth={true}
-//             value={values.birthDate}
-//           />
-//         </div>
-//         <div className="col-md-2">
-//           <TextField
-//             hintText="XXXX"
-//             floatingLabelText="YEAR"
-//             floatingLabelFixed={true}
-//             fullWidth={true}
-//             value={values.birthYear}
-//           />
-//         </div>
-//         <div className="col-md-4">
-//           <SelectField
-//             floatingLabelText="ETHNICITY"
-//             floatingLabelFixed={true}
-//             value={values.ethnicity}
-//           >
-//             {ethnicities}
-//           </SelectField>
-//         </div>
-//       </div>
-//
-//       <div className="row">
-//         <div className="col-md-4">
-//           <TextField
-//             floatingLabelText="EMAIL ADDRESS"
-//             floatingLabelFixed={true}
-//             fullWidth={true}
-//             value={values.email}
-//           />
-//         </div>
-//         <div className="col-md-4">
-//           <TextField
-//             floatingLabelText="CELL PHONE"
-//             floatingLabelFixed={true}
-//             fullWidth={true}
-//             value={values.cellPhone}
-//           />
-//         </div>
-//       </div>
-//
-//       <br /><br /><br /><br /><br />
-//     </div>
-//   );
-//   // }
-// };
-//
-// export default InputFields;
+export default InputFields;

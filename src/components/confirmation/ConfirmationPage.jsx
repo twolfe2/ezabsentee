@@ -4,6 +4,9 @@ import { connect } from 'react-redux';
 /* Library for electronic signature */
 import SignaturePad from 'react-signature-pad';
 
+/* import action to updated User Info to store upon edits */
+import InputActions from '../../actions/inputActions';
+
 /* Dumb/Presentational components */
 import InputFields from './components/InputFields';
 import SignatureButton from './components/SignatureButton';
@@ -17,6 +20,7 @@ class ConfirmationPage extends Component {
     super(props);
 
     this.state = {
+      updatedUserInfo: props.userInfo,
       signaturePadObj: undefined,
       signatureImgData: undefined,
       message: undefined,
@@ -26,6 +30,7 @@ class ConfirmationPage extends Component {
       submitCheck: true,
     };
 
+    this.handleInputFieldsChanges = this.handleInputFieldsChanges.bind(this);
     this.clearSignatureField = this.clearSignatureField.bind(this);
     this.submitSignature = this.submitSignature.bind(this);
     this.triggerSignature = this.triggerSignature.bind(this);
@@ -33,9 +38,15 @@ class ConfirmationPage extends Component {
     this.exitSignatureField = this.exitSignatureField.bind(this);
   }
 
+  //  Upon mounting create the electric signature pad object
   componentDidMount() {
     const signaturePadObj = this.signaturePad;
     this.setState({ signaturePadObj });
+  }
+
+  //  Handle any input field edits from user
+  handleInputFieldsChanges(updatedUserInfo) {
+    this.setState({ updatedUserInfo });
   }
 
   //  Closing SignatureDialog modal
@@ -57,8 +68,8 @@ class ConfirmationPage extends Component {
     });
   }
 
-  //  UI action for signature pad - Upon submission of the signature, check if
-  //  canvas is empty, if so open modal SignatureDialog
+  /* UI action for signature pad - Upon submission of the signature, check if
+     canvas is empty, if so open modal SignatureDialog */
   submitSignature() {
     const { signaturePadObj } = this.state;
     const empty = signaturePadObj.isEmpty();
@@ -84,6 +95,11 @@ class ConfirmationPage extends Component {
     });
   }
 
+  updateUserInfo(info) {
+    this.props.updateUser(info)
+    // this.props.updateUser(this.state.updatedUserInfo)
+  }
+
   render() {
     const { dialogOpen, signatureTrigger, signatureButton } = this.state;
     const { userInfo } = this.props;
@@ -95,7 +111,7 @@ class ConfirmationPage extends Component {
           <h4 className="view-text">View PDF of Application</h4>
         </div>
 
-        <InputFields values={userInfo} />
+        <InputFields values={userInfo} handleChanges={this.handleInputFieldsChanges} />
 
         <SignatureButton
           signatureButton={signatureButton}
@@ -116,7 +132,7 @@ class ConfirmationPage extends Component {
           closeDialog={this.handleClose}
         />
 
-        <NextStep />
+        <NextStep updateUserInfo={this.updateUserInfo} userInfo={this.state.userInfo} />
       </div>
     );
   }
@@ -124,6 +140,9 @@ class ConfirmationPage extends Component {
 
 /* Connecting to Redux state for user persisted data */
 const mapDispatchToProps = (dispatch) => ({
+  updateUser(info) {
+    return dispatch(InputActions.sendUserInfo(info));
+  },
 });
 const mapStateToProps = (state) => ({
   userInfo: state.userInfo,

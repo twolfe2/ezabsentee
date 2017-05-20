@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
 import { Link } from 'react-router';
 import TextField from 'material-ui/TextField';
 import ProductFields from './ProductFields';
@@ -143,6 +145,7 @@ export default class PaymentPage extends Component {
   }
 
   render() {
+    console.log('this.props: ', this.props);
     // check for if this.state.is_payment_success == true to show confirmation screen
     // switch back to input type submit when making actual app
     return (
