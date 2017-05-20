@@ -1,17 +1,16 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
+
+/* Library for electronic signature */
 import SignaturePad from 'react-signature-pad';
 
-//  For Icons
-import RaisedButton from 'material-ui/RaisedButton';
-import IconButton from 'material-ui/IconButton';
-import FlatButton from 'material-ui/FlatButton';
-
-import InputFields from './InputFields';
-import SignatureDialog from './SignatureDialog';
+/* Importing dumb components */
+import InputFields from './components/InputFields';
+import SignatureDialog from './components/SignatureDialog';
 import Stepper from '../stepper/Stepper';
 
+/* Confirmation Page Container */
 class ConfirmationPage extends Component {
   constructor(props) {
     super(props);
@@ -80,13 +79,7 @@ class ConfirmationPage extends Component {
 
   render() {
     const { dialogOpen, submitCheck, signatureTrigger, signatureButton } = this.state;
-    const style = {
-      margin: 12,
-    };
-
     const { userInfo } = this.props;
-    console.log('userInfo: ', userInfo);
-
     return (
       <div id="confirmation-page">
         <h2 className="confirmation-title">CONFIRM & SIGN</h2>
@@ -125,7 +118,7 @@ class ConfirmationPage extends Component {
   }
 }
 
-
+/* Connecting to Redux state for user persisted data */
 const mapDispatchToProps = (dispatch) => ({
 });
 const mapStateToProps = (state) => ({
