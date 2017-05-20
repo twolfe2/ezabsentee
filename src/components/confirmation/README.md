@@ -1,16 +1,21 @@
 # John Son's Code Sample for Project EZAbsentee
-Built the confirmation page where the user is asked to verify their personal details.
+Built the confirmation page (2nd View) where the user is asked to verify their personal details.
 The user then adds their electronic signature, confirms, and then proceeds to the payment page.
 
 ## Page View
 <img src="http://i.imgur.com/StYDaYa.png" />
 <img src="http://i.imgur.com/KhXDrvy.png" />
 
+## Running the Application
+1. `$git clone https://github.com/twolfe2/ezabsentee`
+2. `npm install`
+3. `npm start`
+
 ## Container Breakdown
 All control and data fetching logic exists in the `ConfimationPage.jsx` file of this directory. For clarification I will be breaking down what each 'dumb'/presentational component represents in the `render()` function of our container `ConfimationPage.jsx`. Purpose of splitting the container from its presentational
 components is mainly for reusability (i.e. a form) and simplicity/readability.
 
-###### InputFields
+##### InputFields
 `InputFields` is all of the text input fields that we see in the view. We are passing down
 the user inputs, `userInfo`, from the previous page (persisted through our Redux store) via props as
 `values`. Code for this component can be seen in the components folder as `InputFields.jsx`.
@@ -25,7 +30,7 @@ the user inputs, `userInfo`, from the previous page (persisted through our Redux
   <InputFields values={userInfo} />
 ```
 
-###### SignatureButton
+##### SignatureButton
 `SignatureButton` is the 'Add Your Signature' button seen in the view. This dumb component
 is simply a button that will trigger a UI state change which will either show this button
 or the electronic signature pad. Code for this component can be seen in the components folder as `SignatureButton.jsx`.
@@ -36,7 +41,7 @@ or the electronic signature pad. Code for this component can be seen in the comp
 />
 ```
 
-###### SignaturePad
+##### SignaturePad
 `SignaturePad` is NPM package that provides a HTML5 canvas for signature drawing (*CURRENTLY BROKEN*). `SignaturePadUI` are the UI controls for clearing, closing, and submitting the electronic signature to the Redux store.
 
 ```javascript
@@ -50,8 +55,8 @@ or the electronic signature pad. Code for this component can be seen in the comp
 </div>
 ```
 
-###### SignatureDialog
-`SignatureDialog` is a modal component that will open if the canvas is empty (line 59 `const empty = signaturePadObj.isEmpty();`) via `submitSignature`. A message 'Please sign before submitting' will show to the user. Code for this component can be seen in the components folder as `SignatureDialog.jsx`.
+##### SignatureDialog
+`SignatureDialog` is a modal component that will open if the canvas is empty (line 64 `const empty = signaturePadObj.isEmpty();`) via `submitSignature`. A message 'Please sign before submitting' will show to the user. Code for this component can be seen in the components folder as `SignatureDialog.jsx`.
 ```javascript
 <SignatureDialog
   open={dialogOpen}
@@ -59,7 +64,7 @@ or the electronic signature pad. Code for this component can be seen in the comp
 />
 ```
 
-###### NextStep
+##### NextStep
 This component contains the stepper (representative of where the user is in the routes) and
 a 'Next' button that will take us to the Payments Page. Code for this component can be seen in the components folder as `NextStep.jsx`.
 ```javascript
