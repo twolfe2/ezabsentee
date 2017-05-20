@@ -1,9 +1,19 @@
 # John Son's Code Sample for Project EZAbsentee
+Built the confirmation page where the user is asked to verify their personal details.
+The user then adds their electronic signature, confirms, and then proceeds to the payment page.
 
-## Confirmation Page Component
-[Imgur](http://i.imgur.com/Imb0dML.png)
-[Imgur](http://i.imgur.com/oWIzSfH.png)
+## Tech used:
+1. Twitter Bootstrap for mobile responsive grid.
+2. MaterialUI for text input components.
+3. Redux store to bring in user persisted data to pre-fill the forms.
 
+## Page View
+<img src="http://i.imgur.com/Imb0dML.png" />
+<img src="http://i.imgur.com/oWIzSfH.png" />
+
+## Container Breakdown
+
+```javascript
 <div id="confirmation-page">
   <h2 className="confirmation-title">CONFIRM & SIGN</h2>
   <p className="review-message">Review the details of your application, and sign below</p>
@@ -39,3 +49,4 @@
     >Next</Link>
   </div>
 </div>
+```
