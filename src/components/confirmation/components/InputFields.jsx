@@ -61,34 +61,36 @@ class InputFields extends Component {
     this.handleEthnicity = this.handleEthnicity.bind(this);
   }
 
-  componentDidUpdate() {
-    this.props.handleChanges(this.state)
-  }
-
-  handleInput(e, i, val) {
+  handleInput(e) {
     const inputVal = e.target.value;
     const inputId = e.target.id;
     this.setState({ [inputId]: inputVal });
+    this.props.handleChanges(this.state);
   }
 
   handleTitle(e, i, val) {
     this.setState({ title: val });
+    this.props.handleChanges(this.state);
   }
 
   handleSuffix(e, i, val) {
     this.setState({ suff: val });
+    this.props.handleChanges(this.state);
   }
 
   handleState(e, i, val) {
     this.setState({ state: val });
+    this.props.handleChanges(this.state);
   }
 
   handleMonth(e, i, val) {
     this.setState({ birthMonth: val });
+    this.props.handleChanges(this.state);
   }
 
   handleEthnicity(e, i, val) {
     this.setState({ ethnicity: val });
+    this.props.handleChanges(this.state);
   }
 
   render() {

@@ -36,31 +36,33 @@ class ConfirmationPage extends Component {
     this.triggerSignature = this.triggerSignature.bind(this);
     this.handleClose = this.handleClose.bind(this);
     this.exitSignatureField = this.exitSignatureField.bind(this);
+    this.updateUserInfo = this.updateUserInfo.bind(this);
   }
 
-  //  Upon mounting create the electric signature pad object
+  /*  Upon mounting create the electric signature pad object */
   componentDidMount() {
     const signaturePadObj = this.signaturePad;
     this.setState({ signaturePadObj });
   }
 
-  //  Handle any input field edits from user
+  /*  Handle any input field edits from user */
   handleInputFieldsChanges(updatedUserInfo) {
-    this.setState({ updatedUserInfo });
+    console.log('updatedUserInfo: ', updatedUserInfo);
+    // this.setState({ updatedUserInfo });
   }
 
-  //  Closing SignatureDialog modal
+  /*  Closing SignatureDialog modal */
   handleClose() {
     this.setState({ dialogOpen: false });
   }
 
-  //  UI action for signature pad
+  /*  UI action for signature pad */
   clearSignatureField() {
     const { signaturePadObj } = this.state;
     signaturePadObj.clear();
   }
 
-  //  UI action for signature pad
+  /*  UI action for signature pad */
   exitSignatureField() {
     this.setState({
       signatureTrigger: 'signaturePadHidden',
@@ -87,7 +89,7 @@ class ConfirmationPage extends Component {
     }
   }
 
-  //  UI state change switching between 'Add Your Signature' button or the signatre pad
+  /*  UI state change switching between 'Add Your Signature' button or the signatre pad */
   triggerSignature() {
     this.setState({
       signatureTrigger: 'signaturePad',
@@ -95,7 +97,10 @@ class ConfirmationPage extends Component {
     });
   }
 
+  /*  Trigger action to update store with edited User Info details */
   updateUserInfo(info) {
+    console.log('this.props:UPDATEUSER ', this.props);
+    console.log('info: ', info);
     this.props.updateUser(info)
     // this.props.updateUser(this.state.updatedUserInfo)
   }
@@ -132,7 +137,7 @@ class ConfirmationPage extends Component {
           closeDialog={this.handleClose}
         />
 
-        <NextStep updateUserInfo={this.updateUserInfo} userInfo={this.state.userInfo} />
+        <NextStep updateUserInfo={this.updateUserInfo} userInfo={this.state.updatedUserInfo} />
       </div>
     );
   }

@@ -11,7 +11,7 @@ var $ = require ('jquery');
 
 const SQUARE_APPLICATION_ID = "sandbox-sq0idp-sC2SWt1rPYYkKzOWkRHE_Q"
 
-export default class PaymentPage extends Component {
+class PaymentPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -145,7 +145,7 @@ export default class PaymentPage extends Component {
   }
 
   render() {
-    console.log('this.props: ', this.props);
+    console.log('this.props:PAYMENTPAGE ', this.props);
     // check for if this.state.is_payment_success == true to show confirmation screen
     // switch back to input type submit when making actual app
     return (
@@ -211,3 +211,11 @@ class PaymentFields extends Component {
     );
   }
 }
+
+const mapDispatchToProps = (dispatch) => ({
+});
+const mapStateToProps = (state) => ({
+  userInfo: state.userInfo,
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(PaymentPage);
