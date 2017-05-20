@@ -11,7 +11,12 @@ The user then adds their electronic signature, confirms, and then proceeds to th
 <img src="http://i.imgur.com/StYDaYa.png" />
 <img src="http://i.imgur.com/KhXDrvy.png" />
 
-## Container Breakdown 
+## Container Breakdown
+Breaking down what each component represents in the render function of our container.
+
+`InputFields` is all of the text input fields that we see in the view. We are passing down
+the user inputs `userInfo` from the previous page (persisted through our Redux store) via props as
+`values`. Code for this is in the components folder as `InputFields.jsx`. 
 ```javascript
 <div id="confirmation-page">
   <h2 className="confirmation-title">CONFIRM & SIGN</h2>
@@ -22,31 +27,22 @@ The user then adds their electronic signature, confirms, and then proceeds to th
 
   <InputFields values={userInfo} />
 ```
-  Two divs that alternate
+
 ```javascript
-  <div className={signatureTrigger}>
-    <SignaturePad className="signature-pad" ref={(c) => { this.signaturePad = c; }} />
-    <button className="signature-exit" onClick={this.exitSignatureField}>X</button>
-    <button className="signature-clear" onClick={this.clearSignatureField}>Erase</button>
-    <button className="signature-submit" onClick={this.submitSignature}>O</button>
-  </div>
-  <div className={signatureButton}>
-    <button onClick={this.triggerSignature} id="signature-trigger">Add Your Signature</button>
-  </div>
+<SignatureButton
+  signatureButton={signatureButton}
+  triggerSignature={this.triggerSignature}
+/>
 ```
+
 ```javascript
-  <SignatureDialog
-    open={dialogOpen}
-    closeDialog={this.handleClose}
-  />
-  <div className="text-center col-md-12">
-    <div className="first-stepper" id="submit" >
-      <Stepper step={2} />
-    </div>
-    <Link
-      to="payment"
-      className="common-button"
-    >Next</Link>
-  </div>
-</div>
+<SignatureButton
+  signatureButton={signatureButton}
+  triggerSignature={this.triggerSignature}
+/>
+```
+This component contains the stepper (representative of where the user is in routes) and
+a 'Next' button that will take us to the Payments Page.
+```javascript
+<NextStep />
 ```

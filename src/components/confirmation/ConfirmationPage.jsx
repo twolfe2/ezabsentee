@@ -91,6 +91,11 @@ class ConfirmationPage extends Component {
 
         <InputFields values={userInfo} />
 
+        <SignatureButton
+          signatureButton={signatureButton}
+          triggerSignature={this.triggerSignature}
+        />
+
         <div className={signatureTrigger}>
           <SignaturePad className="signature-pad" ref={(c) => { this.signaturePad = c; }} />
           <SignaturePadUI
@@ -99,11 +104,6 @@ class ConfirmationPage extends Component {
             submitSignature={this.submitSignature}
           />
         </div>
-
-        <SignatureButton
-          signatureButton={signatureButton}
-          triggerSignature={this.triggerSignature}
-        />
 
         <SignatureDialog
           open={dialogOpen}
